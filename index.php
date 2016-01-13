@@ -6,7 +6,7 @@
 		$action 	= $_GET['action'];
 	}
 	else {
-		$controller = 'cprm';
+		$controller = 'Cprm';
 		$action		= 'home';
 	}
 	
