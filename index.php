@@ -1,11 +1,14 @@
-<!doctype html>
-<html lang="en">
-<head>
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-  <title>Canvas Peer Review</title>
-</head>
-<body>
-	Content goes here
-</body>
-</html>
+<?php
+
+	//using requiremind's PHP MVC format - http://requiremind.com/a-most-simple-php-mvc-beginners-tutorial/
+	if (isset($_GET['controller']) && isset($_GET['action'])) {
+		$controller = $_GET['controller'];
+		$action 	= $_GET['action'];
+	}
+	else {
+		$controller = 'cprm';
+		$action		= 'home';
+	}
+	
+	require_once('views/layout.php');
+?>
