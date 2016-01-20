@@ -21,6 +21,9 @@
   <!-- bootstrap -->
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
   
+  <!-- local -->
+  <script src="local.js"></script>
+  
 </head>
 <body>
 	<?php require_once('routes.php'); ?>
