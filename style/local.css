@@ -12,6 +12,7 @@
 	padding: 0px;
 	display: table;
 	overflow: hidden;
+	width: 100%;
 }
 
 .panel-navbar li{
