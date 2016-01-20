@@ -1,6 +1,6 @@
 <div class="container-fluid">
 	<div class="panel panel-default" style="margin-top:5px;">
-		<div class="panel-heading" style="height:43px;">
+		<div class="panel-heading" style="height:47px;">
 			<!-- <div class="col-md-2 col-md-offset-1">
 				<p class="panel-nav text-center">Courses</p>
 			</div>
