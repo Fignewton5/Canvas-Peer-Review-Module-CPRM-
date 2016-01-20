@@ -28,7 +28,7 @@
 	padding-left: 5px;
 	padding-right: 5px;
 	width: 20%;
-	border: 2px solid #666;
+	border: 2px solid #808080;
 	background-color: #ddd;
 	margin-left: auto;
 	margin-right: auto;
@@ -39,7 +39,7 @@
 
 .panel-navbar li:active, li:hover{
 	border: 2px solid #ddd;
-	background-color: #666;
+	background-color: #808080;
 	color: #ddd;
 }
 
@@ -56,5 +56,5 @@
  * Panel CSS
  */
 .panel-head-color{
-	background-color: #343030;
+	background-color: #404040;
 }
