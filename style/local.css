@@ -3,7 +3,6 @@
 	width: 100%;
 	margin-left: auto;
 	margin-right: auto;
-	background-color: #fff;
 }
 
 .panel-navbar ul {
@@ -11,7 +10,6 @@
 	text-align: center;
 	margin: 0 auto;
 	padding: 0px;
-	border: 1px solid #ddd;
 	display: table;
 	overflow: hidden;
 }
@@ -19,7 +17,8 @@
 .panel-navbar li{
 	float: left;
 	padding: 2px;
-	width: 150px;
+	width: auto;
+	border: 1px solid #ddd;
 	margin-left: auto;
 	margin-right: auto;
 }
