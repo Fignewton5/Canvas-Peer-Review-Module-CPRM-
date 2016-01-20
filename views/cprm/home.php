@@ -38,11 +38,11 @@
 			</div> -->
 			<div class="panel-navbar">
 				<ul>
-					<li><a href="">Courses</a></li>
-					<li><a href="">Peer Reviews</a></li>
-					<li><a href="">Grades</a></li>
-					<li><a href="">Feedback Submission</a></li>
-					<li><a href="">Student Information</a></li>
+					<li><a class="nav-link" href="">Courses</a></li>
+					<li><a class="nav-link" href="">Peer Reviews</a></li>
+					<li><a class="nav-link" href="">Grades</a></li>
+					<li><a class="nav-link" href="">Feedback Submission</a></li>
+					<li><a class="nav-link" href="">Student Information</a></li>
 				</ul>
 			</div>
 			
