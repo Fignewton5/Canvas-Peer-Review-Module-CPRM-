@@ -34,13 +34,13 @@
 	margin-right: auto;
 	cursor: pointer;
 	border-radius: 3px;
-	color: #000;
+	color: #666;
 }
 
 .panel-navbar li:active, li:hover{
 	border: 2px solid #ddd;
 	background-color: #666;
-	color: #000;
+	color: #ddd;
 }
 
 .nav-link {
