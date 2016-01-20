@@ -1,4 +1,6 @@
-/*navbar css*/
+/*
+ * navbar css
+ */
 .panel-navbar {
 	width: 100%;
 	margin-left: auto;
@@ -15,14 +17,18 @@
 	width: 100%;
 }
 
+/*
+ * width set to 20% for five items
+ */
 .panel-navbar li{
 	float: left;
 	padding-top: 2px;
 	padding-bottom: 2px;
 	padding-left: 5px;
 	padding-right: 5px;
-	margin-left: 5px;
-	margin-right: 5px;
-	width: 19%;
+	width: 20%;
 	border: 1px solid #ddd;
+	background-color: #ddd;
+	margin-left: auto;
+	margin-right: auto;
 }
