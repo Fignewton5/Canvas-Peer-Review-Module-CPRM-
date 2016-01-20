@@ -21,11 +21,13 @@
   <!-- bootstrap -->
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
   
-  <!-- local -->
-  <script src="local.js"></script>
+  <!-- local, commented out until something is in it -->
+  <!-- <script src="scripts/local.js"></script> -->
   
 </head>
 <body>
 	<?php require_once('routes.php'); ?>
 </body>
+
+<script src="scripts/eventHandlers.js"></script>
 </html>
