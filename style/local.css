@@ -8,7 +8,7 @@
 .panel-navbar ul {
 	list-style-type: none;
 	text-align: center;
-	margin: 0 auto;
+	/*margin: 0 auto;*/
 	padding: 0px;
 	display: table;
 	overflow: hidden;
@@ -23,8 +23,6 @@
 	padding-right: 5px;
 	margin-left: 5px;
 	margin-right: 5px;
-	width: 18%;
+	width: 19%;
 	border: 1px solid #ddd;
-	margin-left: auto;
-	margin-right: auto;
 }
