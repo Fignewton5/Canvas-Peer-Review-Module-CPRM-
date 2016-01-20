@@ -13,6 +13,9 @@
   <!-- local -->
   <link href="style/local.css" rel="stylesheet">
   
+  <!-- fonts: roboto -->
+  <link href='https://fonts.googleapis.com/css?family=Roboto:500' rel='stylesheet' type='text/css'>
+  
   <!-- libraries -->
   
   <!-- jquery -->

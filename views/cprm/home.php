@@ -1,48 +1,14 @@
 <div class="container-fluid">
 	<div class="panel panel-default" style="margin-top:5px;">
-		<div class="panel-heading" style="height:47px;">
-			<!-- <div class="col-md-2 col-md-offset-1">
-				<p class="panel-nav text-center">Courses</p>
-			</div>
-			<div class="col-md-2">
-				<p class="panel-nav text-center">Peer Reviews</p>
-			</div>
-			<div class="col-md-2">
-				<p class="panel-nav text-center">Grades</p>
-			</div>
-			<div class="col-md-2">
-				<p class="panel-nav text-center">Feedback Submission</p>
-			</div>
-			<div class="col-md-2">
-				<p class="panel-nav text-center">Student Information</p>
-			</div> -->
-			<!-- <div class="panel-navbar">
-				<ul class="list-inline">
-					<div class="col-md-2 col-md-offset-1">
-						<li class="text-center">Courses</li>
-					</div>
-					<div class="col-md-2">
-						<li class="text-center">Peer Reviews</li>
-					</div>
-					<div class="col-md-2">
-						<li class="text-center">Grades</li>
-					</div>
-					<div class="col-md-2">
-						<li class="text-center">Feedback Submission</li>
-					</div>
-					<div class="col-md-2">
-						<li class="text-center">Student Information</li>
-					</div>
-					
-				</ul>
-			</div> -->
+		<div class="panel-heading" style="height:49px;">
+			
 			<div class="panel-navbar">
 				<ul>
-					<li><span>Courses</span></li>
-					<li><span>Peer Reviews</span></li>
-					<li><span>Grades</span></li>
-					<li><span>Feedback Submission</span></li>
-					<li><span>Student Information</span></li>
+					<li><span class="nav-span">Courses</span></li>
+					<li><span class="nav-span">Peer Reviews</span></li>
+					<li><span class="nav-span">Grades</span></li>
+					<li><span class="nav-span">Feedback Submission</span></li>
+					<li><span class="nav-span">Student Information</span></li>
 				</ul>
 			</div>
 			

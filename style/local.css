@@ -1,5 +1,6 @@
 /*
  * navbar css
+ * general layout courtesy of: meder omuraliev via stack overflow
  */
 .panel-navbar {
 	width: 100%;
@@ -44,4 +45,8 @@
 .nav-link {
 	text-decoration: none;
 	color: inherit;
+}
+
+.nav-span {
+	font-family: 'Roboto', sans-serif;
 }
