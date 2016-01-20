@@ -51,3 +51,10 @@
 .nav-span {
 	font-family: 'Roboto', sans-serif;
 }
+
+/*
+ * Panel CSS
+ */
+.panel-head-color{
+	background-color: #343030;
+}

@@ -1,6 +1,6 @@
 <div class="container-fluid">
 	<div class="panel panel-default" style="margin-top:5px;">
-		<div class="panel-heading" style="height:49px;">
+		<div class="panel-heading panel-head-color" style="height:49px;">
 			
 			<div class="panel-navbar">
 				<ul>
