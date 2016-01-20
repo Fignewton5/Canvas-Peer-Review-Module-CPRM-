@@ -1,20 +1,20 @@
-<div class="container-fluid">
-	<div class="panel panel-default">
-		<div class="panel-heading">
-			<div class="col-md-2">
-				Courses
+<div class="container">
+	<div class="panel panel-default" style="margin-top:5px;">
+		<div class="panel-heading" style="width:20px;">
+			<div class="col-md-2 col-md-offset-1">
+				<p class="panel-nav text-center">Courses</p>
 			</div>
 			<div class="col-md-2">
-				Peer Reviews
+				<p class="panel-nav text-center">Peer Reviews</p>
 			</div>
 			<div class="col-md-2">
-				Grades
+				<p class="panel-nav text-center">Grades</p>
 			</div>
 			<div class="col-md-2">
-				Feedback Submission
+				<p class="panel-nav text-center">Feedback Submission</p>
 			</div>
 			<div class="col-md-2">
-				Student Information
+				<p class="panel-nav text-center">Student Information</p>
 			</div>
 		</div>
 		
