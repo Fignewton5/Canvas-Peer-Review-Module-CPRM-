@@ -18,17 +18,27 @@ class CanvasWrapper
 		$this->canvas->getCoursesForUser();
 		//print_r($this->canvas->getData());
 		foreach ($this->canvas->getData() as $data) {
-			$this->buttonization($data->id, $data->name);
+			$this->buttonMaker($data->id, $data->name, 1);
 		}
 	}
 	
+	
 	/*
 	 * directly echos button content to page
-	 * @param $id an id for the button
-	 * @param $title a title between the tags
+	 * @param $id string an id for the button
+	 * @param $title string a title between the tags
+	 * @param $rowWrap bool whether or not the buttons should be wrapped in a row
+	 * 					defaults to no wrapping
 	 * 
 	 */
-	private function buttonization($id, $title) {
-		echo "<button id='" . $id . "' type='button' class='btn btn-default'>" . $title . "</button>";
+	private function buttonMaker($id, $title, $rowWrap = 0) {
+		if ($rowWrap) {
+			echo "<div class='row'>";
+			echo "<button id='" . $id . "' type='button' class='btn btn-default'>" . $title . "</button>";
+			echo "</div>";
+		}
+		else {
+			echo "<button id='" . $id . "' type='button' class='btn btn-default'>" . $title . "</button>";
+		}
 	}
 }
