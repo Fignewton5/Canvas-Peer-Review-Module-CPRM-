@@ -3,7 +3,7 @@
 class Canvas
 {
 	private $canvasAccessToken = "1002~dBAbJ2p3LCUVQTdnVjYkiB2LLDUNg5PNJTEOUs8CgXXx21j4q8BnQWuGKcIbyLdd"; //oregonstate.instructure access token
-	private $domain = "https://www.oregonstate.instructure.com";
+	private $domain = "https://oregonstate.instructure.com/";
 	
 	private $response;
 	public $responseCode;
