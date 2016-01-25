@@ -19,12 +19,8 @@
 				require_once('classes/canvas.php');
 				$canvas = new Canvas();
 				$canvas->getCoursesForUser();
-				$canvas->getData();
-				echo "response code: " . $canvas->responseCode;
-				
-				require_once('classes/canvasApi.php');
-				$courses = curlGet('courses');
-				var_dump($courses);
+				echo $canvas->getData();
+				echo "<br><br>response code: " . $canvas->responseCode;
 			?>
 		</div>
 	</div>
