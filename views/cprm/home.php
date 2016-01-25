@@ -16,11 +16,9 @@
 		
 		<div class="panel-body">
 			<?php
-				require_once('classes/canvas.php');
-				$canvas = new Canvas();
-				$canvas->getCoursesForUser();
-				print_r($canvas->getData());
-				echo "<br><br>response code: " . $canvas->responseCode;
+				require_once('classes/canvasWrapper.php');
+				$canvas = new CanvasWrapper();
+				$canvas->formatCourseData();
 			?>
 		</div>
 	</div>
