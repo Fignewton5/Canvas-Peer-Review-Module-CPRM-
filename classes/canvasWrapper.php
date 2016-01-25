@@ -16,12 +16,19 @@ class CanvasWrapper
 	public function formatCourseData() {
 			
 		$this->canvas->getCoursesForUser();
-		//print_r($this->canvas->getData());
+
 		foreach ($this->canvas->getData() as $data) {
-			$this->buttonMaker($data->id, $data->name, 1);
+			splitCourseName($data->name);
+			$this->buttonMaker($data->id, $data->name, true);
 		}
 	}
 	
+	private function splitCourseName($title) {
+		$pattern = '/\A\(?[a-zA-Z]{2,}\_[0-9]{3}\_[a-zA-Z0-9]{3,}\_[a-zA-Z0-9]{5}\)?\z/g';
+		$match = '';
+		preg_match($pattern, $title, $match);
+		print_r($matches);
+	}
 	
 	/*
 	 * directly echos button content to page
@@ -31,14 +38,14 @@ class CanvasWrapper
 	 * 					defaults to no wrapping
 	 * 
 	 */
-	private function buttonMaker($id, $title, $rowWrap = 0) {
+	private function buttonMaker($id, $title, $rowWrap = false) {
 		if ($rowWrap) {
-			echo "<div class='row'>";
-			echo "<button id='" . $id . "' type='button' class='btn btn-default'>" . $title . "</button>";
+			echo "<div style='margin-top:5px;'>";
+			echo "<button id='" . $id . "' type='button' class='btn btn-default courseSwitch'>" . $title . "</button>";
 			echo "</div>";
 		}
 		else {
-			echo "<button id='" . $id . "' type='button' class='btn btn-default'>" . $title . "</button>";
+			echo "<button id='" . $id . "' type='button' class='btn btn-default courseSwitch'>" . $title . "</button>";
 		}
 	}
 }
