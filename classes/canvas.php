@@ -32,9 +32,15 @@ class Canvas
 		curl_setopt($curl, CURLOPT_VERBOSE, 1);
 		curl_setopt($curl, CURLOPT_HEADER, 1);
 		
-		$this->response = curl_exec($curl);
+		$curlResult = curl_exec($curl);
 		$this->responseCode = curl_getinfo($curl, CURLINFO_HTTP_CODE);
-		//var_dump($this->response);		
+		//var_dump($this->response);	
+		
+		//separate header from body
+		$header_size = curl_getinfo($curl, CURLINFO_HEADER_SIZE);
+		$header = substr($curlResult, 0, $header_size);
+		$body = substr($curlResult, $header_size);
+		$this->response = json_decode($body);
 		
 		curl_close($curl);
 		
@@ -46,11 +52,8 @@ class Canvas
 	}
 	
 	public function getData() {
-		echo $this->response;	
-		
 		if (!$this->hasError()) {
-			$result = json_decode($this->response);
-			return $result;
+			return $this->response;
 		}
 		return null;
 	}
