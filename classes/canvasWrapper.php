@@ -19,10 +19,52 @@ class CanvasWrapper
 
 		foreach ($this->canvas->getData() as $data) {
 			$splitName = $this->splitCourseName($data->name);
-			$this->buttonMaker($data->id, $splitName, true);
+			$splitArr = explode(" ", $splitName);
+			
+			//don't print course unless it's this term
+			if (checkCourseTerm($splitArr[3])) {
+				$this->buttonMaker($data->id, $splitName, true);
+			}
 		}
 	}
 	
+	
+	/*
+	 * gets the current OSU Term i.e. W2016 and compares
+	 * 			against term passed in
+	 * @param $term and OSU Term: W2016
+	 * 
+	 * @return bool true on term equal, false otherwise 
+	 * 
+	 */ 
+	private function checkCourseTerm($term) {
+		//get current month
+		$currentMonth = date("m");
+		 
+		//retrieve season in OSU Term format
+		if ($currentMonth >= "03" && $currentMonth <= "05") {
+			$season = "S";
+		}
+		elseif ($currentMonth >= "06" && $currentMonth <= "08") {
+			$season = "U";
+		}
+		elseif ($currentMonth >= "09" && $currentMonth <= "11") {
+			$season = "F";
+		}
+		else {
+			$season = "W";
+		}
+		
+		//get current year
+		$currentYear = date("Y");
+		$curTerm = $season . $currentYear;
+		
+		if ($term == $curTerm) {
+			return true;
+		}
+		
+		return false;
+	}
 	
 	/*
 	 * takes a course title and splits the name and the OSU ID
