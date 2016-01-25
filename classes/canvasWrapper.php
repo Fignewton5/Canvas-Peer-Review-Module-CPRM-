@@ -29,6 +29,13 @@ class CanvasWrapper
 		}
 	}
 	
+	public function formatUserData() {
+		
+		$this->canvas->getUserInfo();
+		
+		print_r($this->canvas->getData());
+	}
+	
 	
 	/*
 	 * gets the current OSU Term i.e. W2016 and compares

@@ -14,6 +14,11 @@ class Canvas
 		
 	}
 	
+	public function getUserInfo() {
+		$this->endPointUrl = 'users/self';
+		return $this->getCanvas();
+	}
+	
 	public function getCoursesForUser() {
 		$this->endPointUrl = 'courses';
 		return $this->getCanvas();
