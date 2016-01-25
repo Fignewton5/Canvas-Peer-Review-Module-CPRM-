@@ -27,14 +27,14 @@ class Canvas
 		
 		curl_setopt($curl, CURLOPT_HTTPHEADER, $tokenHeader); //sets token in header
 		curl_setopt($curl, CURLOPT_RETURNTRANSFER, true); //stops response
-		curl_setopt($curl, CURLOPT_CONNECTTIMEOUT, $this->timeout); //set timeouts
-		curl_setopt($curl, CURLOPT_TIMEOUT, $this->timeout);
+		//curl_setopt($curl, CURLOPT_CONNECTTIMEOUT, $this->timeout); //set timeouts
+		//curl_setopt($curl, CURLOPT_TIMEOUT, $this->timeout);
 		curl_setopt($curl, CURLOPT_VERBOSE, 1);
 		curl_setopt($curl, CURLOPT_HEADER, 1);
 		
 		$this->response = curl_exec($curl);
 		$this->responseCode = curl_getinfo($curl, CURLINFO_HTTP_CODE);
-		var_dump($this->response);
+		//var_dump($this->response);
 		
 		curl_close($curl);
 		

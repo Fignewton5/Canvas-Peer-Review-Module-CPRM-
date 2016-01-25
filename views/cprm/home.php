@@ -20,6 +20,7 @@
 				$canvas = new Canvas();
 				$canvas->getCoursesForUser();
 				$canvas->getData();
+				echo "response code: " . $canvas->responseCode;
 			?>
 		</div>
 	</div>
