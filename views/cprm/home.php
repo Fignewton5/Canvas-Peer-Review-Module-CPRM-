@@ -15,7 +15,7 @@
 		</div>
 		
 		<div class="panel-body">
-			Content goes here.
+			<button type="button" class="btn btn-default" onclick="testCanvas();">Test Canvas</button>
 		</div>
 	</div>
 </div>
