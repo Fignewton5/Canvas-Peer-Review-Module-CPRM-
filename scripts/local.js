@@ -4,7 +4,9 @@ function testCanvas(){
 		type: "GET",
 		url: "https://canvas.instructure.com/api/v1/courses.json",
 		dataType: 'jsonp',
-		crossDomain: true,
+		headers: {
+			'Access-Control-Allow-Origin': '*'
+		},
 		data: {
 			access_token: '7~q4gP4CjVRpnLCgJQTXfNRJRmSIXNyv7nZZif5j44aGW0VByeY5cdnV9gObYYY60i'
 		},
