@@ -22,7 +22,7 @@ class CanvasWrapper
 			$splitArr = explode(" ", $splitName);
 			
 			//don't print course unless it's this term
-			if (checkCourseTerm($splitArr[3])) {
+			if ($this->checkCourseTerm($splitArr[3])) {
 				$this->buttonMaker($data->id, $splitName, true);
 			}
 		}
@@ -59,6 +59,8 @@ class CanvasWrapper
 		$currentYear = date("Y");
 		$curTerm = $season . $currentYear;
 		
+		
+		echo "term passed: $term, current term: $curTerm";
 		if ($term == $curTerm) {
 			return true;
 		}
