@@ -25,11 +25,10 @@ class CanvasWrapper
 	
 	private function splitCourseName($title) {
 		$pattern = '/\(?[a-zA-Z]{2,}\_[0-9]{3}\_[a-zA-Z0-9]{3,}\_[a-zA-Z0-9]{5}\)?/g';
-		$match = '';
 		if (preg_match($pattern, $title, $match)) {
 			echo "match found.<br><br>";
 		}
-		print_r($matches);
+		print_r($match);
 	}
 	
 	/*
