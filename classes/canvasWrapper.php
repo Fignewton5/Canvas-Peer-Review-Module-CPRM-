@@ -18,23 +18,38 @@ class CanvasWrapper
 		$this->canvas->getCoursesForUser();
 
 		foreach ($this->canvas->getData() as $data) {
-			$this->splitCourseName($data->name);
-			$this->buttonMaker($data->id, $data->name, true);
+			$splitName = $this->splitCourseName($data->name);
+			$this->buttonMaker($data->id, $splitName, true);
 		}
 	}
 	
+	
+	/*
+	 * takes a course title and splits the name and the OSU ID
+	 * @param $title string in the format of 'Computer Science (CS_457_X001_W2016)'
+	 * 
+	 * @return array of two items, array[0] = name, array[1] = OSU ID
+	 * 
+	 */ 
 	private function splitCourseName($title) {
+		//pattern matches a string like: (CS_457_X001_W2016)
 		$pattern = "/\(?[a-zA-Z]{2,}\_[0-9]{3}\_[a-zA-Z0-9]{3,}\_[a-zA-Z0-9]{5}\)?/";
+		
+		$nameArray = array();
+		$result = explode('(', $title);
+		$nameArray[] = $result[0];
+		
 		if (preg_match($pattern, $title, $match)) {
-			echo "match found.<br><br>";
+			$nameArray[] = $match[0];
 		}
-		print_r($match);
+		
+		return $nameArray;
 	}
 	
 	/*
 	 * directly echos button content to page
 	 * @param $id string an id for the button
-	 * @param $title string a title between the tags
+	 * @param $title array $title[0] = name, $title[1] = OSU ID
 	 * @param $rowWrap bool whether or not the buttons should be wrapped in a row
 	 * 					defaults to no wrapping
 	 * 
@@ -42,11 +57,11 @@ class CanvasWrapper
 	private function buttonMaker($id, $title, $rowWrap = false) {
 		if ($rowWrap) {
 			echo "<div style='margin-top:5px;'>";
-			echo "<button id='" . $id . "' type='button' class='btn btn-default courseSwitch'>" . $title . "</button>";
+			echo "<button id='" . $id . "' type='button' data-id='" . $title[1] . "' data-name='" . $title[0] . "' class='btn btn-default courseSwitch'>" . $title[0] . "</button>";
 			echo "</div>";
 		}
 		else {
-			echo "<button id='" . $id . "' type='button' class='btn btn-default courseSwitch'>" . $title . "</button>";
+			echo "<button id='" . $id . "' type='button' data-id='" . $title[1] . "' data-name='" . $title[0] . "' class='btn btn-default courseSwitch'>" . $title[0] . "</button>";
 		}
 	}
 }

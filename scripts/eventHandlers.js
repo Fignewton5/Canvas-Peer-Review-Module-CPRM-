@@ -1,22 +1,32 @@
 /*
  * Navbar event handlers
  */
-$('#courses').on('hover', function(){
+$('#courses').on('hover', function() {
 	//dropdown stuff here
 });
 
-$('#peerReviews').on('click', function(){
+$('#peerReviews').on('click', function() {
 	//handle peer reviews click
 });
 
-$('#grades').on('click', function(){
+$('#grades').on('click', function() {
 	//handle grades tab click
 });
 
-$('#feedbackSubmission').on('click',function(){
+$('#feedbackSubmission').on('click', function() {
 	//handle feedback submission click
 });
 
-$('#studentInformation').on('click',function(){
+$('#studentInformation').on('click', function() {
 	//handle student information click
+});
+
+$('.courseSwitch').on('mouseover', function() {
+	var $id = $(this).attr('data-id');
+	$(this).html($id);
+});
+
+$('.courseSwitch').on('mouseout', function() {
+	var $name = $(this).attr('data-name');
+	$(this).html($name);
 });
