@@ -55,7 +55,7 @@ class CanvasWrapper
 	}
 	
 	public function printUserName() {
-		$user = formatUserData();
+		$user = $this->formatUserData();
 		echo "<div class='well well-sm'>";
 		echo "<span>Welcome $user->name, $user->email</span>";
 		echo "</div>";
