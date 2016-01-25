@@ -6,7 +6,7 @@ class CanvasWrapper
 	
 	public function __construct() {
 		require_once('classes/canvas.php');
-		$canvas = new Canvas();
+		$this->canvas = new Canvas();
 	}
 	
 	/*
@@ -15,9 +15,9 @@ class CanvasWrapper
 	 */ 
 	public function formatCourseData() {
 			
-		$canvas->getCoursesForUser();
-		
-		foreach ($canvas->getData() as $data) {
+		$this->canvas->getCoursesForUser();
+		//print_r($this->canvas->getData());
+		foreach ($this->canvas->getData() as $data) {
 			$this->buttonization($data->id, $data->name);
 		}
 	}
