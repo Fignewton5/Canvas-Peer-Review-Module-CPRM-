@@ -22,8 +22,12 @@ $('#studentInformation').on('click', function() {
 });
 
 $('.courseSwitch').on('mouseover', function() {
+	var $width = $(this).width();
 	var $id = $(this).attr('data-id');
 	$(this).html($id);
+	
+	//maintain same size of button
+	$(this).width($width);
 });
 
 $('.courseSwitch').on('mouseout', function() {

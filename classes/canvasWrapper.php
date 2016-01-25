@@ -39,8 +39,15 @@ class CanvasWrapper
 		$result = explode('(', $title);
 		$nameArray[] = $result[0];
 		
+		//converts (CS_457_X001_W2016) to CS 457 X001 W2016
 		if (preg_match($pattern, $title, $match)) {
-			$nameArray[] = $match[0];
+			$splitParen = substr($match[0], 1, -1);
+			$splitUnder = explode('_',$splitParen);
+			$result = '';
+			foreach ($splitUnder as $item) {
+				$result = $result . ' ' . $item;
+			}
+			$nameArray[] = $result;
 		}
 		
 		return $nameArray;
