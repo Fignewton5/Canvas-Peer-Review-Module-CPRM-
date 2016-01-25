@@ -3,12 +3,15 @@
 class Canvas
 {
 	private $canvasAccessToken = "1002~dBAbJ2p3LCUVQTdnVjYkiB2LLDUNg5PNJTEOUs8CgXXx21j4q8BnQWuGKcIbyLdd"; //oregonstate.instructure access token
+	
 	private $response;
 	public $responseCode;
 	
 	private $endPointUrl;
 	
-	
+	public function __construct() {
+		
+	}
 	
 	public function getCoursesForUser() {
 		$this->endPointUrl = 'courses';
@@ -22,10 +25,12 @@ class Canvas
 		
 		curl_setopt($curl, CURLOPT_URL, $domain . '/api/v1/' . $this->endPointUrl);
 		
-		curl_setopt($ch, CURLOPT_HTTPHEADER, $tokenHeader); //sets token in header
+		curl_setopt($curl, CURLOPT_HTTPHEADER, $tokenHeader); //sets token in header
 		curl_setopt($curl, CURLOPT_RETURNTRANSFER, true); //stops response
 		curl_setopt($curl, CURLOPT_CONNECTTIMEOUT, $this->timeout); //set timeouts
 		curl_setopt($curl, CURLOPT_TIMEOUT, $this->timeout);
+		curl_setopt($curl, CURLOPT_VERBOSE, 1);
+		curl_setopt($curl, CURLOPT_HEADER, 1);
 		
 		$this->response = curl_exec($curl);
 		$this->responseCode = curl_getinfo($curl, CURLINFO_HTTP_CODE);

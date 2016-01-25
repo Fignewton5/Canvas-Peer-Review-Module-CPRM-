@@ -19,7 +19,7 @@
 				require_once('classes/canvas.php');
 				$canvas = new Canvas();
 				$canvas->getCoursesForUser();
-				echo $canvas->getData();
+				$canvas->getData();
 			?>
 		</div>
 	</div>
