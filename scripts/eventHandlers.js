@@ -23,11 +23,19 @@ $('#studentInformation').on('click', function() {
 
 $('.courseSwitch').on('mouseover', function() {
 	var $width = $(this).width();
+	
+	var $prevHtml = $(this).html();
+	
 	var $id = $(this).attr('data-id');
-	$(this).html($id);
 	
 	//maintain same size of button
-	$(this).width($width);
+	//if name is longer than ID
+	//otherwise increase size to fit Id
+	if ($prevHtml.length > $id) {
+		$(this).width($width);
+	}
+	
+	$(this).html($id);
 });
 
 $('.courseSwitch').on('mouseout', function() {
