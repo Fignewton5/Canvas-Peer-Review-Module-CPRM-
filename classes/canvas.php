@@ -36,6 +36,9 @@ class Canvas
 		$this->responseCode = curl_getinfo($curl, CURLINFO_HTTP_CODE);
 		//var_dump($this->response);
 		
+		print curl_error($curl);
+		
+		
 		curl_close($curl);
 		
 		return $this->response;
