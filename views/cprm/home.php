@@ -19,7 +19,7 @@
 				require_once('classes/canvas.php');
 				$canvas = new Canvas();
 				$canvas->getCoursesForUser();
-				echo $canvas->getData();
+				print_r($canvas->getData());
 				echo "<br><br>response code: " . $canvas->responseCode;
 			?>
 		</div>
