@@ -1,5 +1,5 @@
 <?php
-/*
+
     // This page contains a variety of functions that can be used to access the Canvas API
 
     $canvasDomain = '__.instructure.com'
@@ -259,7 +259,6 @@
             $response = curlGet($apiUrl);
             return $response;
         }
- * */
- */
+
 
 ?>

@@ -17,7 +17,9 @@
 		<div class="panel-body">
 			<?php
 				require_once('classes/canvas.php');
-				getCoursesForUser();
+				$canvas = new Canvas();
+				$canvas->getCoursesForUser();
+				echo $canvas->getData();
 			?>
 		</div>
 	</div>
