@@ -3,6 +3,7 @@
 class Canvas
 {
 	private $canvasAccessToken = "1002~dBAbJ2p3LCUVQTdnVjYkiB2LLDUNg5PNJTEOUs8CgXXx21j4q8BnQWuGKcIbyLdd"; //oregonstate.instructure access token
+	private $domain = "https://www.oregonstate.instructure.com";
 	
 	private $response;
 	public $responseCode;
@@ -23,7 +24,7 @@ class Canvas
 		
 		$curl = curl_init();
 		
-		curl_setopt($curl, CURLOPT_URL, $domain . '/api/v1/' . $this->endPointUrl);
+		curl_setopt($curl, CURLOPT_URL, $this->domain . '/api/v1/' . $this->endPointUrl);
 		
 		curl_setopt($curl, CURLOPT_HTTPHEADER, $tokenHeader); //sets token in header
 		curl_setopt($curl, CURLOPT_RETURNTRANSFER, true); //stops response
