@@ -21,10 +21,12 @@ class Canvas
 	
 	private function getCanvas() {
 		$tokenHeader = array("Authorization: Bearer ".$this->canvasAccessToken);
+		$url = $this->domain . '/api/v1/' . $this->endPointUrl;
+		echo "$url";
 		
 		$curl = curl_init();
 		
-		curl_setopt($curl, CURLOPT_URL, $this->domain . '/api/v1/' . $this->endPointUrl);
+		curl_setopt($curl, CURLOPT_URL, $url);
 		
 		curl_setopt($curl, CURLOPT_HTTPHEADER, $tokenHeader); //sets token in header
 		curl_setopt($curl, CURLOPT_RETURNTRANSFER, true); //stops response
