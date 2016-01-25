@@ -25,7 +25,7 @@
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
   
   <!-- local, commented out until something is in it -->
-  <script src="scripts/local.js"></script>
+  <!-- <script src="scripts/local.js"></script> -->
   
 </head>
 <body>

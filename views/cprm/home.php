@@ -1,8 +1,3 @@
-<?php
-	header("Access-Control-Allow-Origin: *");
-	header("Access-Control-Allow-Methods: GET,POST,PUT,DELETE");
-	header("Access-Control-Allow-Headers: Content-Type");
-?>
 <div class="container-fluid">
 	<div class="panel panel-default" style="margin-top:5px;">
 		<div class="panel-heading panel-head-color" style="height:49px;">
@@ -20,7 +15,10 @@
 		</div>
 		
 		<div class="panel-body">
-			<button type="button" class="btn btn-default" onclick="testCanvas();">Test Canvas</button>
+			<?php
+				require_once('classes/canvas.php');
+				getCoursesForUser();
+			?>
 		</div>
 	</div>
 </div>
