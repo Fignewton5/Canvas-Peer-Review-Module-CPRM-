@@ -2,11 +2,11 @@
 function testCanvas(){
 	$.ajax({
 		type: "GET",
-		url: "https://oregonstate.instructure.com/api/v1/courses.json",
+		url: "https://canvas.instructure.com/api/v1/courses.json",
 		dataType: 'json',
 		crossDomain: true,
 		data: {
-			access_token: '1002~mv0PPyv9qUsNq9DGc9ohRXCKuV3I5J7D3ar7BKXitIVJsI6lljRluw0DPW87NY2M'
+			access_token: '7~q4gP4CjVRpnLCgJQTXfNRJRmSIXNyv7nZZif5j44aGW0VByeY5cdnV9gObYYY60i'
 		},
 		success: function(data, status, xhr){
 			alert(JSON.stringify(data));
