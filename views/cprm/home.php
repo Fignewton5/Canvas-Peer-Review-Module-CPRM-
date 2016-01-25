@@ -21,6 +21,10 @@
 				$canvas->getCoursesForUser();
 				$canvas->getData();
 				echo "response code: " . $canvas->responseCode;
+				
+				require_once('classes/canvasApi.php');
+				$courses = curlGet('courses');
+				var_dump($courses);
 			?>
 		</div>
 	</div>

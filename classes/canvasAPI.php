@@ -2,8 +2,8 @@
 
     // This page contains a variety of functions that can be used to access the Canvas API
 
-    $canvasDomain = '__.instructure.com'
-    $token = '';
+    $canvasDomain = 'oregonstate.instructure.com'
+    $token = '1002~dBAbJ2p3LCUVQTdnVjYkiB2LLDUNg5PNJTEOUs8CgXXx21j4q8BnQWuGKcIbyLdd';
 
     // This is the header containing the authorization token from Canvas
     $tokenHeader = array("Authorization: Bearer ".$token);
