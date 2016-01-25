@@ -41,6 +41,8 @@ class Canvas
 	}
 	
 	public function getData() {
+		echo $this->response;	
+		
 		if (!$this->hasError()) {
 			$result = json_decode($this->response);
 			return $result;
