@@ -19,7 +19,7 @@ class CanvasWrapper
 
 		foreach ($this->canvas->getData() as $data) {
 			$splitName = $this->splitCourseName($data->name);
-			$splitArr = explode(" ", $splitName);
+			$splitArr = explode(" ", $splitName[1]);
 			
 			//don't print course unless it's this term
 			if ($this->checkCourseTerm($splitArr[3])) {
