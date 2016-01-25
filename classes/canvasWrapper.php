@@ -18,7 +18,7 @@ class CanvasWrapper
 		$this->canvas->getCoursesForUser();
 
 		foreach ($this->canvas->getData() as $data) {
-			splitCourseName($data->name);
+			$this->splitCourseName($data->name);
 			$this->buttonMaker($data->id, $data->name, true);
 		}
 	}
