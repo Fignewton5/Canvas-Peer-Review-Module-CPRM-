@@ -1,5 +1,6 @@
 <?php
-
+	header("Access-Control-Allow-Origin: *");
+	
 	//using requiremind's PHP MVC format - http://requiremind.com/a-most-simple-php-mvc-beginners-tutorial/
 	if (isset($_GET['controller']) && isset($_GET['action'])) {
 		$controller = $_GET['controller'];
