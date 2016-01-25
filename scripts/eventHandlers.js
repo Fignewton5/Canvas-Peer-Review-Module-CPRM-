@@ -25,13 +25,13 @@ $('.courseSwitch').on('mouseover', function() {
 	var $width = $(this).width();
 	
 	var $prevHtml = $(this).html();
-	
+	alert($prevHtml.length);
 	var $id = $(this).attr('data-id');
 	
 	//maintain same size of button
 	//if name is longer than ID
 	//otherwise increase size to fit Id
-	if ($prevHtml.length > $id) {
+	if ($prevHtml.length > $id.length) {
 		$(this).width($width);
 	}
 	
