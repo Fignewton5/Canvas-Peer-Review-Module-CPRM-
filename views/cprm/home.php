@@ -18,7 +18,7 @@
 			<?php
 				require_once('classes/canvasWrapper.php');
 				$canvas = new CanvasWrapper();
-				$canvas->formatUserData();
+				$canvas->printUserName();
 				$canvas->formatCourseData();
 			?>
 		</div>
