@@ -29,11 +29,36 @@ class CanvasWrapper
 		}
 	}
 	
+	/*
+	 * takes json result for canvas user and formats it
+	 * 			returns a user object
+	 * 
+	 * @return $user object{
+	 * 					name: user's name
+	 * 					email: user's OSU email
+	 * 					user_id: user's OSU Id
+	 * 					canvas_id: user's Canvas Id	
+	 * 		   		 }
+	 * 
+	 */ 
 	public function formatUserData() {
 		
 		$this->canvas->getUserInfo();
+		$data = $this->canvas->getUserInfo();
 		
-		print_r($this->canvas->getData());
+		$user = new stdClass();
+		$user->name = $data->name;
+		$user->email = $data->login_id;
+		$user->user_id = $data->sis_user_id;
+		$user->canvas_id = $data->id;
+		return $user;
+	}
+	
+	public function printUserName() {
+		$user = formatUserData();
+		echo "<div class='well well-sm'>";
+		echo "<span>Welcome $user->name, $user->email</span>";
+		echo "</div>";
 	}
 	
 	

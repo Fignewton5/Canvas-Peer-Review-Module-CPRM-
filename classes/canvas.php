@@ -10,20 +10,38 @@ class Canvas
 	
 	private $endPointUrl; //assigned by each request
 	
+	/*
+	 * nothing in the constructor yet
+	 * 
+	 */ 
 	public function __construct() {
 		
 	}
 	
+	/*
+	 * gets information about the current user
+	 * 
+	 */
 	public function getUserInfo() {
 		$this->endPointUrl = 'users/self';
 		return $this->getCanvas();
 	}
 	
+	/*
+	 * gets information about courses the
+	 * 			user is enrolled in
+	 * 
+	 */
 	public function getCoursesForUser() {
 		$this->endPointUrl = 'courses';
 		return $this->getCanvas();
 	}
 	
+	/*
+	 * submits cURL request for the endpoint url
+	 * 			selected by a previous function
+	 * 
+	 */
 	private function getCanvas() {
 		$tokenHeader = array("Authorization: Bearer ".$this->canvasAccessToken);
 		$url = $this->domain . '/api/v1/' . $this->endPointUrl;
@@ -52,10 +70,19 @@ class Canvas
 		return $this->response;
 	}
 	
+	/*
+	 * checks the responseCode to see if an error
+	 * 			was set or not
+	 * 
+	 */
 	public function hasError() {
 		return !in_array($this->responseCode, array(200,201)) || is_null($this->response);
 	}
 	
+	/*
+	 * returns the data from the cURL response
+	 * 
+	 */
 	public function getData() {
 		if (!$this->hasError()) {
 			return $this->response;
