@@ -19,8 +19,9 @@ class CanvasWrapper
 
 		foreach ($this->canvas->getData() as $data) {
 			$splitName = $this->splitCourseName($data->name);
-			$splitArr = explode(" ", $splitName[1]);
 			
+			//split OSU Id for checking and printing
+			$splitArr = explode(" ", $splitName[1]);
 			//don't print course unless it's this term
 			if ($this->checkCourseTerm($splitArr[4])) {
 				$this->buttonMaker($data->id, $splitName, true);
@@ -42,7 +43,7 @@ class CanvasWrapper
 		$currentMonth = date("m");
 		 
 		//retrieve season in OSU Term format
-		if ($currentMonth >= "03" && $currentMonth <= "05") {
+		if ($currentMonth >= "04" && $currentMonth <= "06") {
 			$season = "S";
 		}
 		elseif ($currentMonth >= "06" && $currentMonth <= "08") {
@@ -59,8 +60,6 @@ class CanvasWrapper
 		$currentYear = date("Y");
 		$curTerm = $season . $currentYear;
 		
-		
-		echo "term passed: $term, current term: $curTerm";
 		if ($term == $curTerm) {
 			return true;
 		}
