@@ -22,7 +22,7 @@ class CanvasWrapper
 			$splitArr = explode(" ", $splitName[1]);
 			
 			//don't print course unless it's this term
-			if ($this->checkCourseTerm($splitArr[3])) {
+			if ($this->checkCourseTerm($splitArr[4])) {
 				$this->buttonMaker($data->id, $splitName, true);
 			}
 		}

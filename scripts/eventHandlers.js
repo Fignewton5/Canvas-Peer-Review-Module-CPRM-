@@ -21,6 +21,10 @@ $('#studentInformation').on('click', function() {
 	//handle student information click
 });
 
+
+/*
+ * course button event handlers
+ */
 $('.courseSwitch').on('mouseover', function() {
 	var $width = $(this).width();
 	
