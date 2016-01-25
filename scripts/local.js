@@ -3,7 +3,7 @@ function testCanvas(){
 	$.ajax({
 		type: "GET",
 		url: "https://canvas.instructure.com/api/v1/courses.json",
-		dataType: 'jsonp',
+		dataType: 'json',
 		headers: {
 			'Access-Control-Allow-Origin': '*'
 		},
