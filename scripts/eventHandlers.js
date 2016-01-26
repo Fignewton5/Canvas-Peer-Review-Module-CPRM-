@@ -7,13 +7,12 @@ $('#courses').on('hover', function() {
 
 $('#peerReviews').on('click', function() {
 	//handle peer reviews click
-	alert('PEER REVIEW CLICKED');
 });
 
 $('#grades').on('click', function() {
 	//handle grades tab click
 	
-	
+	alert("Grades Clicked!")
 	
 	//function to load HTML into test box
 	var req = new XMLHttpRequest();				//instantiate XMLHttpRequest object (AJAX required)
