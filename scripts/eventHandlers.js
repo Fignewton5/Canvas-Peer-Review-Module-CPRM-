@@ -9,10 +9,8 @@ $('#peerReviews').on('click', function() {
 	//handle peer reviews click
 });
 
-$('#grades').on('click', function() {
+$('#Grades').on('click', function() {
 	//handle grades tab click
-	
-	alert("Grades Clicked!")
 	
 	//function to load HTML into test box
 	var req = new XMLHttpRequest();				//instantiate XMLHttpRequest object (AJAX required)
