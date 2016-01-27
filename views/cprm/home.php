@@ -20,14 +20,6 @@
 			
 		</div>
 		
-		<div class="panel-body">
-			<?php
-				// require_once('classes/canvasWrapper.php');
-				// $canvas = new CanvasWrapper();
-				$canvas->formatCourseData();
-			?>
-		</div>
-		
 		<div class="panel-body" id="test">
 			<h2>This should change based on the button clicked on the top of the page!"</h2>
 		</div>

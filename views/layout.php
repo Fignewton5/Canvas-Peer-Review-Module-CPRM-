@@ -25,14 +25,14 @@
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
   
   <!-- local, commented out until something is in it -->
-  <!-- <script src="scripts/local.js"></script> -->
+  <script src="scripts/local.js"></script>
   
   <!-- navbar declaration -->
   <nav class="navbar navbar-default">
   	<div class="container-fluid">
   		<div class="navbar-header">
   			<button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
-  			 data-target="navbar-options" aria-expanded="false">
+  			 data-target=".navbar-collapse">
   				<span class="sr-only">Toggle navigation</span>
   				<span class="icon-bar"></span>
 		        <span class="icon-bar"></span>
@@ -41,11 +41,12 @@
   			<a class="navbar-brand" href="#">CPRM</a>
   		</div>
   		
-  		<div class="collapse navbar-collapse" id="navbar-options">
+  		<div class="navbar-collapse collapse" id="navbar-options">
   			<ul class="nav navbar-nav">
   				<li class="dropdown">
-  					<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"
-  					aria-haspopup="true" aria-expanded="false">Courses <span class="caret"></span></a>
+  					<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button">
+  						Courses <span class="caret"></span>
+  					</a>
   					<ul id="courseDropdown" class="dropdown-menu">
   						<!-- instantiate courses here -->
   						<?php 
@@ -55,10 +56,10 @@
 						?>
   					</ul>
   				</li>
-  				<li><a href="#">Peer Reviews</a></li>
-  				<li><a href="#">Grades</a></li>
-  				<li><a href="#">Feedback Submission</a></li>
-  				<li><a href="#">Student Information</a></li>
+  				<li id='peerReviews'><a href="#">Peer Reviews</a></li>
+  				<li id='grades'><a href="#">Grades</a></li>
+  				<li id='feedbackSubmission'><a href="#">Feedback Submission</a></li>
+  				<li id='studentInformation'><a href="#">Student Information</a></li>
   			</ul>
   			
   		</div>

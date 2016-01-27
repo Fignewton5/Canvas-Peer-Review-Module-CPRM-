@@ -7,11 +7,18 @@ $('#courses').on('hover', function() {
 
 $('#peerReviews').on('click', function() {
 	//handle peer reviews click
+	
+	//run this first, removes active class on navbar
+	removeActiveDropdown();
+	
+	$(this).addClass('active');
 });
 
 $('#grades').on('click', function() {
 	//handle grades tab click
-	//alert("Grades clicked!");
+	
+	//run this first, removes active class on navbar
+	removeActiveDropdown();
 	
 	
 	//function to load HTML into test box
@@ -30,16 +37,32 @@ $('#grades').on('click', function() {
 	//carry out AJAX calls
 	req.open("GET", "views/cprm/grades.php", true);
 	req.send();
-	
+	$(this).addClass('active');
 });
 
 $('#feedbackSubmission').on('click', function() {
-	//handle feedback submission click
+	//run this first, removes active class on navbar
+	removeActiveDropdown();
 	
+	var xhr = new XMLHttpRequest();
+	xhr.onreadystatechange = function() {
+		
+		if (xhr.readyState === 4 && xhr.status == 200) {
+			document.getElementById("test").innerHTML = xhr.responseText;
+		}
+	};
+	
+	xhr.open("GET", "views/cprm/feedback.php", true);
+	xhr.send();
+	$(this).addClass('active');
 });
 
 $('#studentInformation').on('click', function() {
 	//handle student information click
+	//run this first, removes active class on navbar
+	removeActiveDropdown();
+	
+	$(this).addClass('active');
 });
 
 
