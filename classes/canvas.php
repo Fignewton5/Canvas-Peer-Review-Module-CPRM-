@@ -55,6 +55,10 @@ class Canvas
 		curl_setopt($curl, CURLOPT_VERBOSE, 1);
 		curl_setopt($curl, CURLOPT_HEADER, 1);
 		
+		//REMOVE IN PRODUCTION THIS BLOCKS SSL VERIFICATION FOR LOCAL
+		curl_setopt($curl, CURLOPT_SSL_VERIFYPEER, false);
+		//REMOVE REMOVE REMOVE!!!!!!!!!!!!!!!!
+		
 		$curlResult = curl_exec($curl);
 		$this->responseCode = curl_getinfo($curl, CURLINFO_HTTP_CODE);
 		//var_dump($this->response);	
@@ -64,6 +68,9 @@ class Canvas
 		$header = substr($curlResult, 0, $header_size);
 		$body = substr($curlResult, $header_size);
 		$this->response = json_decode($body);
+		
+		//uncomment to debug curl problems
+		//echo curl_errno($curl);
 		
 		curl_close($curl);
 		

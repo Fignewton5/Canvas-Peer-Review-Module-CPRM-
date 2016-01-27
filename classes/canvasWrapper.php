@@ -12,21 +12,39 @@ class CanvasWrapper
 	/*
 	 * takes json result and formats it for printing
 	 * 
+	 * @return $courseHolder an array:
+	 * 			object{
+	 * 				id: canvas id,
+	 * 				courseName: osu course name (Shaders),
+	 * 				osuId: osu course id (CS 457 X001 W2016)
+	 * 			}
+	 * 
 	 */ 
 	public function formatCourseData() {
 			
 		$this->canvas->getCoursesForUser();
+
+		//course object array
+		$courseHolder = array();
 
 		foreach ($this->canvas->getData() as $data) {
 			$splitName = $this->splitCourseName($data->name);
 			
 			//split OSU Id for checking and printing
 			$splitArr = explode(" ", $splitName[1]);
-			//don't print course unless it's this term
+			
+			$courseObject = new stdClass();
+			
+			//don't add course to object unless it's this term
 			if ($this->checkCourseTerm($splitArr[4])) {
-				$this->buttonMaker($data->id, $splitName, true);
+				
+				$courseObject->id = $data->id;
+				$courseObject->courseName = $splitName[0];
+				$courseObject->osuId = $splitName[1];
+				$courseHolder[] = $courseObject;
 			}
 		}
+		return $courseHolder;
 	}
 	
 	/*
@@ -45,7 +63,6 @@ class CanvasWrapper
 		
 		$this->canvas->getUserInfo();
 		$data = $this->canvas->getUserInfo();
-		
 		$user = new stdClass();
 		$user->name = $data->name;
 		$user->email = $data->login_id;
@@ -56,9 +73,9 @@ class CanvasWrapper
 	
 	public function printUserName() {
 		$user = $this->formatUserData();
-		echo "<div class='well well-sm'>";
-		echo "<span>Welcome $user->name. To begin, select a course below.</span>";
-		echo "</div>";
+		//echo "<div class='well well-sm'>";
+		echo "<p style='font-size:18px;'>Welcome $user->name. To start, select a course from the 'Courses' dropdown.</p>";
+		//echo "</div>";
 	}
 	
 	
@@ -128,22 +145,15 @@ class CanvasWrapper
 		return $nameArray;
 	}
 	
-	/*
-	 * directly echos button content to page
-	 * @param $id string an id for the button
-	 * @param $title array $title[0] = name, $title[1] = OSU ID
-	 * @param $rowWrap bool whether or not the buttons should be wrapped in a row
-	 * 					defaults to no wrapping
-	 * 
-	 */
-	private function buttonMaker($id, $title, $rowWrap = false) {
-		if ($rowWrap) {
-			echo "<div style='margin-top:5px;'>";
-			echo "<button id='" . $id . "' type='button' data-id='" . $title[1] . "' data-name='" . $title[0] . "' class='btn btn-default courseSwitch'>" . $title[0] . "</button>";
-			echo "</div>";
-		}
-		else {
-			echo "<button id='" . $id . "' type='button' data-id='" . $title[1] . "' data-name='" . $title[0] . "' class='btn btn-default courseSwitch'>" . $title[0] . "</button>";
+	public function createCourseDropdown() {
+		$courseArray = $this->formatCourseData();
+		foreach ($courseArray as $course) {
+			echo "<li id='" . $course->id . "' ";
+			echo "data-id='" . $course->osuId . "' ";
+			echo "data-name='" . $course->courseName . "'>";
+			echo "<a href='#'>";
+			echo $course->courseName;
+			echo "</a></li>";
 		}
 	}
 }

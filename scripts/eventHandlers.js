@@ -11,7 +11,7 @@ $('#peerReviews').on('click', function() {
 
 $('#grades').on('click', function() {
 	//handle grades tab click
-	alert("Grades clicked!");
+	//alert("Grades clicked!");
 	
 	
 	//function to load HTML into test box
@@ -35,6 +35,7 @@ $('#grades').on('click', function() {
 
 $('#feedbackSubmission').on('click', function() {
 	//handle feedback submission click
+	
 });
 
 $('#studentInformation').on('click', function() {
@@ -44,25 +45,28 @@ $('#studentInformation').on('click', function() {
 
 /*
  * course button event handlers
+ * 
+ * COMMENTED OUT UNTIL FURTHER NEED, DOESN'T WORK IN NAVBAR DROPDOWN
+ * 
  */
-$('.courseSwitch').on('mouseover', function() {
-	var $width = $(this).width();
-	
-	var $prevHtml = $(this).html();
-	
-	var $id = $(this).attr('data-id');
-	
-	//maintain same size of button
-	//if name is longer than ID
-	//otherwise increase size to fit Id
-	if ($prevHtml.length > $id.length) {
-		$(this).width($width);
-	}
-	
-	$(this).html($id);
-});
-
-$('.courseSwitch').on('mouseout', function() {
-	var $name = $(this).attr('data-name');
-	$(this).html($name);
-});
+// $('.courseSwitch').on('mouseover', function() {
+	// var $width = $(this).width();
+// 	
+	// var $prevHtml = $(this).html();
+// 	
+	// var $id = $(this).attr('data-id');
+// 	
+	// //maintain same size of button
+	// //if name is longer than ID
+	// //otherwise increase size to fit Id
+	// // if ($prevHtml.length > $id.length) {
+		// // $(this).width($width);
+	// // }
+// 	
+	// $(this).html($id);
+// });
+// 
+// $('.courseSwitch').on('mouseout', function() {
+	// var $name = $(this).attr('data-name');
+	// $(this).html($name);
+// });

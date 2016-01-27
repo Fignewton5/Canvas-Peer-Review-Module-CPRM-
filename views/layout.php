@@ -27,6 +27,45 @@
   <!-- local, commented out until something is in it -->
   <!-- <script src="scripts/local.js"></script> -->
   
+  <!-- navbar declaration -->
+  <nav class="navbar navbar-default">
+  	<div class="container-fluid">
+  		<div class="navbar-header">
+  			<button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+  			 data-target="navbar-options" aria-expanded="false">
+  				<span class="sr-only">Toggle navigation</span>
+  				<span class="icon-bar"></span>
+		        <span class="icon-bar"></span>
+		        <span class="icon-bar"></span>
+  			</button>
+  			<a class="navbar-brand" href="#">CPRM</a>
+  		</div>
+  		
+  		<div class="collapse navbar-collapse" id="navbar-options">
+  			<ul class="nav navbar-nav">
+  				<li class="dropdown">
+  					<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"
+  					aria-haspopup="true" aria-expanded="false">Courses <span class="caret"></span></a>
+  					<ul id="courseDropdown" class="dropdown-menu">
+  						<!-- instantiate courses here -->
+  						<?php 
+  						require_once('classes/canvasWrapper.php');
+						$canvas = new CanvasWrapper();
+						$canvas->createCourseDropdown();
+						?>
+  					</ul>
+  				</li>
+  				<li><a href="#">Peer Reviews</a></li>
+  				<li><a href="#">Grades</a></li>
+  				<li><a href="#">Feedback Submission</a></li>
+  				<li><a href="#">Student Information</a></li>
+  			</ul>
+  			
+  		</div>
+  		
+  	</div>
+  </nav>
+  
 </head>
 <body>
 	<?php require_once('routes.php'); ?>
