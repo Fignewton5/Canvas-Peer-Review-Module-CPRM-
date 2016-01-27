@@ -2,7 +2,7 @@
 
 class Canvas
 {
-	private $canvasAccessToken = "1002~dBAbJ2p3LCUVQTdnVjYkiB2LLDUNg5PNJTEOUs8CgXXx21j4q8BnQWuGKcIbyLdd"; //oregonstate.instructure access token
+	private $canvasAccessToken = ""; //oregonstate.instructure access token
 	private $domain = "https://oregonstate.instructure.com"; //entry point for API
 	
 	private $response;
@@ -11,11 +11,13 @@ class Canvas
 	private $endPointUrl; //assigned by each request
 	
 	/*
-	 * nothing in the constructor yet
+	 * set the token from token.txt in git ignore
 	 * 
 	 */ 
 	public function __construct() {
-		
+		$file = fopen("token.txt",'r');
+		$token = fgets($file);
+		$this->canvasAccessToken = $token;
 	}
 	
 	/*

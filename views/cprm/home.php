@@ -22,8 +22,8 @@
 		
 		<div class="panel-body">
 			<?php
-				require_once('classes/canvasWrapper.php');
-				$canvas = new CanvasWrapper();
+				// require_once('classes/canvasWrapper.php');
+				// $canvas = new CanvasWrapper();
 				$canvas->formatCourseData();
 			?>
 		</div>
