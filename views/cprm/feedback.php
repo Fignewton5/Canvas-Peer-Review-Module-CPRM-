@@ -17,7 +17,7 @@
 		<?php
 		echo "hello";
 			//require_once('connection.php'); 
-			$db = Db::getInstance();
+			//$db = Db::getInstance();
 			// $result = $db->query("SELECT * FROM Test WHERE reviewName='cs462'");
 			// while ($row = mysqli_fetch_array($result)) {
 				// echo $row['reviewName'] . " " . $row['pointMax'] . $row['field1'] . $row['pointFor1'];
