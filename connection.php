@@ -1,5 +1,5 @@
 <?php
-	class Db extends mysqli {
+	class Db {
 		private static $instance = NULL;
 		
 		private function __construct($host, $user, $pw, $db, $port) {
