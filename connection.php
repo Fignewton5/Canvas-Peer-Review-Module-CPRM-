@@ -1,19 +1,19 @@
 <?php
-	class Db {
-		private static $instance = NULL;
+	class Db extends MySQLi {
+		//admint7unJmx
+		//127.6.241.130:3306
+		//cprmphp
+		//gbx6usvfglgc
+		private static $instance = null;
 		
-		private function __construct($host, $user, $pw, $db, $port) {
-			self::$instance = mysqli_connect($host, $user, $pw, $db, $port) or die("Error: " . mysqli_error(self::$instance));
+		private function __construct() {
+			
 		}
 		
 		public static function getInstance() {
-			if (self::$instance == NULL) {
-				define('DB_HOST', getenv('OPENSHIFT_MYSQL_DB_HOST'));
-				define('DB_PORT', getenv('OPENSHIFT_MYSQL_DB_PORT'));
-				define('DB_USER', getenv('OPENSHIFT_MYSQL_DB_USERNAME'));
-				define('DB_PASS', getenv('OPENSHIFT_MYSQL_DB_PASSWORD'));
-				define('DB_NAME', getenv('OPENSHIFT_APP_NAME'));
-				new self(DB_HOST, DB_USER, DB_PASS, DB_NAME, DB_PORT);
+			if (self::$instance == null) {
+				self::$instance = new self();
+				
 			}
 			
 			return self::$instance;
