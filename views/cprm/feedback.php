@@ -20,12 +20,9 @@
 				//relative because local hated it...
 				require_once('connection.php');
 				$db = Db::getInstance();
-				$query = 'SELECT * FROM Test WHERE reviewName=cs462';
+				$query = 'SELECT * FROM Test WHERE reviewName="cs462"';
 				foreach ($db->query($query) as $row) {
-					print $row['reviewName'] . "\t";
-					print $row['pointMax'] . "\t";
-					print $row['field1'] . "\t";
-					print $row['pointFor1'] . "\t";
+					echo $row['reviewName'] . " " . $row['pointMax'] . $row['field1'] . $row['pointFor1'];
 				}
 				// $result = $db->query("SELECT * FROM Test WHERE reviewName='cs462'");
 				// while ($row = mysqli_fetch_array($result)) {
