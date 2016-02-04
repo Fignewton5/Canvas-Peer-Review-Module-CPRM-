@@ -1,53 +1,57 @@
 <div class="container-fluid remove-paddingLR">
-	<div class="row" style="margin-top:15px;">
-		<div class="col-md-4" style="float:left;">
-			<div class="feedback-side-menu">
-				<div style="padding-bottom:2px;">
-					<button type="button" class="btn btn-default feedback-button-fixes" id="single">
-						Single Reviews
-					</button>
+	<div class="panel panel-default" style="margin-top:5px;">
+		<div class="panel-body" id="test">
+			<div class="row" style="margin-top:15px;">
+				<div class="col-md-4" style="float:left;">
+					<div class="feedback-side-menu">
+						<div style="padding-bottom:2px;">
+							<button type="button" class="btn btn-default feedback-button-fixes" id="single">
+								Single Reviews
+							</button>
+						</div>
+						<div style="padding-top:2px;">
+							<button type="button" class="btn btn-default feedback-button-fixes" id="group">
+								Group Reviews
+							</button>
+						</div>
+					</div>
 				</div>
-				<div style="padding-top:2px;">
-					<button type="button" class="btn btn-default feedback-button-fixes" id="group">
-						Group Reviews
-					</button>
+				<?php
+				//relative because local hated it...
+				require_once('connection.php');
+				$db = Db::getInstance();
+				$query = 'SELECT * FROM Test WHERE reviewName=cs462';
+				foreach ($db->query($query) as $row) {
+					print $row['reviewName'] . "\t";
+					print $row['pointMax'] . "\t";
+					print $row['field1'] . "\t";
+					print $row['pointFor1'] . "\t";
+				}
+				// $result = $db->query("SELECT * FROM Test WHERE reviewName='cs462'");
+				// while ($row = mysqli_fetch_array($result)) {
+					// echo $row['reviewName'] . " " . $row['pointMax'] . $row['field1'] . $row['pointFor1'];
+				// }
+				?>
+				<div class="col-md-8" style="float:left;">
+					<div style="width:100%;">
+						<table class="table table-striped table-condensed">
+							<thead>
+								<tr>
+									<th>Evaluation Criteria</th>
+									<th>Points Possible</th>
+									<th>Points Earned</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<td class="feedback-tb-top-padding">Sample Presentation</td>
+									<td class="feedback-tb-top-padding">5 Points</td>
+									<td><input type='text' style="width:20%;" class='form-control' /></td>	
+								</tr>
+							</tbody>
+						</table>
+					</div>
 				</div>
-			</div>
-		</div>
-		<?php
-		//relative because local hated it...
-		require_once('connection.php');
-		$db = Db::getInstance();
-		// $query = 'SELECT * FROM Test WHERE reviewName=cs462';
-		// foreach ($db->query($query) as $row) {
-			// print $row['reviewName'] . "\t";
-			// print $row['pointMax'] . "\t";
-			// print $row['field1'] . "\t";
-			// print $row['pointFor1'] . "\t";
-		// }
-		// $result = $db->query("SELECT * FROM Test WHERE reviewName='cs462'");
-		// while ($row = mysqli_fetch_array($result)) {
-			// echo $row['reviewName'] . " " . $row['pointMax'] . $row['field1'] . $row['pointFor1'];
-		// }
-		?>
-		<div class="col-md-8" style="float:left;">
-			<div style="width:100%;">
-				<table class="table table-striped table-condensed">
-					<thead>
-						<tr>
-							<th>Evaluation Criteria</th>
-							<th>Points Possible</th>
-							<th>Points Earned</th>
-						</tr>
-					</thead>
-					<tbody>
-						<tr>
-							<td class="feedback-tb-top-padding">Sample Presentation</td>
-							<td class="feedback-tb-top-padding">5 Points</td>
-							<td><input type='text' style="width:20%;" class='form-control' /></td>	
-						</tr>
-					</tbody>
-				</table>
 			</div>
 		</div>
 	</div>
