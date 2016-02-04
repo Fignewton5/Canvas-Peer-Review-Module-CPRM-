@@ -15,7 +15,7 @@
 			</div>
 		</div>
 		<?php
-		echo "hello";
+
 		require_once('../../connection.php');
 		$db = Db::getInstance();
 		$result = $db->query("SELECT * FROM Test WHERE reviewName='cs462'");
@@ -23,7 +23,7 @@
 			echo $row['reviewName'] . " " . $row['pointMax'] . $row['field1'] . $row['pointFor1'];
 		}
 		?>
-		<div class="col-md-8" style="float:left;width:80%;">
+		<div class="col-md-8" style="float:left;">
 			<div style="width:100%;">
 				<table class="table table-striped table-condensed">
 					<thead>
