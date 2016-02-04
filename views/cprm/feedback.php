@@ -18,7 +18,7 @@
 		//relative because local hated it...
 		require_once('../../connection.php');
 		$db = Db::getInstance();
-		$query = 'SELECT * FROM Test WHERE reviewName="cs462"';
+		$query = 'SELECT * FROM Test WHERE reviewName=cs462';
 		foreach ($db->query($query) as $row) {
 			print $row['reviewName'] . "\t";
 			print $row['pointMax'] . "\t";
