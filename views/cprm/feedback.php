@@ -21,9 +21,9 @@
 				
 				$db = Db::getInstance();
 				$query = 'SELECT * FROM Test1 WHERE reviewName="cs462"';
-				$counter = 1;
+
 				foreach ($db->query($query) as $row) {
-					
+					$iter = $row['fieldsUsed'];
 					//echo $row['reviewName'] . " " . $row['pointMax'] . $row['field1'] . $row['pointFor1'];
 				
 				?>
@@ -40,11 +40,14 @@
 								</thead>
 								<tbody>
 									<?php
-										echo "<tr>";
-										echo "<td class='feedback-tb-top-padding'>" . $row['field' . $counter] . "</td>";
-										echo "<td class='feedback-tb-top-padding'>" . $row['pMax' . $counter] . "</td>";
-										echo "<td><input type='text' style='width:20%' class='form-control' value='" . $row['pEarn1'] . "' /></td>";
-										echo "</tr>";
+										for ($i = 0; $i < $iter; $i++) {
+											echo "<tr>";
+											echo "<td class='feedback-tb-top-padding'>" . $row['field' . ($i + 1)] . "</td>";
+											echo "<td class='feedback-tb-top-padding'>" . $row['pMax' . ($i + 1)] . "</td>";
+											echo "<td><input type='text' style='width:20%' class='form-control' value='" . $row['pEarn' . ($i + 1)] . "' /></td>";
+											echo "</tr>";
+										}
+										
 									?>
 									<!-- <tr>
 										
@@ -56,7 +59,7 @@
 							</table>
 						</div>
 					</div>
-					<?php $counter++; } ?>
+					<?php } ?>
 					<div class="col-md-2">
 						<button type='submit' class='btn btn-default'>Submit</button>
 					</div>
