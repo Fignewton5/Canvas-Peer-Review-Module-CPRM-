@@ -58,7 +58,7 @@
   				</li>
   				<li id='peerReviews'><a href="#">Peer Reviews</a></li>
   				<li id='grades'><a href="#">Grades</a></li>
-  				<li id='feedbackSubmission'><a href="#">Feedback Submission</a></li>
+  				<li id='feedbackSubmission'><a href="?controller=cprm&action=feedback">Feedback Submission</a></li>
   				<li id='studentInformation'><a href="#">Student Information</a></li>
   			</ul>
   			

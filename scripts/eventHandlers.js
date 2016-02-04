@@ -43,17 +43,6 @@ $('#grades').on('click', function() {
 $('#feedbackSubmission').on('click', function() {
 	//run this first, removes active class on navbar
 	removeActiveDropdown();
-	
-	var xhr = new XMLHttpRequest();
-	xhr.onreadystatechange = function() {
-		
-		if (xhr.readyState === 4 && xhr.status == 200) {
-			document.getElementById("test").innerHTML = xhr.responseText;
-		}
-	};
-	
-	xhr.open("GET", "views/cprm/feedback.php", true);
-	xhr.send();
 	$(this).addClass('active');
 });
 

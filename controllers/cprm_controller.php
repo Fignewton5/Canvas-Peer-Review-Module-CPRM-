@@ -1,10 +1,13 @@
 <?php
 	class CprmController {
-		public function home(){
+		public function home() {
 			require_once('views/cprm/home.php');
 		}
-		public function error(){
+		public function error() {
 			require_once('views/cprm/error.php');
+		}
+		public function feedback(){
+			require_once('views/cprm/feedback.php');
 		}
 	}
 ?>
