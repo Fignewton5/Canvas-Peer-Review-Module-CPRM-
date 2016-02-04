@@ -18,10 +18,10 @@
 		echo "hello";
 		require_once('../../connection.php');
 		$db = Db::getInstance();
-			// $result = $db->query("SELECT * FROM Test WHERE reviewName='cs462'");
-			// while ($row = mysqli_fetch_array($result)) {
-				// echo $row['reviewName'] . " " . $row['pointMax'] . $row['field1'] . $row['pointFor1'];
-			// }
+		$result = $db->query("SELECT * FROM Test WHERE reviewName='cs462'");
+		while ($row = mysqli_fetch_array($result)) {
+			echo $row['reviewName'] . " " . $row['pointMax'] . $row['field1'] . $row['pointFor1'];
+		}
 		?>
 		<div class="col-md-8" style="float:left;width:80%;">
 			<div style="width:100%;">
