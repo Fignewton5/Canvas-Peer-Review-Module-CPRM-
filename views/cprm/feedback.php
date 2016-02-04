@@ -16,7 +16,7 @@
 		</div>
 		<?php
 		//relative because local hated it...
-		require_once('/connection.php');
+		require_once('connection.php');
 		$db = Db::getInstance();
 		// $query = 'SELECT * FROM Test WHERE reviewName=cs462';
 		// foreach ($db->query($query) as $row) {
