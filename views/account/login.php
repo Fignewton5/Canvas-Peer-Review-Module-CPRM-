@@ -1,12 +1,19 @@
 <?php
 
+	//initialization stuff
 	session_start();
+	$db = Db::getInstance();
+	
 	if (isset($_POST['token'])) {
 		$_SESSION['token'] = $_POST['token'];
 		require_once('classes/canvasWrapper.php');
 		$c = new CanvasWrapper();
 		if ($c->testToken()) {
 			//send user to home page or add the user or whatever
+			require_once('classes/dbInterface.php');
+			$dbInt = new DbInterface();
+			$dbInt->addUserToDb($_SESSION['token']);
+			
 			header('Location: http://cprmphp-weavex.rhcloud.com/?controller=cprm&action=home');
 			//echo "valid token entered.<br><br>";
 		}
@@ -16,7 +23,17 @@
 	}
 	if (isset($_POST['osuId'])) {
 		//sql lookup to get user info from Id.
-		$db = Db::getInstance();
+		
+		$sql = "SELECT * FROM users WHERE osuId=" . $_POST['osuId'];
+		$result = $db->query($sql);
+		if (count($result) == 0) {
+			echo "User not registered or invalid token entered.<br><br>";
+		}
+		foreach ($result as $row) {
+			
+			$_SESSION['token'] = $row['token'];
+			header('Location: http://cprmphp-weavex.rhcloud.com/?controller=cprm&action=home');
+		}
 	}
 ?>
 <div class="container-fluid">
