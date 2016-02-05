@@ -39,7 +39,6 @@
 			header('Location: http://cprmphp-weavex.rhcloud.com/?controller=cprm&action=home');
 		}
 	}
-	echo "all skipped.";
 ?>
 <div class="container-fluid">
 	<div class="panel panel-default" style="margin-top:5px;">

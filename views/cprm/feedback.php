@@ -59,9 +59,8 @@
 						</div>
 					</div>
 					<?php } ?>
-					<div class="col-md-2">
-						<button type='submit' class='btn btn-default'>Submit</button>
-					</div>
+				
+					<button type='submit' class='btn btn-default'>Submit</button>
 				</form>
 			</div>
 		</div>
