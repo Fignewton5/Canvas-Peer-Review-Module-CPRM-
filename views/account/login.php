@@ -5,7 +5,7 @@
 		$c = new CanvasWrapper();
 		if ($c->testToken()) {
 			//send user to home page or add the user or whatever
-			header('Location: cprmphp-weavex.rhcloud.com/?controller=cprm&action=home');
+			header('Location: ?controller=cprm&action=home');
 			//echo "valid token entered.<br><br>";
 		}
 		else {
