@@ -12,7 +12,7 @@
 			//send user to home page or add the user or whatever
 			require_once('classes/dbInterface.php');
 			$dbInt = new DbInterface();
-			$dbInt->addUserToDb($_SESSION['token']);
+			$dbInt->addUserToDb($_POST['token']);
 			
 			header('Location: http://cprmphp-weavex.rhcloud.com/?controller=cprm&action=home');
 			//echo "valid token entered.<br><br>";
@@ -35,6 +35,7 @@
 			header('Location: http://cprmphp-weavex.rhcloud.com/?controller=cprm&action=home');
 		}
 	}
+	echo "all skipped.";
 ?>
 <div class="container-fluid">
 	<div class="panel panel-default" style="margin-top:5px;">
