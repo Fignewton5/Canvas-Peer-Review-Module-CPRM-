@@ -59,7 +59,7 @@ class Canvas
 		curl_setopt($curl, CURLOPT_HEADER, 1);
 		
 		//REMOVE IN PRODUCTION THIS BLOCKS SSL VERIFICATION FOR LOCAL
-		curl_setopt($curl, CURLOPT_SSL_VERIFYPEER, false);
+		//curl_setopt($curl, CURLOPT_SSL_VERIFYPEER, false);
 		//REMOVE REMOVE REMOVE!!!!!!!!!!!!!!!!
 		
 		$curlResult = curl_exec($curl);
