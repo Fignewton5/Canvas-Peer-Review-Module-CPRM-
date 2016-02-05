@@ -1,10 +1,12 @@
 <div class="container-fluid">
 	<div class="panel panel-default" style="margin-top:5px;">
 		<div id="userIdPanel" class="panel-heading" style="height:49px;">
-			<?php 
-				require_once('classes/canvasWrapper.php');
-				$canvas = new CanvasWrapper();
-				$canvas->printUserName();
+			<?php
+				if (isset($_SESSION['token'])) {
+					require_once('classes/canvasWrapper.php');
+					$canvas = new CanvasWrapper();
+					$canvas->printUserName();
+				} 
 			?>
 			
 			<!-- <div class="panel-navbar">

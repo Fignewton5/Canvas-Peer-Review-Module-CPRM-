@@ -34,7 +34,6 @@
 						</span>
 					</div>
 				</div>
-				<br>
 				<div class='col-md-6'>
 					<div class='input-group'>
 						<input type='text' class='form-control' name='osuId' placeholder='OSU ID' />

@@ -50,9 +50,11 @@
   					<ul id="courseDropdown" class="dropdown-menu">
   						<!-- instantiate courses here -->
   						<?php 
-  						require_once('classes/canvasWrapper.php');
-						$canvas = new CanvasWrapper();
-						$canvas->createCourseDropdown();
+  						if (isset($_SESSION['token'])) {
+  							require_once('classes/canvasWrapper.php');
+							$canvas = new CanvasWrapper();
+							$canvas->createCourseDropdown();
+  						}
 						?>
   					</ul>
   				</li>
