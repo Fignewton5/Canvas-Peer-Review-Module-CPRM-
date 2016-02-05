@@ -15,8 +15,9 @@ class Canvas
 	 * 
 	 */ 
 	public function __construct() {
-		$file = fopen("token.txt",'r');
-		$token = fgets($file);
+		//$file = fopen("token.txt",'r');
+		//$token = fgets($file);
+		$token = $_SESSION['token'];
 		$this->canvasAccessToken = $token;
 	}
 	

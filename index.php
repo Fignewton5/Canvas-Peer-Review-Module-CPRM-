@@ -6,8 +6,8 @@
 		$action 	= $_GET['action'];
 	}
 	else {
-		$controller = 'cprm';
-		$action		= 'home';
+		$controller = 'account';
+		$action		= 'login';
 	}
 	
 	require_once('views/layout.php');

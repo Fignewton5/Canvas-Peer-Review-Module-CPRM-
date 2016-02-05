@@ -18,13 +18,12 @@
 				</div>
 				<?php
 				
-				
 				$db = Db::getInstance();
 				$query = 'SELECT * FROM Test1 WHERE reviewName="cs462"';
 
 				foreach ($db->query($query) as $row) {
+					//only pulls one row
 					$iter = $row['fieldsUsed'];
-					//echo $row['reviewName'] . " " . $row['pointMax'] . $row['field1'] . $row['pointFor1'];
 				
 				?>
 				<form action="" method="post">

@@ -10,6 +10,20 @@ class CanvasWrapper
 	}
 	
 	/*
+	 * takes a user's token and returns bool on validation
+	 * 
+	 * @return bool, true if valid, false if not
+	 * 
+	 */ 
+	public function testToken() {
+		$this->canvas->getUserInfo();
+		if ($this->canvas->hasError()) {
+			return false;
+		}
+		return true;
+	}
+	
+	/*
 	 * takes json result and formats it for printing
 	 * 
 	 * @return $courseHolder an array:
