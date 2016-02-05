@@ -12,7 +12,7 @@
 			require_once('classes/canvasWrapper.php');
 			$canvas = new CanvasWrapper();
 			$user = $canvas->formatUserData();
-			$sql = "INSERT INTO users (osuId,token,name) VALUES (" . $user->user_id . "," . $_SESSION['token'] . "," . $user->name . ")";
+			$sql = "INSERT INTO users (osuId,token,name) VALUES ('" . $user->user_id . "','" . $_SESSION['token'] . "',Kirk')";
 			$db->query($sql);
 		}
 	}
