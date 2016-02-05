@@ -15,13 +15,15 @@
 			$user = $canvas->formatUserData();
 			$sql = "INSERT INTO users (osuId,token,name) VALUES ('" . $user->user_id . "','" . $token . "','" . $user->name . "')";
 			$result = $this->db->query($sql);
-			if ($result == FALSE) {
-				echo "QUERY FAILED";
-			}
 		}
 		
 		//checks user token to see if it exists returns bool
 		public function checkUserToken($token) {
-			return null;
+			$sql = "SELECT * FROM Test1 WHERE token='" . $token . "'";
+			$result = $this->db->query($sql);
+			if (!$result) {
+				return FALSE;
+			}
+			return TRUE;
 		}
 	}

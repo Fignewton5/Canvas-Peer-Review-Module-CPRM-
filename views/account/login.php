@@ -12,7 +12,11 @@
 			//send user to home page or add the user or whatever
 			require_once('classes/dbInterface.php');
 			$dbInt = new DbInterface();
-			$dbInt->addUserToDb($_POST['token']);
+			
+			//check if user has been added to the db first
+			if (!$dbInt->checkUserToken($_POST['token'])) {
+				$dbInt->addUserToDb($_POST['token']);
+			}
 			
 			header('Location: http://cprmphp-weavex.rhcloud.com/?controller=cprm&action=home');
 			//echo "valid token entered.<br><br>";
