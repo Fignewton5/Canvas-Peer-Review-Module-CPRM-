@@ -168,7 +168,7 @@ class CanvasWrapper
 		$courseArray = $this->formatCourseData();
 		foreach ($courseArray as $course) {
 			echo "<button type='submit' name='course' class='btn btn-default' ";
-			echo "value='" . $course->courseName . "'>";
+			echo "value='" . $course->id . "'>";
 			echo $course->courseName . "</button>";
 		}
 	}

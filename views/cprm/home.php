@@ -12,7 +12,7 @@
 		$canvas = new CanvasWrapper();
 		$courses = $canvas->formatCourseData();
 		foreach ($courses as $course) {
-			if ($course->courseName == $_POST['course']) {}
+			if ($course->id == $_POST['course']) {}
 			
 			//set course session to current course selected
 			$_SESSION['course'] = $course;
