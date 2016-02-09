@@ -26,8 +26,9 @@
 			//echo $sql;
 			$result = $this->db->query($sql);
 			//echo $result;
-			var_dump($result);
-			if (!$result) {
+			$row = $result->fetch();
+			//var_dump($result);
+			if (!$row) {
 				echo "returneed false";
 				return FALSE;
 			}
