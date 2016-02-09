@@ -19,7 +19,7 @@
 				$dbInt->addUserToDb($_POST['token']);
 			}
 			
-			header('Location: http://cprmphp-weavex.rhcloud.com/?controller=cprm&action=home');
+			//header('Location: http://cprmphp-weavex.rhcloud.com/?controller=cprm&action=home');
 			//echo "valid token entered.<br><br>";
 		}
 		else {
