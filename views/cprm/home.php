@@ -8,7 +8,6 @@
 	//check / set course information in session
 
 	if (isset($_POST['course'])) {
-		echo $_POST['course'];
 		require_once('classes/canvasWrapper.php');
 		$canvas = new CanvasWrapper();
 		$courses = $canvas->formatCourseData();
@@ -17,10 +16,11 @@
 			
 			//set course session to current course selected
 			$_SESSION['course'] = $course;
-		
+			
+			//after it is set go to give feedback
+			header('Location: ?controller=cprm&action=feedback');
 			}
 		}
-		print_r($_SESSION['course']);
 	}
 
 ?>
@@ -28,24 +28,13 @@
 	<div class="panel panel-default" style="margin-top:5px;">
 		<div id="userIdPanel" class="panel-heading" style="height:49px;">
 			<?php
+				//this is a user greeting
 				if (isset($_SESSION['token'])) {
 					require_once('classes/canvasWrapper.php');
 					$canvas = new CanvasWrapper();
 					$canvas->printUserName();
 				} 
 			?>
-			
-			<!-- <div class="panel-navbar">
-				<ul>
-					<li><span class="nav-span">Courses</span></li>
-					<li><span class="nav-span">Peer Reviews</span></li>
-					<li><span class="nav-span" id="grades">Grades</span></li>
-					<li><span class="nav-span">Feedback Submission</span></li>
-					<li><span class="nav-span">Student Information</span></li>
-				</ul>
-			</div> -->
-			
-			
 		</div>
 		
 		<div class="panel-body" id="test">
