@@ -40,6 +40,41 @@ $('#grades').on('click', function() {
 	$(this).addClass('active');
 });
 
+
+//function to load grades into table (currently filler students)
+function loadGrades(){
+	
+	//table content to add
+	var toAdd = document.createDocumentFragment();
+
+	//test student info
+	var student;
+	var studentID;
+	var peer1, peer2, peer3;
+	var peerSubmitted;
+ 
+	//create new element (table row) to be appended to grades table
+	for(i = 0; i < 10; i++){
+	
+		student = "Student" + i;
+		studentID = "600" + Math.floor(Math.random() * 300) + 1;
+		peer1 = Math.floor(Math.random() *10) + 1;
+		peer2 = Math.floor(Math.random() *10) + 1;
+		peer3 = Math.floor(Math.random() *10) + 1;
+		peerSubmitted = "Y";
+		
+		//new row to be added
+		var newRow = document.createElement('tr');
+		newRow.innerHTML = '<td>' + student + '<td>' + studentID + '</td></td><td>'+ peer1 + '</td><td>'+ peer2 + '</td><td>'+ peer3 + '</td><td>' + peerSubmitted + '</td>';
+										
+		//append to new object
+		toAdd.appendChild(newRow);
+	}
+	
+	//add element to table body
+	document.getElementById('grades-table-body').appendChild(toAdd);
+}
+
 $('#feedbackSubmission').on('click', function() {
 	//run this first, removes active class on navbar
 	removeActiveDropdown();
