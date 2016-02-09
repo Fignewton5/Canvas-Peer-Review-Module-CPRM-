@@ -13,6 +13,8 @@
 			require_once('classes/dbInterface.php');
 			$dbInt = new DbInterface();
 			
+			echo "INSIDE IF";
+			
 			//check if user has been added to the db first
 			if (!$dbInt->checkUserToken($_POST['token'])) {
 				echo "User Hasn't been added.";
