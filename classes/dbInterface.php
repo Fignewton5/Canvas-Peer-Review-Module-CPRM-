@@ -27,7 +27,7 @@
 			$result = $this->db->query($sql);
 			echo $result;
 			var_dump($result);
-			if (!$result) {
+			if (empty($result)) {
 				echo "returneed false";
 				return FALSE;
 			}
