@@ -7,7 +7,7 @@
 	<div class="panel panel-default" style="margin-top:5px;">
 		
 		<div class="panel-body">
-			You have successfully logged out.
+			You have successfully logged out. You may now leave this page.
 		</div>
 		
 	</div>

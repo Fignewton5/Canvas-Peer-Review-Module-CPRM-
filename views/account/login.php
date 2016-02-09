@@ -21,28 +21,32 @@
 
 			}
 			
+			//redirect after successful addition
 			header('Location: http://cprmphp-weavex.rhcloud.com/?controller=cprm&action=home');
 
 		}
 		else {
-			echo $_SESSION['token'];
 			echo "Invalid Token Entered. Try Again<br><br>";
 		}
 	}
 	
 	if (isset($_POST['osuId'])) {
 		//sql lookup to get user info from Id.
-		
 		$sql = "SELECT * FROM users WHERE osuId=" . $_POST['osuId'];
 		$result = $db->query($sql);
+		
+		//run a fetch to see if the query was empty
 		$row = $result->fetch();
-		var_dump($row);
 		if (!$row) {
 			echo "User not registered or invalid token entered.<br><br>";
 		}
-			
-		$_SESSION['token'] = $row['token'];
-		header('Location: http://cprmphp-weavex.rhcloud.com/?controller=cprm&action=home');
+		
+		//add token data to session
+		else {
+			$_SESSION['token'] = $row['token'];
+			header('Location: http://cprmphp-weavex.rhcloud.com/?controller=cprm&action=home');
+		}	
+		
 	}
 
 ?>
