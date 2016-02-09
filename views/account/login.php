@@ -4,6 +4,22 @@
 	session_start();
 	$db = Db::getInstance();
 	
+	if (isset($_POST['osuId'])) {
+		//sql lookup to get user info from Id.
+		
+		$sql = "SELECT * FROM users WHERE osuId=" . $_POST['osuId'];
+		$result = $db->query($sql);
+		$row = $result->fetch();
+		if (!$row) {
+			echo "User not registered or invalid token entered.<br><br>";
+		}
+		foreach ($result as $row) {
+			
+			$_SESSION['token'] = $row['token'];
+			header('Location: http://cprmphp-weavex.rhcloud.com/?controller=cprm&action=home');
+		}
+	}
+	
 	if (isset($_POST['token'])) {
 		$_SESSION['token'] = $_POST['token'];
 
@@ -28,21 +44,7 @@
 			echo "Invalid Token Entered. Try Again<br><br>";
 		}
 	}
-	if (isset($_POST['osuId'])) {
-		//sql lookup to get user info from Id.
-		
-		$sql = "SELECT * FROM users WHERE osuId=" . $_POST['osuId'];
-		$result = $db->query($sql);
-		$row = $result->fetch();
-		if (!$row) {
-			echo "User not registered or invalid token entered.<br><br>";
-		}
-		foreach ($result as $row) {
-			
-			$_SESSION['token'] = $row['token'];
-			header('Location: http://cprmphp-weavex.rhcloud.com/?controller=cprm&action=home');
-		}
-	}
+
 ?>
 <div class="container-fluid">
 	<div class="panel panel-default" style="margin-top:5px;">
