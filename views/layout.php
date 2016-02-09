@@ -51,9 +51,9 @@
   						<!-- instantiate courses here -->
  						<form action="?controller=cprm&action=home" method="post">
   						<?php
-  						if (isset($_POST['course'])) {
-  							echo $_POST['course'];
-  						} 
+  						// if (isset($_POST['course'])) {
+  							// echo $_POST['course'];
+  						// } 
   						session_start();
   						if (isset($_SESSION['token'])) {
   							require_once('classes/canvasWrapper.php');
