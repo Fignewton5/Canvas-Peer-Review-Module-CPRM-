@@ -21,6 +21,8 @@
 		public function checkUserToken($token) {
 			$sql = "SELECT * FROM users WHERE token='" . $token . "'";
 			$result = $this->db->query($sql);
+			echo $result;
+			var_dump($result);
 			if (!$result) {
 				return FALSE;
 			}
