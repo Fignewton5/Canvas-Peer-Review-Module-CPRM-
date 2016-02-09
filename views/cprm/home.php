@@ -23,7 +23,17 @@
 		</div>
 		
 		<div class="panel-body" id="test">
-			<h2>This should change based on the button clicked on the top of the page!"</h2>
+			<h2>Select a course to get started.</h2>
+			<!-- instantiate courses here -->
+ 			<form action="?controller=cprm&action=home" method="post">
+  			<?php
+	  			session_start();
+	  			if (isset($_SESSION['token'])) {
+	  				require_once('classes/canvasWrapper.php');
+					$canvas = new CanvasWrapper();
+					$canvas->createCourseButtons();
+	  			}
+			?>
 		</div>
 		
 	</div>

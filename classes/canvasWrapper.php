@@ -159,6 +159,29 @@ class CanvasWrapper
 		return $nameArray;
 	}
 	
+	/*
+	 * This function queries for courses and
+	 * generates a list of buttons for the courses with
+	 * the value set as the course name
+	 */ 
+	public function createCourseButtons() {
+		$courseArray = $this->formatCourseData();
+		foreach ($courseArray as $course) {
+			echo "<button type='submit' name='course' class='btn btn-default' ";
+			echo "value='" . $course->courseName . "'>";
+			echo $course->courseName . "</button>";
+		}
+	}
+	
+	/*
+	 * DEPRECATED
+	 * 
+	 * Canvas dropdown has been moved to home tab
+	 * this is to solve error of selecting a class
+	 * 
+	 * look at createCourseButtons() function
+	 * 
+	 */
 	public function createCourseDropdown() {
 		$courseArray = $this->formatCourseData();
 		foreach ($courseArray as $course) {

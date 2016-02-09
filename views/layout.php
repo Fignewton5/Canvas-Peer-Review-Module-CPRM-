@@ -43,32 +43,9 @@
   		
   		<div class="navbar-collapse collapse" id="navbar-options">
   			<ul class="nav navbar-nav">
-  				<li class="dropdown">
-  					<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button">
-  						Courses <span class="caret"></span>
-  					</a>
-  					<ul id="courseDropdown" class="dropdown-menu">
-  						<!-- instantiate courses here -->
- 						<form action="?controller=cprm&action=home" method="post">
-  						<?php
-  						// if (isset($_POST['course'])) {
-  							// echo $_POST['course'];
-  						// } 
-  						session_start();
-  						if (isset($_SESSION['token'])) {
-  							require_once('classes/canvasWrapper.php');
-							$canvas = new CanvasWrapper();
-							$canvas->createCourseDropdown();
-  						}
-						?>
-						<input type='hidden' id='hiddenCourse' name='course' value="" />
-						<input type='hidden' id='hiddenId' name='id' value="" />
-						<input type='hidden' id='hiddenOsu' name='osu' value="" />
-						</form>
-  					</ul>
-  				</li>
+  				<li id='courses'><a href="?controller=cprm&action=home">Courses</a></li>
   				<li id='peerReviews'><a href="#">Peer Reviews</a></li>
-  				<li id='grades'><a href="#">Grades</a></li>
+  				<li id='grades'><a href="?controller=cprm&action=grades">Grades</a></li>
   				<li id='feedbackSubmission'><a href="?controller=cprm&action=feedback">Feedback Submission</a></li>
   				<li id='studentInformation'><a href="#">Student Information</a></li>
   			</ul>

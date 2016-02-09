@@ -9,5 +9,8 @@
 		public function feedback(){
 			require_once('views/cprm/feedback.php');
 		}
+		public function grades(){
+			require_once('views/cprm/feedback.php');
+		}
 	}
 ?>
