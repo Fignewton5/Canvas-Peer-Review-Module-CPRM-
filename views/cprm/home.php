@@ -8,6 +8,7 @@
 	//check / set course information in session
 
 	if (isset($_POST['course'])) {
+		echo $_POST['course'];
 		require_once('classes/canvasWrapper.php');
 		$canvas = new CanvasWrapper();
 		$courses = $canvas->formatCourseData();
