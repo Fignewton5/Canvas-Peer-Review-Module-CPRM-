@@ -19,7 +19,7 @@
 		
 		//checks user token to see if it exists returns bool
 		public function checkUserToken($token) {
-			$sql = "SELECT * FROM users WHERE token='" . $token . "'";]
+			$sql = "SELECT * FROM users WHERE token='" . $token . "'";
 			echo "<br></br>" . $sql
 			$result = $this->db->query($sql);
 			echo $result;

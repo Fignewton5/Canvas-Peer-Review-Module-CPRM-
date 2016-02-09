@@ -6,10 +6,8 @@
 	
 	if (isset($_POST['token'])) {
 		$_SESSION['token'] = $_POST['token'];
-		echo $_SESSION['token'];
 		require_once('classes/canvasWrapper.php');
 		$c = new CanvasWrapper();
-		echo "Test Token result: " . $c->testToken();
 		if ($c->testToken()) {
 			//send user to home page or add the user or whatever
 			require_once('classes/dbInterface.php');
