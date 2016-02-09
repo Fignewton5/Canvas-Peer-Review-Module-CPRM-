@@ -13,7 +13,7 @@
 			require_once('classes/canvasWrapper.php');
 			$canvas = new CanvasWrapper();
 			$user = $canvas->formatUserData();
-			$sql = "INSERT INTO users (osuId,token,name) VALUES (" . $user->user_id . "," . $token . ",'" . $user->name . "')";
+			$sql = "INSERT INTO users (osuId,token,name) VALUES (" . $user->user_id . ",\"" . $token . "\",'" . $user->name . "')";
 			$result = $this->db->query($sql);
 		}
 		
@@ -21,7 +21,7 @@
 		public function checkUserToken($token) {
 			echo "<br></br>";
 			echo "BEFORE SQL!!!";
-			$sql = "SELECT * FROM users WHERE token=" . $token;
+			$sql = "SELECT * FROM users WHERE token=\"" . $token . "\"";
 			echo "<br></br>"; 
 			echo $sql;
 			$result = $this->db->query($sql);
