@@ -1,11 +1,12 @@
 <?php
 	//check to see if session has been reset
+	session_start();
 	if (!isset($_SESSION['token'])) {
 		header("Location: ?controller=account&action=login");
 	}
 
 	//check / set course information in session
-	session_start();
+
 	if (isset($_POST['course'])) {
 		require_once('classes/canvasWrapper.php');
 		$canvas = new CanvasWrapper();
