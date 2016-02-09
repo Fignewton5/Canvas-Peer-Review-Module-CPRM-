@@ -6,6 +6,7 @@
 	
 	if (isset($_POST['token'])) {
 		$_SESSION['token'] = $_POST['token'];
+		echo $_SESSION['token'];
 		require_once('classes/canvasWrapper.php');
 		$c = new CanvasWrapper();
 		if ($c->testToken()) {

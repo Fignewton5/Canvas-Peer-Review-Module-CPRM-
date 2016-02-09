@@ -43,16 +43,3 @@
 <div class="container">
 	<button type="button" class="btn-default" id="load-grades" onclick="loadGrades()">Load Grades [TEST]</button>
 </div>
-
-<br></br>
-<br></br>
-<br></br>
-
-
-<!-- Testing Stuff. Can Delete -->
-<div class="container-fluid" hidden>
-	<button type="button" class="btn-default" id="tstbtn" onclick="changeText(this)">PRESS ME!!!</button>
-	<div id="fill">
-		
-	</div>
-</div>
