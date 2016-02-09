@@ -49,7 +49,11 @@
   					</a>
   					<ul id="courseDropdown" class="dropdown-menu">
   						<!-- instantiate courses here -->
-  						<?php 
+ 						<form action="?controller=cprm&action=home" method="post">
+  						<?php
+  						if (isset($_POST['course'])) {
+  							echo $_POST['course'];
+  						} 
   						session_start();
   						if (isset($_SESSION['token'])) {
   							require_once('classes/canvasWrapper.php');
@@ -57,6 +61,10 @@
 							$canvas->createCourseDropdown();
   						}
 						?>
+						<input type='hidden' id='hiddenCourse' name='course' value="" />
+						<input type='hidden' id='hiddenId' name='id' value="" />
+						<input type='hidden' id='hiddenOsu' name='osu' value="" />
+						</form>
   					</ul>
   				</li>
   				<li id='peerReviews'><a href="#">Peer Reviews</a></li>

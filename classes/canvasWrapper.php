@@ -165,7 +165,8 @@ class CanvasWrapper
 			echo "<li id='" . $course->id . "' ";
 			echo "data-id='" . $course->osuId . "' ";
 			echo "data-name='" . $course->courseName . "'>";
-			echo "<a href='#'>";
+			echo "class='course'>"; 
+			echo "<a href='?controller=cprm&action=home'>";
 			echo $course->courseName;
 			echo "</a></li>";
 		}

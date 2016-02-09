@@ -54,6 +54,18 @@ $('#studentInformation').on('click', function() {
 	$(this).addClass('active');
 });
 
+/*
+ * Courses Event Handlers
+ */
+
+$('.course').on('click', function() {
+	var canvasId = $(this).attr('id');
+	var osuId = $(this).attr('data-id');
+	var course = $(this).attr('data-name');
+	$('#hiddenCourse').val(course);
+	$('#hiddenId').val(canvasId);
+	$('#hiddenOsu').val(osuId);
+});
 
 /*
  * course button event handlers
