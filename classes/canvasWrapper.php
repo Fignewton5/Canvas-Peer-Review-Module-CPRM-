@@ -164,9 +164,9 @@ class CanvasWrapper
 		foreach ($courseArray as $course) {
 			echo "<li id='" . $course->id . "' ";
 			echo "data-id='" . $course->osuId . "' ";
-			echo "data-name='" . $course->courseName . "' ";
-			echo "class='course'>"; 
-			echo "<a href='?controller=cprm&action=home'>";
+			echo "data-name='" . $course->courseName . "'>";
+			//echo "class='course'>"; 
+			echo "<a href='#'>";
 			echo $course->courseName;
 			echo "</a></li>";
 		}
