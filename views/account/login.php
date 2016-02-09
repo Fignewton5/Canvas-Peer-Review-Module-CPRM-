@@ -9,6 +9,7 @@
 		echo $_SESSION['token'];
 		require_once('classes/canvasWrapper.php');
 		$c = new CanvasWrapper();
+		echo "Test Token result: " . $c->testToken();
 		if ($c->testToken()) {
 			//send user to home page or add the user or whatever
 			require_once('classes/dbInterface.php');
@@ -16,6 +17,7 @@
 			
 			//check if user has been added to the db first
 			if (!$dbInt->checkUserToken($_POST['token'])) {
+				echo "User Hasn't been added.";
 				$dbInt->addUserToDb($_POST['token']);
 			}
 			
