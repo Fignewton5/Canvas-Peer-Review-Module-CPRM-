@@ -6,14 +6,13 @@
 	
 	if (isset($_POST['token'])) {
 		$_SESSION['token'] = $_POST['token'];
+		echo $_SESSION['token'];
 		require_once('classes/canvasWrapper.php');
 		$c = new CanvasWrapper();
 		if ($c->testToken()) {
 			//send user to home page or add the user or whatever
 			require_once('classes/dbInterface.php');
 			$dbInt = new DbInterface();
-			
-			echo "INSIDE IF";
 			
 			//check if user has been added to the db first
 			if (!$dbInt->checkUserToken($_POST['token'])) {
