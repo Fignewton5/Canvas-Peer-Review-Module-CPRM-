@@ -47,7 +47,7 @@
   				<li id='peerReviews'><a href="#">Peer Reviews</a></li>
   				<li id='grades'><a href="?controller=cprm&action=grades">Grades</a></li>
   				<li id='feedbackSubmission'><a href="?controller=cprm&action=feedback">Feedback Submission</a></li>
-  				<li id='studentInformation'><a href="#">Student Information</a></li>
+  				<li id='logout' style="float:right;"><a href="?controller=cprm&action=logout">Logout</a></li>
   			</ul>
   			
   		</div>

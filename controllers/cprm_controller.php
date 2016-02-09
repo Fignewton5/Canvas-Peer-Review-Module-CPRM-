@@ -12,5 +12,8 @@
 		public function grades(){
 			require_once('views/cprm/feedback.php');
 		}
+		public function logout(){
+			require_once('views/cprm/logout.php');
+		}
 	}
 ?>

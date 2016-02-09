@@ -1,3 +1,19 @@
+<?php
+	session_start();
+	if (isset($_POST['course'])) {
+		require_once('classes/canvasWrapper.php');
+		$canvas = new CanvasWrapper();
+		$courses = $canvas->formatCourseData();
+		foreach ($courses as $course) {
+			if ($course->courseName == $_POST['course']) {}
+			
+			//set course session to current course selected
+			$_SESSION['course'] = $course;
+		}
+		print_r($_SESSION['course']);
+	}
+
+?>
 <div class="container-fluid">
 	<div class="panel panel-default" style="margin-top:5px;">
 		<div id="userIdPanel" class="panel-heading" style="height:49px;">
@@ -23,17 +39,18 @@
 		</div>
 		
 		<div class="panel-body" id="test">
-			<h2>Select a course to get started.</h2>
+			
 			<!-- instantiate courses here -->
  			<form action="?controller=cprm&action=home" method="post">
-  			<?php
-	  			session_start();
-	  			if (isset($_SESSION['token'])) {
-	  				require_once('classes/canvasWrapper.php');
-					$canvas = new CanvasWrapper();
-					$canvas->createCourseButtons();
-	  			}
-			?>
+	  			<?php
+		  			
+		  			if (isset($_SESSION['token'])) {
+		  				require_once('classes/canvasWrapper.php');
+						$canvas = new CanvasWrapper();
+						$canvas->createCourseButtons();
+		  			}
+				?>
+			</form>
 		</div>
 		
 	</div>
