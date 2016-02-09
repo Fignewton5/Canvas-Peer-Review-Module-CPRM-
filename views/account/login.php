@@ -1,12 +1,12 @@
 <?php
 
-	//initialization stuff
+	//initialization of session and DB
 	session_start();
 	$db = Db::getInstance();
 	
 	if (isset($_POST['token'])) {
 		$_SESSION['token'] = $_POST['token'];
-		echo $_SESSION['token'];
+		//echo $_SESSION['token'];
 		require_once('classes/canvasWrapper.php');
 		$c = new CanvasWrapper();
 		if ($c->testToken()) {
@@ -20,7 +20,7 @@
 				$dbInt->addUserToDb($_POST['token']);
 			}
 			
-			header('Location: http://cprmphp-weavex.rhcloud.com/?controller=cprm&action=home');
+			//header('Location: http://cprmphp-weavex.rhcloud.com/?controller=cprm&action=home');
 			//echo "valid token entered.<br><br>";
 		}
 		else {
