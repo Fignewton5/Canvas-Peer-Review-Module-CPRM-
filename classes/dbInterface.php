@@ -28,6 +28,7 @@
 			echo $result;
 			var_dump($result);
 			if (!$result) {
+				echo "returneed false";
 				return FALSE;
 			}
 			return TRUE;
