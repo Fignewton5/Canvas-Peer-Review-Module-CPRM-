@@ -85,6 +85,33 @@ class CanvasWrapper
 		return $user;
 	}
 	
+	/*
+	 * This function will handle the request
+	 * and formatting of the user enrollment request
+	 * and ouput an object
+	 * 
+	 */ 
+	public function formatEnrollment() {
+		
+	}
+	
+	/*
+	 * This function will determine and 
+	 * set a variable that states whether
+	 * the user is a student or a teacher
+	 * 
+	 */ 
+	public function checkEnrollment() {
+		
+	}
+	
+	/*
+	 * This prints out a greeting to the user
+	 * based off of a call to the formatUserData
+	 * This is specifically supposed to be used in a 
+	 * panel-heading on the home page
+	 * 
+	 */ 
 	public function printUserName() {
 		$user = $this->formatUserData();
 		//echo "<div class='well well-sm'>";

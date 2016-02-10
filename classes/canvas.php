@@ -41,6 +41,15 @@ class Canvas
 	}
 	
 	/*
+	 * This returns the enrollment of the user
+	 * will show if they are a student or teacher
+	 * 
+	 */ 
+	public function getUserEnrollment() {
+		
+	}
+	
+	/*
 	 * submits cURL request for the endpoint url
 	 * 			selected by a previous function
 	 * 
