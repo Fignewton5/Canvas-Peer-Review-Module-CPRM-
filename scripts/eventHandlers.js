@@ -54,10 +54,10 @@ function loadGradesProf(){
 	var peerSubmitted;
  
 	//create new element (table row) to be appended to grades table
-	for(i = 0; i < 10; i++){
+	for(i = 0; i < 30; i++){
 	
 		student = "Student" + i;
-		studentID = "600" + Math.floor(Math.random() * 300) + 1;
+		studentID = "600" + Math.floor(Math.random() * 99999);
 		peer1 = Math.floor(Math.random() *10) + 1;
 		peer2 = Math.floor(Math.random() *10) + 1;
 		peer3 = Math.floor(Math.random() *10) + 1;
@@ -81,10 +81,10 @@ function loadGradesProf(){
 */
 function showProfessorGrades(){
 	//show the professor view
-	document.getElementById('profView').style.visibility="visible";
+	document.getElementById('profView').style.display="block";
 	
 	//hide the student view
-	document.getElementById('studentView').style.visibility="hidden";
+	document.getElementById('studentView').style.display="none";
 }
 
 /*	function that will show what a student will 
@@ -93,10 +93,10 @@ function showProfessorGrades(){
 */
 function showStudentGrades(){
 	//show the student view
-	document.getElementById('studentView').style.visibility="visible";
+	document.getElementById('studentView').style.display="block";
 	
 	//hide the professor view
-	document.getElementById('profView').style.visibility="hidden";
+	document.getElementById('profView').style.display="none";
 }
 
 $('#feedbackSubmission').on('click', function() {
