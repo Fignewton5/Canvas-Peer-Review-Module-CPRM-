@@ -5,17 +5,17 @@
 				<div class="col-md-3" style="float:left;">
 					<div class="peerReview-side-menu">
 						<div style="padding-bottom:2px;">
-							<button type="button" class="btn btn-default feedback-button-fixes" id="single">
+							<button type="button" class="btn btn-default feedback-button-fixes" id="single" onclick="createRubric()">
 								Create Rubric
 							</button>
 						</div>
 						<div style="padding-top:2px;">
-							<button type="button" class="btn btn-default feedback-button-fixes" id="group">
+							<button type="button" class="btn btn-default feedback-button-fixes" id="group" onclick="loadRubric()">
 								Load Rubric
 							</button>
 						</div>
 						<div style="padding-top:2px;">
-							<button type="button" class="btn btn-default feedback-button-fixes" id="group">
+							<button type="button" class="btn btn-default feedback-button-fixes" id="group" onclick="assignGroup()">
 								Assign Group
 							</button>
 						</div>
@@ -42,7 +42,6 @@
 									<tr>
 										<th>Evaluation Criteria</th>
 										<th>Points Possible</th>
-										<!--<th>Points Earned</th>-->
 									</tr>
 								</thead>
 								<tbody>
@@ -51,7 +50,6 @@
 											echo "<tr>";
 											echo "<td class='feedback-tb-top-padding'>" . $row['field' . ($i + 1)] . "</td>";
 											echo "<td><input type='text' style='width:20%' class='form-control' value='" . $row['pMax' . ($i + 1)] . "' /></td>";
-											//echo "<td><input type='text' style='width:20%' class='form-control' value='" . $row['pEarn' . ($i + 1)] . "' /></td>";
 											echo "</tr>";
 										}
 										
@@ -72,5 +70,17 @@
 <script type="text/javascript">
 	function addRowRubric(){
 		alert("Add Row button has been clicked!");
+	}
+	
+	function createRubric(){
+		alert("Create Rubric button has been clicked!");
+	}
+	
+	function loadRubric(){
+		alert("Load Rubric button has been clicked!");
+	}
+	
+	function assignGroup(){
+		alert("Assign Group button has been clicked!");
 	}
 </script>
