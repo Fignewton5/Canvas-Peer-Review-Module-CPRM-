@@ -59,6 +59,7 @@
 	<!-- Temporary Script that loads sample grades when the page loads -->
 	<script type="text/javascript">
 		loadGradesProf();
+		alert("Boo!");
 	</script>
 	
 	
