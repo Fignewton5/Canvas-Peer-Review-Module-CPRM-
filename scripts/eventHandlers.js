@@ -142,16 +142,16 @@ function showStudentGrades(){
 /*
 	function that will import grades into the Grades page's table
 */
-function importGrades(){
+$('#importGrades').on('click', function importGrades(){
 	alert("Import button clicked!");
-}
+});
 
 /*
 	function that will export grades from the Grades page's table
 */
-function exportGrades(){
+$('#exportGrades').on('click', function exportGrades(){
 	alert("Export button clicked!");
-}
+});
 
 $('#feedbackSubmission').on('click', function() {
 	//run this first, removes active class on navbar
