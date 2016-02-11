@@ -42,7 +42,7 @@
 									<tr>
 										<th>Evaluation Criteria</th>
 										<th>Points Possible</th>
-										<th>Points Earned</th>
+										<!--<th>Points Earned</th>-->
 									</tr>
 								</thead>
 								<tbody>
@@ -62,7 +62,7 @@
 					</div>
 					<?php } ?>
 				
-					<button type='submit' class='btn btn-default' onClick="addRowRubric()">Add Row</button>
+					<button type='button' class='btn btn-default' onClick="addRowRubric()">Add Row</button>
 				</form>
 			</div>
 		</div>
