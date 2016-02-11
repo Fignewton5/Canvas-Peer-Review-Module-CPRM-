@@ -54,10 +54,10 @@ function loadGradesProf(){
 	var peerSubmitted;
  
 	//create new element (table row) to be appended to grades table
-	for(i = 0; i < 10; i++){
+	for(i = 0; i < 30; i++){
 	
 		student = "Student" + i;
-		studentID = "600" + Math.floor(Math.random() * 300) + 1;
+		studentID = "600" + Math.floor(Math.random() * 99999);
 		peer1 = Math.floor(Math.random() *10) + 1;
 		peer2 = Math.floor(Math.random() *10) + 1;
 		peer3 = Math.floor(Math.random() *10) + 1;

@@ -56,8 +56,8 @@
 			</div>	
 	</div>
 	
-	<!-- What a student would see -->
-	<div class="panel panel-default" style="margin-top:5px;" id="studentView">
+	<!-- What a student would see. Hide by default -->
+	<div class="panel panel-default" style="margin-top:5px; display:none;" id="studentView">
 			<div class="panel-body">
 				STUDENT SEES THIS
 				<h2>GRADES [TEST]</h2>
