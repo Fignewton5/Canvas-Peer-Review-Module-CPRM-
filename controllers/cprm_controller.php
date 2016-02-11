@@ -15,7 +15,7 @@
 		public function logout(){
 			require_once('views/cprm/logout.php');
 		}
-		public function peerReview(){
+		public function peerReviews(){
 			require_once('views/cprm/peerReviews.php');
 		}
 	}
