@@ -49,7 +49,7 @@
 										for ($i = 0; $i < $iter; $i++) {
 											echo "<tr>";
 											//echo "<td class='feedback-tb-top-padding'>" . $row['field' . ($i + 1)] . "</td>";
-											echo "<td><input type='text' value='" . $row['field' . ($i + 1)] . "'></td>"
+											echo "<td><input type='text'  class ='form-control' value='" . $row['field' . ($i + 1)] . "'></td>"
 											echo "<td><input type='text' style='width:20%' class='form-control' value='" . $row['pMax' . ($i + 1)] . "' /></td>";
 											echo "</tr>";
 										}
