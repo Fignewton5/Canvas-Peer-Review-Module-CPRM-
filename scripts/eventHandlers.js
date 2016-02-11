@@ -113,7 +113,7 @@ function loadGradesStudent(){
 	Function that will add a new criteria row to the rubric	
 */
 function addRowRubric(){
-	alert("Add row to rubric.");
+	alert("Add Row button has been clicked!");
 }
 
 /*	function that will show what a professor will 

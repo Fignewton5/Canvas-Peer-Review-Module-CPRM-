@@ -62,7 +62,7 @@
 					</div>
 					<?php } ?>
 				
-					<button type='button' class='btn btn-default' onClick="addRowRubric()">Add Row</button>
+					<button type='button' class='btn btn-default' onclick="addRowRubric()">Add Row</button>
 				</form>
 			</div>
 		</div>
