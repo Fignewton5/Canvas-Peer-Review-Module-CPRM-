@@ -56,13 +56,6 @@
 			</div>	
 	</div>
 	
-	<!-- Temporary Script that loads sample grades when the page loads -->
-	<script type="text/javascript">
-		loadGradesProf();
-		alert("Boo!");
-	</script>
-	
-	
 	<!-- What a student would see. Hide by default -->
 	<div class="panel panel-default" style="margin-top:5px; display:none;" id="studentView">
 			<div class="panel-body">
@@ -88,6 +81,13 @@
 	</div>
 	
 </div>
+
+<!-- Temporary Script that loads sample grades when the page loads -->
+<script type="text/javascript">
+	loadGradesProf();
+	alert("Boo!");
+</script>
+	
 
 <br></br>
 
