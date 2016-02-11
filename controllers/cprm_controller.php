@@ -15,5 +15,8 @@
 		public function logout(){
 			require_once('views/cprm/logout.php');
 		}
+		public function peerReview(){
+			require_once('views/cprm/peerReview.php');
+		}
 	}
 ?>
