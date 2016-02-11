@@ -30,7 +30,7 @@
 			<br></br>
 			
 			<!-- Table in which grades data will be displayed -->
-			<h2>GRADES [TEST]</h2>
+			<h2>Class Grades</h2>
 				<table class="table-bordered" style="width:800px">
 					<thead>
 						<tr>
@@ -59,17 +59,16 @@
 	<!-- What a student would see. Hide by default -->
 	<div class="panel panel-default" style="margin-top:5px; display:none;" id="studentView">
 			<div class="panel-body">
-				STUDENT SEES THIS
-				<h2>GRADES [TEST]</h2>
+				<h2>Student Grades</h2>
 				<table class="table-bordered" style="width:800px">
 					<thead>
 						<tr>
-							<th>Student Name</th>
-							<th>Student ID</th>
-							<th>Peer Eval 1</th>
-							<th>Peer Eval 2</th>
-							<th>Peer Eval 3</th>
-							<th>Peer Eval Submitted</th>
+							<th>Peer Review</th>
+							<th>Description</th>
+							<th>Criteria 1</th>
+							<th>Criteria 2</th>
+							<th>Criteria 3</th>
+							<th>Criteria 4</th>
 						</tr>
 					</thead>
 					
