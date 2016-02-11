@@ -51,7 +51,7 @@
 											echo "<tr>";
 											echo "<td class='feedback-tb-top-padding'>" . $row['field' . ($i + 1)] . "</td>";
 											echo "<td><input type='text' style='width:20%' class='form-control' value='" . $row['pMax' . ($i + 1)] . "' /></td>";
-											echo "<td><input type='text' style='width:20%' class='form-control' value='" . $row['pEarn' . ($i + 1)] . "' /></td>";
+											//echo "<td><input type='text' style='width:20%' class='form-control' value='" . $row['pEarn' . ($i + 1)] . "' /></td>";
 											echo "</tr>";
 										}
 										
@@ -62,7 +62,7 @@
 					</div>
 					<?php } ?>
 				
-					<button type='submit' class='btn btn-default'>Add Row</button>
+					<button type='submit' class='btn btn-default' onClick="addRowRubric()">Add Row</button>
 				</form>
 			</div>
 		</div>

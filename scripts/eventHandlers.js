@@ -109,6 +109,13 @@ function loadGradesStudent(){
 	document.getElementById('grades-table-body-student').appendChild(toAdd);
 }
 
+/*	
+	Function that will add a new criteria row to the rubric	
+*/
+function addRowRubric(){
+	alert("Add row to rubric.");
+}
+
 /*	function that will show what a professor will 
 	see on the grades page while hiding what a 
 	student would see
