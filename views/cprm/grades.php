@@ -39,7 +39,7 @@
 							<th>Peer Eval 1</th>
 							<th>Peer Eval 2</th>
 							<th>Peer Eval 3</th>
-							<th>Peer Eval Submitted</th>
+							<th>Peer Eval 4</th>
 						</tr>
 					</thead>
 					

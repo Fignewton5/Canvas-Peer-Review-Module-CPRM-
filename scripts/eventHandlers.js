@@ -54,18 +54,18 @@ function loadGradesProf(){
 	var peerSubmitted;
  
 	//create new element (table row) to be appended to grades table
-	for(i = 0; i < 30; i++){
+	for(i = 0; i < 20; i++){
 	
 		student = "Student" + i;
 		studentID = "600" + Math.floor(Math.random() * 99999);
 		peer1 = Math.floor(Math.random() *10) + 1;
 		peer2 = Math.floor(Math.random() *10) + 1;
 		peer3 = Math.floor(Math.random() *10) + 1;
-		peerSubmitted = "Y";
+		peer4 = Math.floor(Math.random() *10) + 1;
 		
 		//new row to be added
 		var newRow = document.createElement('tr');
-		newRow.innerHTML = '<td>' + student + '<td>' + studentID + '</td></td><td>'+ peer1 + '</td><td>'+ peer2 + '</td><td>'+ peer3 + '</td><td>' + peerSubmitted + '</td>';
+		newRow.innerHTML = '<td>' + student + '<td>' + studentID + '</td></td><td>'+ peer1 + '</td><td>'+ peer2 + '</td><td>'+ peer3 + '</td><td>' + peer4 + '</td>';
 										
 		//append to new object
 		toAdd.appendChild(newRow);
