@@ -81,10 +81,10 @@ function loadGradesProf(){
 */
 function showProfessorGrades(){
 	//show the professor view
-	document.getElementById('profView').style.visibility="visible";
+	document.getElementById('profView').style.display="block";
 	
 	//hide the student view
-	document.getElementById('studentView').style.visibility="hidden";
+	document.getElementById('studentView').style.display="none";
 }
 
 /*	function that will show what a student will 
@@ -93,10 +93,10 @@ function showProfessorGrades(){
 */
 function showStudentGrades(){
 	//show the student view
-	document.getElementById('studentView').style.visibility="visible";
+	document.getElementById('studentView').style.display="block";
 	
 	//hide the professor view
-	document.getElementById('profView').style.visibility="hidden";
+	document.getElementById('profView').style.display="none";
 }
 
 $('#feedbackSubmission').on('click', function() {
