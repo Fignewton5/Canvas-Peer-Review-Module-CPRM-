@@ -23,8 +23,8 @@
 			
 			<!-- Import / Export Buttons -->
 			<div class="row" style="width:800px; margin-left:0.5cm">
-				<button type="button" class="btn-default" id="importGrades">Import</button>
-				<button type="button" class="btn-default" id="exportGrades">Export</button>
+				<button type="button" class="btn-default" id="importGrades" onclick="importGrades()">Import</button>
+				<button type="button" class="btn-default" id="exportGrades" onclick="exportGrades()">Export</button>
 			</div>
 
 			<br></br>
