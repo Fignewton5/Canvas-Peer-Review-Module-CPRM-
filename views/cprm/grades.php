@@ -14,7 +14,7 @@
 	<div class="panel panel-default" style="margin-top:5px;" id="profView">
 		<div class="panel-body">
 			<!-- Search Bar -->
-			<div class="row" style="width:800px">
+			<div class="row" style="width:800px; margin-left:1cm">
 					<label for="gradesSearch"> Search </label>
 					<input type="text" class="form-control" id="gradesSearch" placeholder="Student">
 			</div>
@@ -31,7 +31,7 @@
 			
 			<!-- Table in which grades data will be displayed -->
 			<h2>Class Grades</h2>
-				<table class="table-bordered" style="width:800px">
+				<table class="table-bordered" style="width:800px; margin-left:1cm">
 					<thead>
 						<tr>
 							<th>Student Name</th>
@@ -50,8 +50,8 @@
 				
 				<!-- Button to test loading table rows -->
 				<br></br>
-				<div class="container" hidden>
-					<button type="button" class="btn-default" id="load-grades" onclick="loadGradesProf()">Load Grades [TEST]</button>
+				<div class="container">
+					<button type="button" class="btn-default" id="load-grades" onclick="loadGradesProf()">Fetch Grades [TEST]</button>
 				</div>
 			</div>	
 	</div>
@@ -77,17 +77,16 @@
 					
 					</tbody>
 				</table>
+				
+				<!-- Button to test loading table rows -->
+				<br></br>
+				<div class="container">
+					<button type="button" class="btn-default" id="load-grades" onclick="loadGradesProf()">Fetch Grades [TEST]</button>
+				</div>
 			</div>
 	</div>
 	
 </div>
-
-<!-- Temporary Script that loads sample grades when the page loads -->
-<script type="text/javascript">
-	loadGradesProf();
-	alert("Boo!");
-</script>
-	
 
 <br></br>
 
