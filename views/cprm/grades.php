@@ -81,7 +81,7 @@
 				<!-- Button to test loading table rows -->
 				<br></br>
 				<div class="container">
-					<button type="button" class="btn-default" id="load-grades" onclick="loadGradesProf()">Fetch Grades [TEST]</button>
+					<button type="button" class="btn-default" id="load-grades" onclick="loadGradesStudent()">Fetch Grades [TEST]</button>
 				</div>
 			</div>
 	</div>

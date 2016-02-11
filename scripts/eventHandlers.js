@@ -65,7 +65,7 @@ function loadGradesProf(){
 		
 		//new row to be added
 		var newRow = document.createElement('tr');
-		newRow.innerHTML = '<td>' + student + '<td>' + studentID + '</td></td><td>'+ peer1 + '</td><td>'+ peer2 + '</td><td>'+ peer3 + '</td><td>' + peer4 + '</td>';
+		newRow.innerHTML = '<td>' + student + '</td><td>' + studentID + '</td><td>'+ peer1 + '</td><td>'+ peer2 + '</td><td>'+ peer3 + '</td><td>' + peer4 + '</td>';
 										
 		//append to new object
 		toAdd.appendChild(newRow);
@@ -73,6 +73,40 @@ function loadGradesProf(){
 	
 	//add element to table body
 	document.getElementById('grades-table-body-professor').appendChild(toAdd);
+}
+
+//function to load grades into table (currently filler assignments)
+function loadGradesStudent(){
+	
+	//table content to add
+	var toAdd = document.createDocumentFragment();
+
+	//test student info
+	var peerReview;
+	var description = "This is a sample description...";
+	var criteria1, criteria2, criteria3, criteria4;
+	var total;
+ 
+	//create new element (table row) to be appended to grades table
+	for(i = 0; i < 10; i++){
+	
+		peerReview = i;
+		criteria1 = Math.floor((Math.random() *5) + 1);
+		criteria2 = Math.floor((Math.random() *5) + 1);
+		criteria3 = Math.floor((Math.random() *5) + 1);
+		criteria4 = Math.floor((Math.random() *5) + 1);
+		total = criteria1 + criteria2 + criteria3 + criteria4;
+		
+		//new row to be added
+		var newRow = document.createElement('tr');
+		newRow.innerHTML = '<td>' + peerReview + '</td><td>' + description + '</td><td>'+ criteria1 + '</td><td>'+ criteria2 + '</td><td>'+ criteria3 + '</td><td>' + criteria4 + '</td><td>' + total + '</td>';
+										
+		//append to new object
+		toAdd.appendChild(newRow);
+	}
+	
+	//add element to table body
+	document.getElementById('grades-table-body-student').appendChild(toAdd);
 }
 
 /*	function that will show what a professor will 
