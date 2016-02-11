@@ -57,11 +57,11 @@ function loadGradesProf(){
 	for(i = 0; i < 20; i++){
 	
 		student = "Student" + i;
-		studentID = "600" + Math.floor(Math.random() * 99999);
-		peer1 = Math.floor(Math.random() *10) + 1;
-		peer2 = Math.floor(Math.random() *10) + 1;
-		peer3 = Math.floor(Math.random() *10) + 1;
-		peer4 = Math.floor(Math.random() *10) + 1;
+		studentID = "600" + Math.floor((Math.random() * 99999) + 100000);
+		peer1 = Math.floor((Math.random() *10) + 1);
+		peer2 = Math.floor((Math.random() *10) + 1);
+		peer3 = Math.floor((Math.random() *10) + 1);
+		peer4 = Math.floor((Math.random() *10) + 1);
 		
 		//new row to be added
 		var newRow = document.createElement('tr');
