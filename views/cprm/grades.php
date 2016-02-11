@@ -34,15 +34,38 @@
 						</tr>
 					</thead>
 					
-					<tbody id="grades-table-body">
+					<tbody id="grades-table-body-professor">
 					
 					</tbody>
 				</table>
+				
+				<!-- Button to test loading table rows -->
+				<div class="container">
+					<button type="button" class="btn-default" id="load-grades" onclick="loadGradesProf()">Load Grades [TEST]</button>
+				</div>
+				
 			</div>
 			
 			<!-- What a student would see -->
 			<div class="panel-body" id="profView">
-			STUDENT SEES THIS
+				STUDENT SEES THIS
+				<h2>GRADES [TEST]</h2>
+				<table class="table-bordered" style="width:800px">
+					<thead>
+						<tr>
+							<th>Student Name</th>
+							<th>Student ID</th>
+							<th>Peer Eval 1</th>
+							<th>Peer Eval 2</th>
+							<th>Peer Eval 3</th>
+							<th>Peer Eval Submitted</th>
+						</tr>
+					</thead>
+					
+					<tbody id="grades-table-body-student">
+					
+					</tbody>
+				</table>
 			</div>
 			
 	</div>
@@ -50,7 +73,3 @@
 
 <br></br>
 
-<!-- Button to test loading table rows -->
-<div class="container">
-	<button type="button" class="btn-default" id="load-grades" onclick="loadGrades()">Load Grades [TEST]</button>
-</div>

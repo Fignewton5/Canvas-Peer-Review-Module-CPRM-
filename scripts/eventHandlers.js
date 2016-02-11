@@ -42,7 +42,7 @@ $('#grades').on('click', function() {
 
 
 //function to load grades into table (currently filler students)
-function loadGrades(){
+function loadGradesProf(){
 	
 	//table content to add
 	var toAdd = document.createDocumentFragment();
@@ -72,7 +72,7 @@ function loadGrades(){
 	}
 	
 	//add element to table body
-	document.getElementById('grades-table-body').appendChild(toAdd);
+	document.getElementById('grades-table-body-professor').appendChild(toAdd);
 }
 
 $('#feedbackSubmission').on('click', function() {
