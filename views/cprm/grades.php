@@ -11,7 +11,7 @@
 		<br></br>
 
 	<!-- What a professor would see -->
-	<div class="panel panel-default" style="margin-top:5px;" id="profView">
+	<div class="panel panel-default" style="margin-top:5px;" id="profView" onLoad="loadGradesProf()">
 		<div class="panel-body">
 			<!-- Search Bar -->
 			<div class="row" style="width:800px">
