@@ -11,7 +11,7 @@
 		<br></br>
 
 	<!-- What a professor would see -->
-	<div class="panel panel-default" style="margin-top:5px;" id="profView" onload="loadGradesProf()">
+	<div class="panel panel-default" style="margin-top:5px;" id="profView">
 		<div class="panel-body">
 			<!-- Search Bar -->
 			<div class="row" style="width:800px">
@@ -50,11 +50,16 @@
 				
 				<!-- Button to test loading table rows -->
 				<br></br>
-				<div class="container">
+				<div class="container" hidden>
 					<button type="button" class="btn-default" id="load-grades" onclick="loadGradesProf()">Load Grades [TEST]</button>
 				</div>
 			</div>	
 	</div>
+	
+	<!-- Temporary Script that loads sample grades when the page loads -->
+	<script type="text/javascript">
+		loadProfessorGrades();
+	</script>
 	
 	
 	<!-- What a student would see. Hide by default -->
@@ -70,6 +75,7 @@
 							<th>Criteria 2</th>
 							<th>Criteria 3</th>
 							<th>Criteria 4</th>
+							<th>Total</th>
 						</tr>
 					</thead>
 					
