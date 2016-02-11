@@ -44,7 +44,7 @@
   		<div class="navbar-collapse collapse" id="navbar-options">
   			<ul class="nav navbar-nav">
   				<li id='courses'><a href="?controller=cprm&action=home">Courses</a></li>
-  				<li id='peerReviews'><a href="#">Peer Reviews</a></li>
+  				<li id='peerReviews'><a href="?controller=cprm&action=peerReviews">Peer Reviews</a></li>
   				<li id='grades'><a href="?controller=cprm&action=grades">Grades</a></li>
   				<li id='feedbackSubmission'><a href="?controller=cprm&action=feedback">Feedback Submission</a></li>
   				<li id='logout'><a href="?controller=cprm&action=logout">Logout</a></li>
