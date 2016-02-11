@@ -75,6 +75,30 @@ function loadGradesProf(){
 	document.getElementById('grades-table-body-professor').appendChild(toAdd);
 }
 
+/*	function that will show what a professor will 
+	see on the grades page while hiding what a 
+	student would see
+*/
+function showProfessorGrades(){
+	//show the professor view
+	document.getElementById('profView').style.visibility="visible";
+	
+	//hide the student view
+	document.getElementById('studentView').style.visibility="hidden";
+}
+
+/*	function that will show what a student will 
+	see on the grades page while hiding what a 
+	professor would see
+*/
+function showStudentGrades(){
+	//show the student view
+	document.getElementById('studentView').style.visibility="visible";
+	
+	//hide the professor view
+	document.getElementById('profView').style.visibility="hidden";
+}
+
 $('#feedbackSubmission').on('click', function() {
 	//run this first, removes active class on navbar
 	removeActiveDropdown();

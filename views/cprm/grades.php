@@ -7,8 +7,9 @@
 				divs to reflect either what a professor
 				would see, or what a student would see.
 		-->
-		<button type="button" class="btn-default">Professor View</button>
-		<button type="button" class="btn-default">Student View</button>
+		<button type="button" class="btn-default" onClick="showProfessorGrades()">Professor View</button>
+		<button type="button" class="btn-default" onClick="showStudentGrades()">Student View</button>
+		<br></br>
 		
 		<!-- What a professor would see -->
 		<div class="panel-body" id="profView">
@@ -56,7 +57,7 @@
 			</div>
 			
 			<!-- What a student would see -->
-			<div class="panel-body" id="profView">
+			<div class="panel-body" id="studentView">
 				STUDENT SEES THIS
 				<h2>GRADES [TEST]</h2>
 				<table class="table-bordered" style="width:800px">
