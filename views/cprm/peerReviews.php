@@ -68,3 +68,9 @@
 		</div>
 	</div>
 </div>
+
+<script type="text/javascript">
+	function addRowRubric(){
+		alert("Add Row button has been clicked!");
+	}
+</script>

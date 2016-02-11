@@ -40,7 +40,6 @@ $('#grades').on('click', function() {
 	// $(this).addClass('active');
 });
 
-
 //function to load grades into table (currently filler students)
 function loadGradesProf(){
 	
@@ -111,10 +110,10 @@ function loadGradesStudent(){
 
 /*	
 	Function that will add a new criteria row to the rubric	
-*/
+
 function addRowRubric(){
 	alert("Add Row button has been clicked!");
-}
+}*/
 
 /*	function that will show what a professor will 
 	see on the grades page while hiding what a 
