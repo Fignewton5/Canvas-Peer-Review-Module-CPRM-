@@ -2,6 +2,14 @@
 <div class="container-fluid">
 	<div class="panel panel-default" style="margin-top:5px;">
 		
+		<!-- 	Buttons for demo video purposes 
+				Toggles profView or studentView 
+				divs to reflect either what a professor
+				would see, or what a student would see.
+		-->
+		<button type="button" class="btn-default">Professor View</button>
+		<button type="button" class="btn-default">Student View</button>
+		
 		<!-- What a professor would see -->
 		<div class="panel-body" id="profView">
 			<!-- Search Bar -->
@@ -40,6 +48,7 @@
 				</table>
 				
 				<!-- Button to test loading table rows -->
+				<br></br>
 				<div class="container">
 					<button type="button" class="btn-default" id="load-grades" onclick="loadGradesProf()">Load Grades [TEST]</button>
 				</div>
