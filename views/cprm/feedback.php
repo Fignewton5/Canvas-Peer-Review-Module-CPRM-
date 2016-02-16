@@ -17,15 +17,18 @@
 								Single Reviews (<?php 
 									require_once('classes/dbInterface.php');
 									$dbInt = new DbInterface();
-									$reviews = $dbInt->getUserReviews($_SESSION['id']);
-									echo $reviews->rowCount();
+									$uReviews = $dbInt->getUserReviews($_SESSION['id']);
+									echo $uReviews->rowCount();
 								?>)
 							</button>
 							
 						</div>
 						<div style="padding-top:2px;">
 							<button type="button" class="btn btn-default feedback-button-fixes" id="group">
-								Group Reviews
+								Group Reviews (<?php
+								$gReviews = $dbInt->getGroupReviews($_SESSION['id']);
+								echo $gReviews->rowCount();
+								?>)
 							</button>
 						</div>
 					</div>
