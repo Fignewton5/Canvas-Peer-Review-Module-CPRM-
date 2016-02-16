@@ -16,7 +16,7 @@
 							<button type="button" class="btn btn-default feedback-button-fixes" id="single">
 								Single Reviews (
 								<?php 
-									require_once('classes/DbInterface.php');
+									require_once('classes/dbInterface.php');
 									$dbInt = new DbInterface();
 									$reviews = $dbInt->getUserReviews($_SESSION['id']);
 									echo $reviews->rowCount();
