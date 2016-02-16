@@ -32,34 +32,6 @@
 		}
 		
 		/*
-		 * Get every user review matching $id from the DB
-		 * see _getReviews
-		 * 
-		 * 
-		 */
-		public function getUserReviews($id) {
-			return _getReviews($id, 0, 0);
-		}
-		
-		/*
-		 * Get every group review matching $id from the DB
-		 * see _getReviews
-		 * 
-		 */
-		public function getGroupReviews($id) {
-			return _getReviews($id, 1, 0);
-		}
-		
-		/*
-		 * Get every review matching $id from the DB
-		 * see _getReviews
-		 * 
-		 */ 
-		public function getAllReviews($id) {
-			return _getReviews($id, 0, 0);
-		}
-		
-		/*
 		 * This is the base function for getting reviews from the DB
 		 * 
 		 * @params $id int(9) osuId, $isGroup bool get user/group reviews,
@@ -86,5 +58,33 @@
 			else {
 				return $result;
 			}
+		}
+		
+		/*
+		 * Get every user review matching $id from the DB
+		 * see _getReviews
+		 * 
+		 * 
+		 */
+		public function getUserReviews($id) {
+			return _getReviews($id, 0, 0);
+		}
+		
+		/*
+		 * Get every group review matching $id from the DB
+		 * see _getReviews
+		 * 
+		 */
+		public function getGroupReviews($id) {
+			return _getReviews($id, 1, 0);
+		}
+		
+		/*
+		 * Get every review matching $id from the DB
+		 * see _getReviews
+		 * 
+		 */ 
+		public function getAllReviews($id) {
+			return _getReviews($id, 0, 0);
 		}
 	}
