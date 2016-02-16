@@ -168,6 +168,22 @@ $('#studentInformation').on('click', function() {
 });
 
 /*
+ * These event handlers are for the feedback page
+ * they handle populating the table from the database
+ * 
+ */
+$('#uReviews').on('click', function() {
+	var $tbody = $('#tbody');
+	var jsonValue = $(this).attr('value');
+	
+	$tbody.appendTo(JSON.stringify(jsonValue));
+});
+
+$('#gReviews').on('click', function() {
+	
+});
+
+/*
  * course button event handlers
  * 
  * COMMENTED OUT UNTIL FURTHER NEED, DOESN'T WORK IN NAVBAR DROPDOWN

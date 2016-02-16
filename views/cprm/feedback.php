@@ -21,7 +21,7 @@
 									echo $uReviews->rowCount();
 								?>)
 							</button>
-							
+							<input type='hidden' value='<?php echo json_encode($uReviews); ?>' id='uReviews' />
 						</div>
 						<div style="padding-top:2px;">
 							<button type="button" class="btn btn-default feedback-button-fixes" id="group">
@@ -30,6 +30,7 @@
 								echo $gReviews->rowCount();
 								?>)
 							</button>
+							<input type='hidden' value='<?php echo json_encode($gReviews); ?>' id='gReviews' />
 						</div>
 					</div>
 				</div>
@@ -54,15 +55,15 @@
 										<th>Points Earned</th>
 									</tr>
 								</thead>
-								<tbody>
+								<tbody id='tbody'>
 									<?php
-										for ($i = 0; $i < $iter; $i++) {
-											echo "<tr>";
-											echo "<td class='feedback-tb-top-padding'>" . $row['field' . ($i + 1)] . "</td>";
-											echo "<td class='feedback-tb-top-padding'>" . $row['pMax' . ($i + 1)] . "</td>";
-											echo "<td><input type='text' style='width:20%' class='form-control' value='" . $row['pEarn' . ($i + 1)] . "' /></td>";
-											echo "</tr>";
-										}
+										// for ($i = 0; $i < $iter; $i++) {
+											// echo "<tr>";
+											// echo "<td class='feedback-tb-top-padding'>" . $row['field' . ($i + 1)] . "</td>";
+											// echo "<td class='feedback-tb-top-padding'>" . $row['pMax' . ($i + 1)] . "</td>";
+											// echo "<td><input type='text' style='width:20%' class='form-control' value='" . $row['pEarn' . ($i + 1)] . "' /></td>";
+											// echo "</tr>";
+										// }
 										
 									?>
 									<!-- <tr>
