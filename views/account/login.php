@@ -56,14 +56,14 @@
 ?>
 <div class="container-fluid">
 	<div class="panel panel-default" style="margin-top:5px;">
-		<div id="userIdPanel" class="panel-heading" style="height:49px;">
-			<p>Welcome. To begin using this service, please enter your token.
+		<div id="userIdPanel" class="panel-heading">
+			<p style="margin-bottom:0px;">Welcome. To begin using this service, please enter your token.
 			If you have registered already, you may just enter your OSU ID Number.</p>
 		</div>
 		
 		<div class="panel-body" id="test">
 			<form action="?controller=account&action=login" method="post">
-				<div class='col-md-6'>
+				<div class='col-md-6' style="padding-top:5px;padding-bottom:5px;">
 					<div class='input-group'>
 						<input type='text' class='form-control' name='token' placeholder='Token' />
 						<span class='input-group-btn'>
@@ -71,7 +71,7 @@
 						</span>
 					</div>
 				</div>
-				<div class='col-md-6'>
+				<div class='col-md-6' style="padding-top:5px;padding-bottom:5px;">
 					<div class='input-group'>
 						<input type='text' class='form-control' name='osuId' placeholder='OSU ID' />
 						<span class='input-group-btn'>
