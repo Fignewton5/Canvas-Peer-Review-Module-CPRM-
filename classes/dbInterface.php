@@ -70,10 +70,10 @@
 		 */
 		public function _getReviews($id, $isGroup, $skip) {
 			if ($skip) {
-				$sql = "SELECT * FROM review WHERE reviewBy='" . $id . "' AND isGroup=" . $isGroup;
+				$sql = "SELECT * FROM review WHERE reviewBy='" . $id . "'";
 			}
 			else {
-				$sql = "SELECT * FROM review WHERE reviewBy='" . $id . "'";
+				$sql = "SELECT * FROM review WHERE reviewBy='" . $id . "' AND isGroup=" . $isGroup;
 			}
 			
 			$result = $this->db->query($sql);
@@ -86,9 +86,5 @@
 			else {
 				return $result;
 			}
-		}
-		
-		public function submitReview() {
-			
 		}
 	}
