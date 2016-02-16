@@ -18,10 +18,15 @@
 									require_once('classes/dbInterface.php');
 									$dbInt = new DbInterface();
 									$uReviews = $dbInt->getUserReviews($_SESSION['id']);
+									$uReviewsArray = array();
+									foreach ($uReviews->fetch() as $row) {
+										array_push($uReviewsArray, $row);
+									}
+									//echo the number of rows in userReviews
 									echo $uReviews->rowCount();
 								?>)
 							</button>
-							<input type='hidden' value='<?php echo json_encode($uReviews); ?>' id='uReviews' />
+							<input type='hidden' value='<?php print_r($uReviewsArray); ?>' id='uReviews' />
 						</div>
 						<div style="padding-top:2px;">
 							<button type="button" class="btn btn-default feedback-button-fixes" id="group">
