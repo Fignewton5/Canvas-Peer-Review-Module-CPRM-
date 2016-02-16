@@ -173,11 +173,13 @@ $('#studentInformation').on('click', function() {
  * 
  */
 $('#single').on('click', function() {
+	//where data will go
 	var $tbody = $('#tbody');
+	//holds data value
 	var $uReviews = $('#uReviews');
-	var jsonValue = $('#uReviews').attr('value');
-	
-	$tbody.appendTo(JSON.stringify(jsonValue));
+	var jsonValue = $uReviews.attr('value');
+	console.log(jsonValue);
+	//$tbody.appendTo(JSON.stringify(jsonValue));
 });
 
 $('#group').on('click', function() {
