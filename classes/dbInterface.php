@@ -40,7 +40,7 @@
 		 * @return false if nothing, otherwise all rows that match
 		 * 
 		 */
-		public function _getReviews($id, $isGroup, $skip) {
+		private function getReviews($id, $isGroup, $skip) {
 			if ($skip) {
 				$sql = "SELECT * FROM review WHERE reviewBy='" . $id . "'";
 			}
@@ -67,7 +67,7 @@
 		 * 
 		 */
 		public function getUserReviews($id) {
-			return $this->_getReviews($id, 0, 0);
+			return $this->getReviews($id, 0, 0);
 		}
 		
 		/*
@@ -76,7 +76,7 @@
 		 * 
 		 */
 		public function getGroupReviews($id) {
-			return $this->_getReviews($id, 1, 0);
+			return $this->getReviews($id, 1, 0);
 		}
 		
 		/*
@@ -85,6 +85,6 @@
 		 * 
 		 */ 
 		public function getAllReviews($id) {
-			return $this->_getReviews($id, 0, 0);
+			return $this->getReviews($id, 0, 0);
 		}
 	}
