@@ -1,3 +1,11 @@
+<?php
+	//redirect to login if not logged in
+	session_start();
+	if (!isset($_SESSION['token'])) {
+		header("Location: ?controller=account&action=login");
+	}
+?>
+
 <div class="container-fluid">
 	<div class="panel panel-default" style="margin-top:5px;">
 		<div class="panel-body" id="test">
@@ -6,8 +14,15 @@
 					<div class="feedback-side-menu">
 						<div style="padding-bottom:2px;">
 							<button type="button" class="btn btn-default feedback-button-fixes" id="single">
-								Single Reviews
+								Single Reviews (
+								<?php 
+									require_once('classes/DbInterface.php');
+									$dbInt = new DbInterface();
+									$reviews = $dbInt->getUserReviews($_SESSION['id']);
+									echo $reviews->rowCount();
+								?>)
 							</button>
+							
 						</div>
 						<div style="padding-top:2px;">
 							<button type="button" class="btn btn-default feedback-button-fixes" id="group">

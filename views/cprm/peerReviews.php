@@ -1,3 +1,11 @@
+<?php
+	//redirect to login if not logged in
+	session_start();
+	if (!isset($_SESSION['token'])) {
+		header("Location: ?controller=account&action=login");
+	}
+?>
+
 <div class="container-fluid">
 	<div class="panel panel-default" style="margin-top:5px;">
 		<div class="panel-body" id="test">

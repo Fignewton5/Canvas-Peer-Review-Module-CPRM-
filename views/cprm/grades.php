@@ -1,3 +1,11 @@
+<?php
+	//redirect to login if not logged in
+	session_start();
+	if (!isset($_SESSION['token'])) {
+		header("Location: ?controller=account&action=login");
+	}
+?>
+
 <!-- This will be the grades table that shows the students' grades -->
 <div class="container-fluid">
 

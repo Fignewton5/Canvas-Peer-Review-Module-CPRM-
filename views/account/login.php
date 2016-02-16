@@ -18,7 +18,10 @@
 			if (!$dbInt->checkUserToken($_POST['token'])) {
 				//add user to db
 				$dbInt->addUserToDb($_POST['token']);
-
+				
+				//also add osu id to session
+				$user = $c->formatUserData();
+				$_SESSION['id'] = $user->user_id;
 			}
 			
 			//redirect after successful addition
@@ -43,6 +46,7 @@
 		
 		//add token data to session
 		else {
+			$_SESSION['id'] = $_POST['osuId'];
 			$_SESSION['token'] = $row['token'];
 			header('Location: http://cprmphp-weavex.rhcloud.com/?controller=cprm&action=home');
 		}	
