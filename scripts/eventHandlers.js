@@ -172,14 +172,15 @@ $('#studentInformation').on('click', function() {
  * they handle populating the table from the database
  * 
  */
-$('#uReviews').on('click', function() {
+$('#single').on('click', function() {
 	var $tbody = $('#tbody');
-	var jsonValue = $(this).attr('value');
+	var $uReviews = $('#uReviews');
+	var jsonValue = $('#uReviews').attr('value');
 	
 	$tbody.appendTo(JSON.stringify(jsonValue));
 });
 
-$('#gReviews').on('click', function() {
+$('#group').on('click', function() {
 	
 });
 
