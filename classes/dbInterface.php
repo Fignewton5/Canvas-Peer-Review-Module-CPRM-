@@ -42,10 +42,10 @@
 		 */
 		private function getReviews($id, $isGroup, $skip) {
 			if ($skip) {
-				$sql = "SELECT * FROM review WHERE reviewBy='" . $id . "'";
+				$sql = "SELECT * FROM review WHERE reviewBy='" . $id . "' AND reviewComplete=0";
 			}
 			else {
-				$sql = "SELECT * FROM review WHERE reviewBy='" . $id . "' AND isGroup=" . $isGroup;
+				$sql = "SELECT * FROM review WHERE reviewBy='" . $id . "' AND isGroup=" . $isGroup . " AND reviewComplete=0";
 			}
 			
 			$result = $this->db->query($sql);
