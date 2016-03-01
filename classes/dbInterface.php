@@ -94,7 +94,6 @@
 		 * 
 		 */
 		private function submitReview($result, $isGroup) {
-			echo "HELLO FROM SUBMIT";
 			if ($isGroup) {
 				//do special group logic
 			}
@@ -111,8 +110,6 @@
 				}
 				
 				$sql = $sql . " WHERE reviewName='" . $result->primaryKey . "'";
-				
-				echo $sql;
 				
 				if ($this->db->query($sql)) {
 					return 0;
@@ -138,7 +135,7 @@
 		 * 
 		 */
 		public function submitGroupReview($result) {
-			$this->submitReview($result, 1);
+			return $this->submitReview($result, 1);
 		}
 		
 
