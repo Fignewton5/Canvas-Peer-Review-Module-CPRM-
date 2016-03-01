@@ -57,8 +57,7 @@
 					$fieldsLength = $review['fieldsUsed'];
 					
 				?>
-				<h2><?php echo $row; ?></h2>
-				<h2><?php print_r($uReviewsArray[0]); ?></h2>
+				<h2><?php print_r($row); ?></h2>
 				<form action="" method="post">
 					<div class="col-md-7" style="float:left;">
 						<div style="width:100%;">
@@ -76,9 +75,9 @@
 										//as each field is laid out with a number appended, iterating through works
 										for ($i = 0; $i < $fieldsLength; $i++) {
 											echo "<tr>";
-											echo "<td class='feedback-tb-top-padding'>" . $review['field' . ($i + 1)] . "</td>";
-											echo "<td class='feedback-tb-top-padding'>" . $review['pMax' . ($i + 1)] . "</td>";
-											echo "<td><input type='text' style='width:20%' class='form-control' value='" . $review['pEarn' . ($i + 1)] . "' /></td>";
+											echo "<td class='feedback-tb-top-padding'>" . $review['field' . $i] . "</td>";
+											echo "<td class='feedback-tb-top-padding'>" . $review['pMax' . $i] . "</td>";
+											echo "<td><input type='text' style='width:20%' class='form-control' value='" . $review['pEarn' . $i] . "' /></td>";
 											echo "</tr>";
 										}
 										
