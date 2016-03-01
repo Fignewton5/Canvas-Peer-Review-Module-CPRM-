@@ -87,4 +87,51 @@
 		public function getAllReviews($id) {
 			return $this->getReviews($id, 0, 0);
 		}
+		
+		/*
+		 * 
+		 * 
+		 * 
+		 */
+		public function submitUserReview($result) {
+			submitReview($result, 0);
+		}
+		
+		/*
+		 * 
+		 * 
+		 * 
+		 */
+		public function submitGroupReview($result) {
+			submitReview($result, 1);
+		}
+		
+		/*
+		 * 
+		 * 
+		 * 
+		 */
+		public function submitReview($result, $isGroup) {
+			if ($isGroup) {
+				//do special group logic
+			}
+			
+			else {
+				$sql = "UPDATE review SET ";
+				for ($i = 0; $i < $result->fieldsUsed; $i++) {
+					if ($i = $result->fieldsUsed - 1) {
+						$sql = $sql . "pEarn" . $i . "=" . $result->points[$i];
+					}
+					$sql = $sql . "pEarn" . $i . "=" . $result->points[$i] . " , ";
+				}
+				$sql = $sql . " WHERE reviewName='" . $result->primaryKey . "'";
+				
+				if ($this->db->query($sql)) {
+					return 0;
+				}
+			}
+			
+			
+			
+		}
 	}

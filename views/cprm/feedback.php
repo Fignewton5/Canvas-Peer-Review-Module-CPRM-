@@ -4,6 +4,42 @@
 	if (!isset($_SESSION['token'])) {
 		header("Location: ?controller=account&action=login");
 	}
+	
+	//initialize DbInterface for use here
+	require_once('classes/dbInterface.php');
+	$dbInt = new DbInterface();
+	
+	//handle post form update
+	if (isset($_POST['reviewSubmit'])) {
+		$pointArr = array();
+		$result = new stdClass();
+		$result->fieldsUsed = $_POST['fieldsUsed'];
+		$result->primaryKey = $_POST['reviewPrimary'];
+		//populate point results, each field in table
+		for ($i = 0; $i < $_POST['fieldsUsed']; $i++) {
+			$pointArr[] = $_POST[$i];
+		}
+		$result->points = $pointArr;
+		
+		if ($_POST['isGroupReview']) {
+			$dbInt->submitGroupReview($result);
+		}
+		else {
+			$dbInt->submitUserReview($result);
+		}
+	}
+	
+	//bool for input determining which review to upload
+	$isGroupReview = 0;
+	
+	if (isset($_POST['gReview'])) {
+		//group review is selected
+		$isGroupReview = 1;
+	}
+	//group review wasn't selected/default don't change isGroupReview
+	
+	//holds the relevant row from the proper review channel
+	$row = "";
 ?>
 
 <div class="container-fluid">
@@ -13,37 +49,40 @@
 				<div class="col-md-3" style="float:left;">
 					<div class="feedback-side-menu">
 						<div style="padding-bottom:2px;">
-							<button type="button" class="btn btn-default feedback-button-fixes" id="single">
-								Single Reviews (<?php 
-									require_once('classes/dbInterface.php');
-									$dbInt = new DbInterface();
-									//get number of user reviews
-									$uReviews = $dbInt->getUserReviews($_SESSION['id']);
-									$uReviewsArray = array();
-									
-									$row = $uReviews->fetch();
-									// foreach ($uReviews->fetch() as $row) {
-// 										
-										// if ($row['reviewComplete'] == 0) {
-											// //add reviews to this page if they haven't been completed and save them
-											// $uReviewsArray[0][] = $row;
-										// }
-// 										
-									// }
-									//echo the number of rows in userReviews
-									echo $uReviews->rowCount();
-								?>)
-							</button>
+							<form action="?controller=cprm&action=feedback" method="post">
+								<button name="uReview" type="submit" class="btn btn-default feedback-button-fixes" id="single">
+									Single Reviews (<?php 
+										
+										//get number of user reviews
+										$uReviews = $dbInt->getUserReviews($_SESSION['id']);
+										
+										//if review was set at top
+										if(!$isGroupReview) {
+											$row = $uReviews->fetch();
+										}
+	
+										//echo the number of rows in userReviews
+										echo $uReviews->rowCount();
+									?>)
+								</button>
+							</form>
 							<input type='hidden' value='<?php print_r($row); ?>' id='uReviews' />
 						</div>
 						<div style="padding-top:2px;">
-							<button type="button" class="btn btn-default feedback-button-fixes" id="group">
-								Group Reviews (<?php
-								$gReviews = $dbInt->getGroupReviews($_SESSION['id']);
-								echo $gReviews->rowCount();
-								?>)
-							</button>
-							<input type='hidden' value='<?php echo json_encode($gReviews); ?>' id='gReviews' />
+							<form action="?controller=cprm&action=feedback" method="post">
+								<button name="gReview" type="submit" class="btn btn-default feedback-button-fixes" id="group">
+									Group Reviews (<?php
+									$gReviews = $dbInt->getGroupReviews($_SESSION['id']);
+									
+									if (isGroupReview) {
+										$row = $gReviews->fetch();
+									}
+						
+									echo $gReviews->rowCount();
+									?>)
+								</button>
+							</form>
+							<input type='hidden' value='<?php print_r($gRow); ?>' id='gReviews' />
 						</div>
 					</div>
 				</div>
@@ -57,8 +96,7 @@
 					$fieldsLength = $review['fieldsUsed'];
 					
 				?>
-				<h2><?php print_r($row); ?></h2>
-				<form action="" method="post">
+				<form action="?controller=cprm&action=feedback" method="post">
 					<div class="col-md-7" style="float:left;">
 						<div style="width:100%;">
 							<table class="table table-striped table-condensed">
@@ -77,7 +115,7 @@
 											echo "<tr>";
 											echo "<td class='feedback-tb-top-padding'>" . $review['field' . $i] . "</td>";
 											echo "<td class='feedback-tb-top-padding'>" . $review['pMax' . $i] . "</td>";
-											echo "<td><input type='text' style='width:20%' class='form-control' value='" . $review['pEarn' . $i] . "' /></td>";
+											echo "<td><input name='" . $i . "' type='text' style='width:20%' class='form-control' value='" . $review['pEarn' . $i] . "' /></td>";
 											echo "</tr>";
 										}
 										
@@ -92,8 +130,11 @@
 							</table>
 						</div>
 					</div>
-				
-					<button type='submit' class='btn btn-default'>Submit</button>
+					<input name='isGroupReview' type="hidden" value='<?php echo $isGroupReview; ?>' />
+					<input name='fieldsUsed' type="hidden" value='<?php echo $fieldsLength; ?>' />
+					<!-- holds primary key -->
+					<input name='reviewPrimary' type='hidden' value='<?php echo $row['reviewName']; ?> />
+					<button name='reviewSubmit' type='submit' class='btn btn-default'>Submit</button>
 				</form>
 			</div>
 		</div>
