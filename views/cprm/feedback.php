@@ -28,7 +28,6 @@
 			$dbInt->submitGroupReview($result);
 		}
 		else {
-			echo "attempted review submission";
 			$dbInt->submitUserReview($result);
 		}
 	}
@@ -59,14 +58,17 @@
 										
 										//get number of user reviews
 										$uReviews = $dbInt->getUserReviews($_SESSION['id']);
-										
-										//if review was set at top
-										if(!$isGroupReview) {
-											$row = $uReviews->fetch();
+										try {
+											//if review was set at top
+											if(!$isGroupReview) {
+												$row = $uReviews->fetch();
+											}
+		
+											//echo the number of rows in userReviews
+											echo $uReviews->rowCount();
+										} catch (Exception $e) {
+											echo "0";
 										}
-	
-										//echo the number of rows in userReviews
-										echo $uReviews->rowCount();
 									?>)
 								</button>
 							</form>
@@ -76,12 +78,15 @@
 								<button name="gReview" type="submit" class="btn btn-default feedback-button-fixes" id="group">
 									Group Reviews (<?php
 									$gReviews = $dbInt->getGroupReviews($_SESSION['id']);
-									
-									if (isGroupReview) {
-										//$row = $gReviews->fetch();
+									try {
+										if (isGroupReview) {
+											$row = $gReviews->fetch();
+										}
+							
+										echo $gReviews->rowCount();
+									} catch (Exception $e) {
+										echo "0";
 									}
-						
-									//echo $gReviews->rowCount();
 									?>)
 								</button>
 							</form>
