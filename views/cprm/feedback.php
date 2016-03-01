@@ -57,6 +57,7 @@
 					
 				?>
 				<h2><?php echo $fieldsLength; ?></h2>
+				<h2><?php echo $uReviewsArray[0]['fieldsUsed']; ?></h2>
 				<form action="" method="post">
 					<div class="col-md-7" style="float:left;">
 						<div style="width:100%;">
