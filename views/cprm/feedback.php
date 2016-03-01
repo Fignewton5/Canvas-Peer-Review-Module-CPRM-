@@ -54,8 +54,9 @@
 					
 					//get number of fields used for review for loop
 					$fieldsLength = $review['fieldsUsed'];
-				
+					
 				?>
+				<h2><?php echo $fieldsLength; ?></h2>
 				<form action="" method="post">
 					<div class="col-md-7" style="float:left;">
 						<div style="width:100%;">
