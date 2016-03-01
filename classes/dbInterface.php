@@ -93,7 +93,7 @@
 		 * 
 		 * 
 		 */
-		public function submitReview($result, $isGroup) {
+		private function submitReview($result, $isGroup) {
 			echo "HELLO FROM SUBMIT";
 			if ($isGroup) {
 				//do special group logic
@@ -129,7 +129,8 @@
 		 * 
 		 */
 		public function submitUserReview($result) {
-			submitReview($result, 0);
+			echo "HELLO!!!!!!!!!";
+			return submitReview($result, 0);
 		}
 		
 		/*
