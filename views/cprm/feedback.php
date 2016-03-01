@@ -58,6 +58,9 @@
 										
 										//get number of user reviews
 										$uReviews = $dbInt->getUserReviews($_SESSION['id']);
+										
+										echo $uReviews;
+										
 										try {
 											//if review was set at top
 											if(!$isGroupReview) {
