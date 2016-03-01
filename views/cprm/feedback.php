@@ -20,7 +20,10 @@
 		$result->primaryKey = $_POST['reviewPrimary'];
 		//populate point results, each field in table
 		for ($i = 0; $i < $_POST['fieldsUsed']; $i++) {
-			$pointArr[] = $_POST[$i];
+			
+			//BUG BUG BUG
+			//THERE IS A BUG WITH UPDATING THE pEARN FIELDS
+			$pointArr[] = $_POST["'" . $i . "'"];
 		}
 		$result->points = $pointArr;
 		
