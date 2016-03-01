@@ -126,6 +126,8 @@
 				}
 				$sql = $sql . " WHERE reviewName='" . $result->primaryKey . "'";
 				
+				echo $sql;
+				
 				if ($this->db->query($sql)) {
 					return 0;
 				}

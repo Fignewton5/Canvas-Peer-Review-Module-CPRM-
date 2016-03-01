@@ -11,8 +11,11 @@
 	
 	//handle post form update
 	if (isset($_POST['reviewSubmit'])) {
+		
 		$pointArr = array();
+		//holds results from form submit
 		$result = new stdClass();
+		
 		$result->fieldsUsed = $_POST['fieldsUsed'];
 		$result->primaryKey = $_POST['reviewPrimary'];
 		//populate point results, each field in table
@@ -25,6 +28,7 @@
 			$dbInt->submitGroupReview($result);
 		}
 		else {
+			echo "attempted review submission";
 			$dbInt->submitUserReview($result);
 		}
 	}
