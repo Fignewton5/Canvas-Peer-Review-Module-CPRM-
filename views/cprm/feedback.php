@@ -70,7 +70,6 @@
 									?>)
 								</button>
 							</form>
-							<input type='hidden' value='<?php print_r($row); ?>' id='uReviews' />
 						</div>
 						<div style="padding-top:2px;">
 							<form action="?controller=cprm&action=feedback" method="post">
@@ -82,11 +81,10 @@
 										//$row = $gReviews->fetch();
 									}
 						
-									echo $gReviews->rowCount();
+									//echo $gReviews->rowCount();
 									?>)
 								</button>
 							</form>
-							<input type='hidden' value='<?php print_r($gRow); ?>' id='gReviews' />
 						</div>
 					</div>
 				</div>
