@@ -67,6 +67,7 @@
 										//this makes sure there are rows to display
 										if ($uReviews != FALSE) {
 											if(!$isGroupReview) {
+												echo "userReview load";
 												$row = $uReviews->fetch();
 											}
 		
