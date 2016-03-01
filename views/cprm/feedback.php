@@ -111,6 +111,7 @@
 						$fieldsLength = $review['fieldsUsed'];
 					
 				?>
+				<h4>Review for: <?php echo $row['reviewFor']; ?></h4>
 				<form action="?controller=cprm&action=feedback" method="post">
 					<div class="col-md-7" style="float:left;">
 						<div style="width:100%;">
@@ -153,7 +154,7 @@
 				</form>
 				<?php } ?>
 				<?php if ($row == FALSE) { ?>
-					<h2>No Reviews to be completed</h2>
+					<h2>No reviews to be completed</h2>
 				<?php } ?>
 			</div>
 		</div>
