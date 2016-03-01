@@ -67,9 +67,9 @@
 										//this makes sure there are rows to display
 										if ($uReviews != FALSE) {
 											if(!$isGroupReview) {
-												echo "userReview load";
+											
 												$row = $uReviews->fetch();
-												print_r($row);
+												
 											}
 		
 											//echo the number of rows in userReviews
@@ -91,7 +91,8 @@
 									$gReviews = $dbInt->getGroupReviews($_SESSION['id']);
 									
 									if ($gReviews != FALSE) {
-										if (isGroupReview) {
+										if ($isGroupReview) {
+											
 											$row = $gReviews->fetch();
 										}
 							
