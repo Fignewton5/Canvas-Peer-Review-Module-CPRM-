@@ -60,12 +60,8 @@
 		 * 
 		 */
 		private function getReviews($id, $isGroup) {
-			if ($isGroup) {
-				$sql = "SELECT * FROM review WHERE reviewBy='" . $id . "' AND isGroup=" . $isGroup . " AND reviewComplete=0";
-			}
-			else {
-				$sql = "SELECT * FROM review WHERE reviewBy='" . $id . "' AND reviewComplete=0";
-			}
+			//isGroup will return the right results based off what is passed in
+			$sql = "SELECT * FROM review WHERE reviewBy='" . $id . "' AND isGroup=" . $isGroup . " AND reviewComplete=0";
 			
 			$result = $this->db->query($sql);
 			
