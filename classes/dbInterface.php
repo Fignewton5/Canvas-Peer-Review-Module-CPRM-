@@ -37,7 +37,7 @@
 		 * 
 		 */
 		public function getUserFromId($id) {
-			$sql = "SELECT * FROM users WHERE id=" . $id;
+			$sql = "SELECT * FROM users WHERE osuId=" . $id;
 			$result = $this->db->query($sql);
 			
 			$row = $result->fetch();
