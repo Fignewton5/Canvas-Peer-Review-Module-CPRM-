@@ -25,7 +25,7 @@
 										
 										if ($row['reviewComplete'] == 0) {
 											//add reviews to this page if they haven't been completed and save them
-											array_push($uReviewsArray, $row);
+											$uReviewsArray[0][] = $row;
 										}
 										
 									}
