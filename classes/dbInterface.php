@@ -93,24 +93,6 @@
 		 * 
 		 * 
 		 */
-		public function submitUserReview($result) {
-			submitReview($result, 0);
-		}
-		
-		/*
-		 * 
-		 * 
-		 * 
-		 */
-		public function submitGroupReview($result) {
-			submitReview($result, 1);
-		}
-		
-		/*
-		 * 
-		 * 
-		 * 
-		 */
 		public function submitReview($result, $isGroup) {
 			if ($isGroup) {
 				//do special group logic
@@ -136,4 +118,24 @@
 			
 			
 		}
+		
+		/*
+		 * 
+		 * 
+		 * 
+		 */
+		public function submitUserReview($result) {
+			submitReview($result, 0);
+		}
+		
+		/*
+		 * 
+		 * 
+		 * 
+		 */
+		public function submitGroupReview($result) {
+			submitReview($result, 1);
+		}
+		
+
 	}
