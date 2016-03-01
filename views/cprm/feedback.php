@@ -40,6 +40,7 @@
 	
 	if (isset($_POST['gReview'])) {
 		//group review is selected
+		echo "GROUP REVIEW SELECTED";
 		$isGroupReview = 1;
 	}
 	//group review wasn't selected/default don't change isGroupReview
