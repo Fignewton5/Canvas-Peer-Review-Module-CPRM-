@@ -42,7 +42,8 @@
 	//group review wasn't selected/default don't change isGroupReview
 	
 	//holds the relevant row from the proper review channel
-	$row = "";
+	//initialized as false in case uReviews/gReviews are false
+	$row = FALSE;
 ?>
 
 <div class="container-fluid">
@@ -59,23 +60,20 @@
 										//get number of user reviews
 										$uReviews = $dbInt->getUserReviews($_SESSION['id']);
 										
-										if ($uReviews == FALSE) {
-											echo "FALSE!!!";
-										}
-										
-										echo "TRUE";
-										
-										try {
-											//if review was set at top
+										//this makes sure there are rows to display
+										if ($uReviews != FALSE) {
 											if(!$isGroupReview) {
 												$row = $uReviews->fetch();
 											}
 		
 											//echo the number of rows in userReviews
 											echo $uReviews->rowCount();
-										} catch (Exception $e) {
+										}
+										
+										else {
 											echo "0";
 										}
+											
 									?>)
 								</button>
 							</form>
@@ -85,13 +83,16 @@
 								<button name="gReview" type="submit" class="btn btn-default feedback-button-fixes" id="group">
 									Group Reviews (<?php
 									$gReviews = $dbInt->getGroupReviews($_SESSION['id']);
-									try {
+									
+									if ($gReviews != FALSE) {
 										if (isGroupReview) {
 											$row = $gReviews->fetch();
 										}
 							
 										echo $gReviews->rowCount();
-									} catch (Exception $e) {
+									}
+									
+									else {
 										echo "0";
 									}
 									?>)
@@ -102,12 +103,12 @@
 				</div>
 				<?php
 					//this is responsible for setting pre-review information
-					
-					//pull and ready the first user review as default
-					$review = $row;
-					
-					//get number of fields used for review for loop
-					$fieldsLength = $review['fieldsUsed'];
+					if ($row != FALSE) {
+						//pull and ready the first user review as default
+						$review = $row;
+						
+						//get number of fields used for review for loop
+						$fieldsLength = $review['fieldsUsed'];
 					
 				?>
 				<form action="?controller=cprm&action=feedback" method="post">
@@ -150,6 +151,7 @@
 					<input name='reviewPrimary' type='hidden' value='<?php echo $row['reviewName']; ?>' />
 					<button name='reviewSubmit' type='submit' class='btn btn-default'>Submit</button>
 				</form>
+				<?php } ?>
 			</div>
 		</div>
 	</div>
