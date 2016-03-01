@@ -59,12 +59,12 @@
 		 * @return false if nothing, otherwise all rows that match
 		 * 
 		 */
-		private function getReviews($id, $isGroup, $skip) {
-			if ($skip) {
-				$sql = "SELECT * FROM review WHERE reviewBy='" . $id . "' AND reviewComplete=0";
+		private function getReviews($id, $isGroup) {
+			if ($isGroup) {
+				$sql = "SELECT * FROM review WHERE reviewBy='" . $id . "' AND isGroup=" . $isGroup . " AND reviewComplete=0";
 			}
 			else {
-				$sql = "SELECT * FROM review WHERE reviewBy='" . $id . "' AND isGroup=" . $isGroup . " AND reviewComplete=0";
+				$sql = "SELECT * FROM review WHERE reviewBy='" . $id . "' AND reviewComplete=0";
 			}
 			
 			$result = $this->db->query($sql);
@@ -86,7 +86,7 @@
 		 * 
 		 */
 		public function getUserReviews($id) {
-			return $this->getReviews($id, 0, 0);
+			return $this->getReviews($id, 0);
 		}
 		
 		/*
@@ -95,16 +95,7 @@
 		 * 
 		 */
 		public function getGroupReviews($id) {
-			return $this->getReviews($id, 1, 0);
-		}
-		
-		/*
-		 * Get every review matching $id from the DB
-		 * see _getReviews
-		 * 
-		 */ 
-		public function getAllReviews($id) {
-			return $this->getReviews($id, 0, 0);
+			return $this->getReviews($id, 1);
 		}
 		
 		/*
