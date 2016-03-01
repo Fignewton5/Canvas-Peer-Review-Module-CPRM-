@@ -40,7 +40,6 @@
 	
 	if (isset($_POST['gReview'])) {
 		//group review is selected
-		echo "GROUP REVIEW SELECTED";
 		$isGroupReview = 1;
 	}
 	//group review wasn't selected/default don't change isGroupReview
@@ -119,9 +118,15 @@
 					
 				?>
 				<h4>Review for: 
-				<?php 
-					$result = $dbInt->getUserFromId($row['reviewFor']); 
-					echo $result['name'];
+				<?php
+					if ($isGroupReview) {
+						//add in group number and names
+						echo "Group..."; 
+					} 
+					else {
+						$result = $dbInt->getUserFromId($row['reviewFor']); 
+						echo $result['name'];
+					}
 				?></h4>
 				<form action="?controller=cprm&action=feedback" method="post">
 					<div class="col-md-7" style="float:left;">
