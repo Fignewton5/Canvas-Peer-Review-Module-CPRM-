@@ -133,7 +133,7 @@
 					<input name='isGroupReview' type="hidden" value='<?php echo $isGroupReview; ?>' />
 					<input name='fieldsUsed' type="hidden" value='<?php echo $fieldsLength; ?>' />
 					<!-- holds primary key -->
-					<input name='reviewPrimary' type='hidden' value='<?php echo $row['reviewName']; ?> />
+					<input name='reviewPrimary' type='hidden' value='<?php echo $row['reviewName']; ?>' />
 					<button name='reviewSubmit' type='submit' class='btn btn-default'>Submit</button>
 				</form>
 			</div>
