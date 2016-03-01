@@ -152,6 +152,9 @@
 					<button name='reviewSubmit' type='submit' class='btn btn-default'>Submit</button>
 				</form>
 				<?php } ?>
+				<?php if ($row == FALSE) { ?>
+					<h2>No Reviews to be completed</h2>
+				<?php } ?>
 			</div>
 		</div>
 	</div>
