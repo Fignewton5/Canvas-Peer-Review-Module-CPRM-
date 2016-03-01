@@ -17,10 +17,17 @@
 								Single Reviews (<?php 
 									require_once('classes/dbInterface.php');
 									$dbInt = new DbInterface();
+									//get number of user reviews
 									$uReviews = $dbInt->getUserReviews($_SESSION['id']);
 									$uReviewsArray = array();
+									
 									foreach ($uReviews->fetch() as $row) {
-										array_push($uReviewsArray, $row);
+										
+										if ($row['reviewComplete'] == 0) {
+											//add reviews to this page if they haven't been completed and save them
+											array_push($uReviewsArray, $row);
+										}
+										
 									}
 									//echo the number of rows in userReviews
 									echo $uReviews->rowCount();
@@ -40,13 +47,13 @@
 					</div>
 				</div>
 				<?php
-				
-				$db = Db::getInstance();
-				$query = 'SELECT * FROM Test1 WHERE reviewName="cs462"';
-
-				foreach ($db->query($query) as $row) {
-					//only pulls one row
-					$iter = $row['fieldsUsed'];
+					//this is responsible for setting pre-review information
+					
+					//pull and ready the first user review as default
+					$review = $uReviewsArray[0];
+					
+					//get number of fields used for review for loop
+					$fieldsLength = $review['fieldsUsed'];
 				
 				?>
 				<form action="" method="post">
@@ -62,13 +69,15 @@
 								</thead>
 								<tbody id='tbody'>
 									<?php
-										// for ($i = 0; $i < $iter; $i++) {
-											// echo "<tr>";
-											// echo "<td class='feedback-tb-top-padding'>" . $row['field' . ($i + 1)] . "</td>";
-											// echo "<td class='feedback-tb-top-padding'>" . $row['pMax' . ($i + 1)] . "</td>";
-											// echo "<td><input type='text' style='width:20%' class='form-control' value='" . $row['pEarn' . ($i + 1)] . "' /></td>";
-											// echo "</tr>";
-										// }
+										//iterate through the fields and points
+										//as each field is laid out with a number appended, iterating through works
+										for ($i = 0; $i < $fieldsLength; $i++) {
+											echo "<tr>";
+											echo "<td class='feedback-tb-top-padding'>" . $review['field' . ($i + 1)] . "</td>";
+											echo "<td class='feedback-tb-top-padding'>" . $review['pMax' . ($i + 1)] . "</td>";
+											echo "<td><input type='text' style='width:20%' class='form-control' value='" . $review['pEarn' . ($i + 1)] . "' /></td>";
+											echo "</tr>";
+										}
 										
 									?>
 									<!-- <tr>
@@ -81,7 +90,6 @@
 							</table>
 						</div>
 					</div>
-					<?php } ?>
 				
 					<button type='submit' class='btn btn-default'>Submit</button>
 				</form>
