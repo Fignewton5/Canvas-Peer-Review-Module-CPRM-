@@ -59,7 +59,11 @@
 										//get number of user reviews
 										$uReviews = $dbInt->getUserReviews($_SESSION['id']);
 										
-										echo $uReviews;
+										if ($uReviews == FALSE) {
+											echo "FALSE!!!";
+										}
+										
+										echo "TRUE";
 										
 										try {
 											//if review was set at top
