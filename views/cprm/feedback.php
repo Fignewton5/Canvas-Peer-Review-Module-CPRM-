@@ -111,7 +111,11 @@
 						$fieldsLength = $review['fieldsUsed'];
 					
 				?>
-				<h4>Review for: <?php echo $row['reviewFor']; ?></h4>
+				<h4>Review for: 
+				<?php 
+					$result = $dbInt->getUserFromId($row['reviewFor']); 
+					echo $result['name'];
+				?></h4>
 				<form action="?controller=cprm&action=feedback" method="post">
 					<div class="col-md-7" style="float:left;">
 						<div style="width:100%;">

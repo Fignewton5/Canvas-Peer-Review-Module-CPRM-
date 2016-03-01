@@ -32,6 +32,25 @@
 		}
 		
 		/*
+		 * 
+		 * 
+		 * 
+		 */
+		public function getUserFromId($id) {
+			$sql = "SELECT * FROM users WHERE id=" . $id;
+			$result = $this->db->query($sql);
+			
+			$row = $result->fetch();
+			
+			if (!$row) {
+				return FALSE;
+			}
+			else {
+				return $row;
+			}
+		}
+		
+		/*
 		 * This is the base function for getting reviews from the DB
 		 * 
 		 * @params $id int(9) osuId, $isGroup bool get user/group reviews,
