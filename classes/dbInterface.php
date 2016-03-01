@@ -94,6 +94,7 @@
 		 * 
 		 */
 		public function submitReview($result, $isGroup) {
+			echo "HELLO FROM SUBMIT";
 			if ($isGroup) {
 				//do special group logic
 			}
@@ -104,8 +105,11 @@
 					if ($i == $result->fieldsUsed - 1) {
 						$sql = $sql . "pEarn" . $i . "=" . $result->points[$i];
 					}
-					$sql = $sql . "pEarn" . $i . "=" . $result->points[$i] . " , ";
+					else {
+						$sql = $sql . "pEarn" . $i . "=" . $result->points[$i] . " , ";
+					}
 				}
+				
 				$sql = $sql . " WHERE reviewName='" . $result->primaryKey . "'";
 				
 				echo $sql;
