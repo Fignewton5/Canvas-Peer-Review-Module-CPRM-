@@ -69,6 +69,7 @@
 											if(!$isGroupReview) {
 												echo "userReview load";
 												$row = $uReviews->fetch();
+												print_r($row);
 											}
 		
 											//echo the number of rows in userReviews
