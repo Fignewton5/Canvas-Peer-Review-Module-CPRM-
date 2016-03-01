@@ -79,7 +79,7 @@
 									$gReviews = $dbInt->getGroupReviews($_SESSION['id']);
 									
 									if (isGroupReview) {
-										$row = $gReviews->fetch();
+										//$row = $gReviews->fetch();
 									}
 						
 									echo $gReviews->rowCount();
