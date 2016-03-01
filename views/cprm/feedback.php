@@ -21,19 +21,20 @@
 									$uReviews = $dbInt->getUserReviews($_SESSION['id']);
 									$uReviewsArray = array();
 									
-									foreach ($uReviews->fetch() as $row) {
-										
-										if ($row['reviewComplete'] == 0) {
-											//add reviews to this page if they haven't been completed and save them
-											$uReviewsArray[0][] = $row;
-										}
-										
-									}
+									$results = $uReviews->fetch_all();
+									// foreach ($uReviews->fetch() as $row) {
+// 										
+										// if ($row['reviewComplete'] == 0) {
+											// //add reviews to this page if they haven't been completed and save them
+											// $uReviewsArray[0][] = $row;
+										// }
+// 										
+									// }
 									//echo the number of rows in userReviews
 									echo $uReviews->rowCount();
 								?>)
 							</button>
-							<input type='hidden' value='<?php print_r($uReviewsArray); ?>' id='uReviews' />
+							<input type='hidden' value='<?php print_r($results); ?>' id='uReviews' />
 						</div>
 						<div style="padding-top:2px;">
 							<button type="button" class="btn btn-default feedback-button-fixes" id="group">
@@ -50,7 +51,7 @@
 					//this is responsible for setting pre-review information
 					
 					//pull and ready the first user review as default
-					$review = $uReviewsArray[0];
+					$review = $results[0];
 					
 					//get number of fields used for review for loop
 					$fieldsLength = $review['fieldsUsed'];
