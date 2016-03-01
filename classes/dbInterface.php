@@ -119,7 +119,7 @@
 			else {
 				$sql = "UPDATE review SET ";
 				for ($i = 0; $i < $result->fieldsUsed; $i++) {
-					if ($i = $result->fieldsUsed - 1) {
+					if ($i == $result->fieldsUsed - 1) {
 						$sql = $sql . "pEarn" . $i . "=" . $result->points[$i];
 					}
 					$sql = $sql . "pEarn" . $i . "=" . $result->points[$i] . " , ";
