@@ -129,8 +129,7 @@
 		 * 
 		 */
 		public function submitUserReview($result) {
-			echo "HELLO!!!!!!!!!";
-			return submitReview($result, 0);
+			return $this->submitReview($result, 0);
 		}
 		
 		/*
@@ -139,7 +138,7 @@
 		 * 
 		 */
 		public function submitGroupReview($result) {
-			submitReview($result, 1);
+			$this->submitReview($result, 1);
 		}
 		
 
