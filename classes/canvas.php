@@ -46,13 +46,13 @@ class Canvas
 	 * 
 	 */ 
 	public function getUserEnrollment() {
-		//grab user_id / course_id from session variable for CURL call
+		//grab course_id from session variable for CURL call
 		$user_id = "self";
 		$course_id = $_SESSION['course']->id;
 		
 		//appending ?user_id=$user_id to the end filters out only the
 		//current user's enrollment for the course
-		$this->endPointUrl = $course_id . '/enrollments/?user_id=' . $user_id;
+		$this->endPointUrl = $course_id . '/enrollments?user_id=' . $user_id;
 		
 		//executre the CURL call
 		return $this->getCanvas();
