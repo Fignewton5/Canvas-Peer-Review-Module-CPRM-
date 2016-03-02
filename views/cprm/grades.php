@@ -10,10 +10,11 @@
 <div class="container-fluid">
 
 		<?php
+		echo 'TEST1';
 		//print_r($_SESSION);
 		require_once('classes/canvas.php');
 		$wrapper = new canvasWrapper();
-		echo 'TEST';
+		echo 'TEST2';
 		$data = $wrapper->checkEnrollment();
 		echo '<div>' . $data . '<div>';
 		
