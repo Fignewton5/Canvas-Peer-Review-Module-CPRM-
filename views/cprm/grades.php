@@ -10,7 +10,7 @@
 <div class="container-fluid">
 
 		<?php
-		session_start();
+		print_r($_SESSION);
 		echo '<div>ID: ' . $_SESSION['course'] . '</div>';
 		echo '<div>COURSE: ' . $_SESSION['course'] . '</div>';
 		?>
