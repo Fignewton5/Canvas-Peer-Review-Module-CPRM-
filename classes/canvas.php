@@ -54,7 +54,7 @@ class Canvas
 		//current user's enrollment for the course
 		//$this->endPointUrl = $course_id . '/enrollments?user_id=' . $user_id;
 		//$this->endPointUrl = $course_id . '/enrollments?user_id=6055272';
-		$this->endPointUrl = $course_id . '/enrollments';
+		$this->endPointUrl = 'courses/' . $course_id . '/enrollments';
 		
 		//execute the CURL call
 		return $this->getCanvas();
