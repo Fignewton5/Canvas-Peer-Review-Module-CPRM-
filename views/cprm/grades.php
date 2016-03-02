@@ -13,11 +13,10 @@
 		echo 'TEST1';
 		//print_r($_SESSION);
 		require_once('classes/canvasWrapper.php');
-		echo 'TEST2';
 		$wrapper = new CanvasWrapper();
-		echo 'TEST3';
-		$data = $wrapper->checkEnrollment();
-		echo '<div>' . $data . '<div>';
+		$wrapper->checkEnrollment();
+		//$data = $wrapper->checkEnrollment();
+		//echo '<div>' . $data . '<div>';
 		
 		echo '<div>ID: ' . $_SESSION['id'] . '</div>';
 		echo '<div>COURSE: ' . $_SESSION['course']->id . '</div>';

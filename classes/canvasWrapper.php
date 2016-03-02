@@ -109,8 +109,10 @@ class CanvasWrapper
 		//check enrollment type
 		$enrollment_type = $enrollment->type;
 		
+		echo "<div>CHECK ENROLLMENT: " . $enrollment_type . "</div>";
+		
 		//return enrollment type
-		return $enrollment_type;
+		//return $enrollment_type;
 	}
 	
 	/*
