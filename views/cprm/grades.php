@@ -13,7 +13,7 @@
 		echo 'TEST1';
 		//print_r($_SESSION);
 		require_once('classes/canvas.php');
-		$wrapper = new canvasWrapper();
+		$wrapper = new CanvasWrapper();
 		echo 'TEST2';
 		$data = $wrapper->checkEnrollment();
 		echo '<div>' . $data . '<div>';
