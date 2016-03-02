@@ -10,9 +10,9 @@
 <div class="container-fluid">
 
 		<?php
-		print_r($_SESSION);
-		echo '<div>ID: ' . $_SESSION['course'] . '</div>';
-		echo '<div>COURSE: ' . $_SESSION['course'] . '</div>';
+		//print_r($_SESSION);
+		echo '<div>ID: ' . $_SESSION['id'] . '</div>';
+		echo '<div>COURSE: ' . $_SESSION['course']->id . '</div>';
 		?>
 
 		<!-- 	Buttons for demo video purposes 
