@@ -14,7 +14,7 @@
 		require_once('classes/canvas.php');
 		$wrapper = new canvasWrapper();
 		$data = $wrapper->formatUserData;
-		echo '<div>' . $data->canvas_id . '<div>';
+		echo '<div>' . $data . '<div>';
 		
 		echo '<div>ID: ' . $_SESSION['id'] . '</div>';
 		echo '<div>COURSE: ' . $_SESSION['course']->id . '</div>';
