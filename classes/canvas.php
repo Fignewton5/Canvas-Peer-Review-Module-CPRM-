@@ -47,7 +47,7 @@ class Canvas
 	 */ 
 	public function getUserEnrollment() {
 		//grab user_id / course_id from session variable for CURL call
-		$user_id = $_SESSION['user_id'];
+		$user_id = "self";
 		$course_id = $_SESSION['course'];
 		
 		//appending ?user_id=$user_id to the end filters out only the
