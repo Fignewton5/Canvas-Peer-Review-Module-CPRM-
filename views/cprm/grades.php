@@ -11,7 +11,7 @@
 
 		<?php
 		session_start();
-		echo '<div>ID: ' . $_SESSION['user_id'] . '</div>';
+		echo '<div>ID: ' . $_SESSION['course'] . '</div>';
 		echo '<div>COURSE: ' . $_SESSION['course'] . '</div>';
 		?>
 
