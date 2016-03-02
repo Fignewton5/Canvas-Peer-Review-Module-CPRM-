@@ -103,6 +103,14 @@ class CanvasWrapper
 	 */ 
 	public function checkEnrollment() {
 		
+		//call function to check user enrollment for the current course
+		$enrollment = $this->canvas->getUserEnrollment();
+		
+		//check enrollment type
+		$enrollment_type = $enrollment->type;
+		
+		//return enrollment type
+		return $enrollment_type;
 	}
 	
 	/*

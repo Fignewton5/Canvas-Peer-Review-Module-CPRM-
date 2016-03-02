@@ -9,6 +9,11 @@
 <!-- This will be the grades table that shows the students' grades -->
 <div class="container-fluid">
 
+		<?php
+		echo '<div>ID: ' . $_SESSION['user_id'] . '</div>';
+		echo '<div>COURSE: ' . $_SESSION['course'] . '</div>';
+		?>
+
 		<!-- 	Buttons for demo video purposes 
 				Toggles profView or studentView 
 				divs to reflect either what a professor
