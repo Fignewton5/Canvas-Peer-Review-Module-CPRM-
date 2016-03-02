@@ -12,7 +12,7 @@
 		<?php
 		echo 'TEST1';
 		//print_r($_SESSION);
-		require_once('classes/canvas.php');
+		require_once('classes/canvasWrapper.php');
 		echo 'TEST2';
 		$wrapper = new CanvasWrapper();
 		echo 'TEST3';
