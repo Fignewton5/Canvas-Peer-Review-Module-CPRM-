@@ -39,7 +39,7 @@
 					}
 					if (isset($_SESSION['course'])) {
 						$canvas->printUserName();
-						echo "Current active course: " . $_SESSION['course']->courseName;
+						echo " Current active course: " . $_SESSION['course']->courseName;
 					} 
 				?>
 			</p>
