@@ -18,8 +18,8 @@
 			//set course session to current course selected
 			$_SESSION['course'] = $course;
 			
-			//after it is set go to give feedback
-			header('Location: ?controller=cprm&action=feedback');
+			//I don't think this is needed
+			//header('Location: ?controller=cprm&action=feedback');
 			}
 		}
 	}

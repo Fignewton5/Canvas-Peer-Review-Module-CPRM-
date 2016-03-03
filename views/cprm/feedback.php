@@ -5,19 +5,22 @@
 		header("Location: ?controller=account&action=login");
 	}
 	
-	//initialize DbInterface for use here
+	//initialize DbInterface for use in page
 	require_once('classes/dbInterface.php');
 	$dbInt = new DbInterface();
 	
 	//handle post form update
 	if (isset($_POST['reviewSubmit'])) {
 		
+		//holds results of all the points entered
 		$pointArr = array();
+		
 		//holds results from form submit
 		$result = new stdClass();
 		
 		$result->fieldsUsed = $_POST['fieldsUsed'];
 		$result->primaryKey = $_POST['reviewPrimary'];
+		
 		//populate point results, each field in table
 		for ($i = 0; $i < $_POST['fieldsUsed']; $i++) {
 			
@@ -61,7 +64,7 @@
 									Single Reviews (<?php 
 										
 										//get number of user reviews
-										$uReviews = $dbInt->getUserReviews($_SESSION['id']);
+										$uReviews = $dbInt->getUserReviews($_SESSION['id'], $_SESSION['course']);
 										
 										//this makes sure there are rows to display
 										if ($uReviews != FALSE) {
@@ -87,7 +90,7 @@
 							<form action="?controller=cprm&action=feedback" method="post">
 								<button name="gReview" type="submit" class="btn btn-default feedback-button-fixes" id="group">
 									Group Reviews (<?php
-									$gReviews = $dbInt->getGroupReviews($_SESSION['id']);
+									$gReviews = $dbInt->getGroupReviews($_SESSION['id'], $_SESSION['course']);
 									
 									if ($gReviews != FALSE) {
 										if ($isGroupReview) {

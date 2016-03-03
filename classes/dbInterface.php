@@ -81,7 +81,7 @@
 		 * 
 		 * 
 		 */
-		public function getUserReviews($id) {
+		public function getUserReviews($id, $courseId) {
 			return $this->getReviews($id, 0);
 		}
 		
@@ -90,7 +90,7 @@
 		 * see _getReviews
 		 * 
 		 */
-		public function getGroupReviews($id) {
+		public function getGroupReviews($id, $courseId) {
 			return $this->getReviews($id, 1);
 		}
 		
