@@ -35,7 +35,7 @@
 						require_once('classes/canvasWrapper.php');
 						$canvas = new CanvasWrapper();
 						$canvas->printUserName();
-						echo "To start select a course from below.";
+						echo " To start select a course from below.";
 					}
 					if (isset($_SESSION['course'])) {
 						$canvas->printUserName();
