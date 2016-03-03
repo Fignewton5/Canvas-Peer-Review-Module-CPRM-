@@ -76,6 +76,8 @@ class Canvas
 		
 		$this->endPointUrl = 'courses/' . $canvasId . '/enrollments';
 		
+		echo $this->endPointUrl;
+		
 		//execute the CURL call
 		$result = $this->getCanvas();
 		
