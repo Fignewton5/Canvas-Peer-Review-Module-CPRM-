@@ -30,10 +30,13 @@
 		<div id="userIdPanel" class="panel-heading" style="height:49px;">
 			<?php
 				//this is a user greeting
-				if (isset($_SESSION['token'])) {
+				if (!isset($_SESSION['course']) && isset($_SESSION['token'])) {
 					require_once('classes/canvasWrapper.php');
 					$canvas = new CanvasWrapper();
 					$canvas->printUserName();
+				}
+				if (isset($_SESSION['course'])) {
+					echo "Course: " . $_SESSION['course']->courseName;
 				} 
 			?>
 		</div>
