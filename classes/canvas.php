@@ -89,7 +89,7 @@ class Canvas
 		echo '<div>Iterating through ' . count($result) . ' enrollment objects.<div>';
 		
 		foreach ($result as $item) {
-			print_r($item);
+			echo $item->sis_course_id . "<br>";
 			if ($item->course_id == $course_id) {
 				$enrollment = $item->type;
 				echo '<div>^^^ Found current user\'s enrollment. ^^^</div>';
