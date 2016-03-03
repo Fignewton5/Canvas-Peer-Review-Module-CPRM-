@@ -74,7 +74,7 @@ class Canvas
 		//grab course_id from session variable for CURL call
 		$course_id = $_SESSION['course']->id;
 		
-		$this->endPointUrl = 'courses/' . $canvasId . '/enrollments';
+		$this->endPointUrl = 'users/' . $canvasId . '/enrollments';
 		
 		echo $this->endPointUrl;
 		
