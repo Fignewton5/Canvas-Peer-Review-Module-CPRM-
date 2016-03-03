@@ -5,6 +5,10 @@
 	if (!isset($_SESSION['token'])) {
 		header("Location: ?controller=account&action=login");
 	}
+	
+	//moved up here so it will work for the rest of the page
+	require_once('classes/canvasWrapper.php');
+	$canvas = new CanvasWrapper();
 
 	//check / set course information in session
 
@@ -32,8 +36,6 @@
 				<?php
 					//this is a user greeting
 					if (!isset($_SESSION['course']) && isset($_SESSION['token'])) {
-						require_once('classes/canvasWrapper.php');
-						$canvas = new CanvasWrapper();
 						$canvas->printUserName();
 						echo " To start select a course from below.";
 					}
