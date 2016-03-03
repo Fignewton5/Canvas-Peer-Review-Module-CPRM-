@@ -116,33 +116,28 @@ class CanvasWrapper
 		
 		//output enrollment based on contents of string
 		switch($enrollment){
-			case "StudentEnrollment":
-				//echo "<div>CHECK ENROLLMENT: You are a Student</div>";
-				return "student";
+			case 'StudentEnrollment':
+				return 'student';
 				break;
 				
-			case "TeacherEnrollment":
-				//echo "<div>CHECK ENROLLMENT: You are a Teacher</div>";
-				return "teacher";
+			case 'TeacherEnrollment':
+				return 'teacher';
 				break;
 				
-			case "TaEnrollment":
-				//echo "<div>CHECK ENROLLMENT: You are a TA</div>";
-				return "ta";
+			case 'TaEnrollment':
+				return 'ta';
 				break;
 				
-			case "DesignerEnrollment":
-				//echo "<div>CHECK ENROLLMENT: You are a Designer</div>";
-				return "designer";
+			case 'DesignerEnrollment':
+				return 'designer';
 				break;
 				
-			case "ObserverEnrollment":
-				//echo "<div>CHECK ENROLLMENT: You are an Observer</div>";
-				return "observer";
+			case 'ObserverEnrollment':
+				return 'observer';
 				break;
 			
 			default:
-				echo "<div>CHECK ENROLLMENT: Error occurred!</div>";
+				echo '<div>CHECK ENROLLMENT: Error occurred!' . $enrollment . '</div>';
 		}
 		
 	}

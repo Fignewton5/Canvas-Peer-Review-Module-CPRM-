@@ -2,19 +2,6 @@
 	//check to see if session has been reset
 	session_start();
 	
-	//make sure to grab a copy of the user's id
-	//if not set already
-	/*if (!isset($_SESSION['user_id'])){
-		require_once('classes/canvasWrapper.php');
-		
-		//create a new canvas wrapper class to grab the user info
-		$canvas = new CanvasWrapper();
-		$data = $canvas->formatUserData;
-		
-		//set user_id session variable for later use
-		$_SESSION['user_id'] = $data->user_id;
-	}*/
-	
 	if (!isset($_SESSION['token'])) {
 		header("Location: ?controller=account&action=login");
 	}
