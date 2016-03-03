@@ -152,7 +152,7 @@ class CanvasWrapper
 	public function printUserName() {
 		$user = $this->formatUserData();
 		//echo "<div class='well well-sm'>";
-		echo "<p style='font-size:18px;'>Welcome $user->name.</p>";
+		echo "Welcome $user->name.";
 		//echo "</div>";
 	}
 	

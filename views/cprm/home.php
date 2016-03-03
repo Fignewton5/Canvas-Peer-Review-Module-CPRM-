@@ -28,19 +28,21 @@
 <div class="container-fluid">
 	<div class="panel panel-default" style="margin-top:5px;">
 		<div id="userIdPanel" class="panel-heading" style="height:49px;">
-			<?php
-				//this is a user greeting
-				if (!isset($_SESSION['course']) && isset($_SESSION['token'])) {
-					require_once('classes/canvasWrapper.php');
-					$canvas = new CanvasWrapper();
-					$canvas->printUserName();
-					echo "To start select a course from below.";
-				}
-				if (isset($_SESSION['course'])) {
-					$canvas->printUserName();
-					echo "Current active course: " . $_SESSION['course']->courseName;
-				} 
-			?>
+			<p style='font-size:18px;'>
+				<?php
+					//this is a user greeting
+					if (!isset($_SESSION['course']) && isset($_SESSION['token'])) {
+						require_once('classes/canvasWrapper.php');
+						$canvas = new CanvasWrapper();
+						$canvas->printUserName();
+						echo "To start select a course from below.";
+					}
+					if (isset($_SESSION['course'])) {
+						$canvas->printUserName();
+						echo "Current active course: " . $_SESSION['course']->courseName;
+					} 
+				?>
+			</p>
 		</div>
 		
 		<div class="panel-body" id="test">
