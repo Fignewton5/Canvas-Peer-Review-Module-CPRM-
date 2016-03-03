@@ -65,16 +65,20 @@ class Canvas
 	 * 
 	 */ 
 	public function getUserEnrollment() {
+		//grab user ID using other function
+		$data = $this->getUserInfo();
+		
+		//used to get user enrollments
+		$canvasId = $data->id;
 		
 		//grab course_id from session variable for CURL call
 		$course_id = $_SESSION['course']->id;
-		$this->endPointUrl = 'courses/' . $course_id . '/enrollments';
+		
+		$this->endPointUrl = 'courses/' . $canvasId . '/enrollments';
 		
 		//execute the CURL call
 		$result = $this->getCanvas();
 		
-		//grab user ID using other function
-		$data = $this->getUserInfo();
 		
 		//variable to return
 		$enrollment = NULL;
@@ -82,19 +86,27 @@ class Canvas
 		//debugging
 		echo '<div>Iterating through ' . count($result) . ' enrollment objects.<div>';
 		
-		//iterate through the enrollments for the course
-		foreach($result as $item){
-		
-			//debugging
+		foreach ($result as $item) {
 			echo '<div>Comparing enrollment user_id of: ' . $item->user_id . ' with current user_id of: ' . $_SESSION['user_id'] . '</div>';
-		
-			//if the user_id of the enrollment and the session variable match
-			//then that is the enrollment for the current user in the current course
-			if($item->user_id == $_SESSION['user_id']){
+			if ($item->course_id == $course_id) {
 				$enrollment = $item->type;
 				echo '<div>^^^ Found current user\'s enrollment. ^^^</div>';
 			}
 		}
+		
+		//iterate through the enrollments for the course
+		// foreach($result as $item){
+// 		
+			// //debugging
+			// echo '<div>Comparing enrollment user_id of: ' . $item->user_id . ' with current user_id of: ' . $_SESSION['user_id'] . '</div>';
+// 		
+			// //if the user_id of the enrollment and the session variable match
+			// //then that is the enrollment for the current user in the current course
+			// if($item->user_id == $_SESSION['user_id']){
+				// $enrollment = $item->type;
+				// echo '<div>^^^ Found current user\'s enrollment. ^^^</div>';
+			// }
+		// }
 		
 		//if we got a valid enrollment, return it, otherwise return error
 		if(isset($enrollment)){
