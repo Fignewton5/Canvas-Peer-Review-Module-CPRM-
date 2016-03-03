@@ -15,10 +15,29 @@ class Canvas
 	 * 
 	 */ 
 	public function __construct() {
-		//$file = fopen("token.txt",'r');
-		//$token = fgets($file);
+	
+		//grab user token from session variable
 		$token = $_SESSION['token'];
 		$this->canvasAccessToken = $token;
+		
+		//run function to grab user ID and store as a session variable
+		$this->getUserID();
+	}
+	
+	/*
+	 * gets user ID from the current user
+	 * 
+	 */
+	public function getUserID() {
+		$this->endPointUrl = 'users/self';
+		$info = $this->getCanvas();
+		
+		//if the user_id session variable is not set
+		if (!isset($_SESSION['user_id']))
+		{
+			//set the session variable
+			$_SESSION['user_id'] = $info->id;
+		}
 	}
 	
 	/*
