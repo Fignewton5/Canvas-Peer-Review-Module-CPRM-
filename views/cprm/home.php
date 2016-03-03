@@ -34,9 +34,11 @@
 					require_once('classes/canvasWrapper.php');
 					$canvas = new CanvasWrapper();
 					$canvas->printUserName();
+					echo "To start select a course from below.";
 				}
 				if (isset($_SESSION['course'])) {
-					echo "Course: " . $_SESSION['course']->courseName;
+					$canvas->printUserName();
+					echo "Current active course: " . $_SESSION['course']->courseName;
 				} 
 			?>
 		</div>
