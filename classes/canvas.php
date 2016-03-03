@@ -55,7 +55,7 @@ class Canvas
 	 * 
 	 */
 	public function getCoursesForUser() {
-		$this->endPointUrl = 'courses?per_page=50';
+		$this->endPointUrl = 'courses';
 		return $this->getCanvas();
 	}
 	
