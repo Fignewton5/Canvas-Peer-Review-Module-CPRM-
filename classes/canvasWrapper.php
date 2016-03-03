@@ -88,11 +88,19 @@ class CanvasWrapper
 	/*
 	 * This function will handle the request
 	 * and formatting of the user enrollment request
-	 * and ouput an object
+	 * and a string.
 	 * 
+	 * @return $enrollment: string that looks like "_____Enrollment"
+	 *								(Student, Teacher, Ta, Designer, Observer)
+	 *						
 	 */ 
 	public function formatEnrollment() {
 		
+		//call function to check user enrollment for the current course
+		$enrollment = $this->canvas->getUserEnrollment();
+		
+		//return enrollment string
+		return $enrollment;
 	}
 	
 	/*
@@ -103,16 +111,40 @@ class CanvasWrapper
 	 */ 
 	public function checkEnrollment() {
 		
-		//call function to check user enrollment for the current course
-		$enrollment = $this->canvas->getUserEnrollment();
+		//get enrollment type
+		$enrollment = $this->formatEnrollment();
 		
-		//check enrollment type
-		$enrollment_type = $enrollment->type;
+		//output enrollment based on contents of string
+		switch($enrollment){
+			case "StudentEnrollment":
+				//echo "<div>CHECK ENROLLMENT: You are a Student</div>";
+				return "student";
+				break;
+				
+			case "TeacherEnrollment":
+				//echo "<div>CHECK ENROLLMENT: You are a Teacher</div>";
+				return "teacher";
+				break;
+				
+			case "TaEnrollment":
+				//echo "<div>CHECK ENROLLMENT: You are a TA</div>";
+				return "ta";
+				break;
+				
+			case "DesignerEnrollment":
+				//echo "<div>CHECK ENROLLMENT: You are a Designer</div>";
+				return "designer";
+				break;
+				
+			case "ObserverEnrollment":
+				//echo "<div>CHECK ENROLLMENT: You are an Observer</div>";
+				return "observer";
+				break;
+			
+			default:
+				echo "<div>CHECK ENROLLMENT: Error occurred!</div>";
+		}
 		
-		echo "<div>CHECK ENROLLMENT: " . $enrollment_type . "</div>";
-		
-		//return enrollment type
-		//return $enrollment_type;
 	}
 	
 	/*

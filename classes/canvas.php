@@ -46,18 +46,35 @@ class Canvas
 	 * 
 	 */ 
 	public function getUserEnrollment() {
-		//grab course_id from session variable for CURL call
-		$user_id = "self";
-		$course_id = $_SESSION['course']->id;
 		
-		//appending ?user_id=$user_id to the end filters out only the
-		//current user's enrollment for the course
-		//$this->endPointUrl = $course_id . '/enrollments?user_id=' . $user_id;
-		//$this->endPointUrl = $course_id . '/enrollments?user_id=6055272';
+		//grab course_id from session variable for CURL call
+		$course_id = $_SESSION['course']->id;
 		$this->endPointUrl = 'courses/' . $course_id . '/enrollments';
 		
 		//execute the CURL call
-		return $this->getCanvas();
+		$result = $this->getCanvas();
+		
+		//grab user ID using other function
+		$data = $this->getUserInfo();
+		
+		//variable to return
+		$enrollment = NULL;
+		
+		//iterate through the enrollments for the course
+		foreach($result as $item){
+		
+			//if the user_id of the enrollment and the session variable match
+			//then that is the enrollment for the current user in the current course
+			if($item->user_id == $_SESSION['user_id']){
+				$enrollment = $item->type;
+			}
+		}
+		
+		//if we got a valid enrollment, return it, otherwise return error
+		if(isset($enrollment)){
+			return $enrollment;
+		}
+		else return "Error Getting Enrollment!";
 	}
 	
 	/*
