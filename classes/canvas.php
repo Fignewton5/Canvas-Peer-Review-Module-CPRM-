@@ -79,8 +79,14 @@ class Canvas
 		//variable to return
 		$enrollment = NULL;
 		
+		//debugging
+		echo '<div>Iterating through ' . count($result) . ' enrollment objects.<div>';
+		
 		//iterate through the enrollments for the course
 		foreach($result as $item){
+		
+			//debugging
+			echo '<div>Comparing enrollment user_id of: ' . $item->user_id . ' with current user_id of: ' . $_SESSION['user_id'] . '</div>';
 		
 			//if the user_id of the enrollment and the session variable match
 			//then that is the enrollment for the current user in the current course
