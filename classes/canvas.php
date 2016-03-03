@@ -87,7 +87,7 @@ class Canvas
 		echo '<div>Iterating through ' . count($result) . ' enrollment objects.<div>';
 		
 		foreach ($result as $item) {
-			echo '<div>Comparing enrollment user_id of: ' . $item->user_id . ' with current user_id of: ' . $_SESSION['user_id'] . '</div>';
+			print_r($item);
 			if ($item->course_id == $course_id) {
 				$enrollment = $item->type;
 				echo '<div>^^^ Found current user\'s enrollment. ^^^</div>';
