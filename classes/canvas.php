@@ -55,7 +55,7 @@ class Canvas
 	 * 
 	 */
 	public function getCoursesForUser() {
-		$this->endPointUrl = 'courses';
+		$this->endPointUrl = 'courses?per_page=50';
 		return $this->getCanvas();
 	}
 	
@@ -74,9 +74,9 @@ class Canvas
 		//grab course_id from session variable for CURL call
 		$course_id = $_SESSION['course']->id;
 		
-		$this->endPointUrl = 'users/' . $canvasId . '/enrollments?per_page=50';
-		
-		echo $this->endPointUrl;
+		//have to increase the per page requirement so we don't have to send
+		//multiple requests, this just gives us 100 enrollments of the user
+		$this->endPointUrl = 'users/' . $canvasId . '/enrollments?per_page=100';
 		
 		//execute the CURL call
 		$result = $this->getCanvas();
@@ -85,30 +85,14 @@ class Canvas
 		//variable to return
 		$enrollment = NULL;
 		
-		//debugging
-		echo '<div>Iterating through ' . count($result) . ' enrollment objects.<div>';
-		
+		//iterate through each enrollment object
 		foreach ($result as $item) {
-			echo $item->sis_course_id . "<br>";
+			//if the enrollment course id == our course
 			if ($item->course_id == $course_id) {
+				//type refers to user enrollment
 				$enrollment = $item->type;
-				echo '<div>^^^ Found current user\'s enrollment. ^^^</div>';
 			}
 		}
-		
-		//iterate through the enrollments for the course
-		// foreach($result as $item){
-// 		
-			// //debugging
-			// echo '<div>Comparing enrollment user_id of: ' . $item->user_id . ' with current user_id of: ' . $_SESSION['user_id'] . '</div>';
-// 		
-			// //if the user_id of the enrollment and the session variable match
-			// //then that is the enrollment for the current user in the current course
-			// if($item->user_id == $_SESSION['user_id']){
-				// $enrollment = $item->type;
-				// echo '<div>^^^ Found current user\'s enrollment. ^^^</div>';
-			// }
-		// }
 		
 		//if we got a valid enrollment, return it, otherwise return error
 		if(isset($enrollment)){
