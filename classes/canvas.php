@@ -92,6 +92,7 @@ class Canvas
 			//then that is the enrollment for the current user in the current course
 			if($item->user_id == $_SESSION['user_id']){
 				$enrollment = $item->type;
+				echo '<div>^^^ Found current user\'s enrollment. ^^^</div>';
 			}
 		}
 		
