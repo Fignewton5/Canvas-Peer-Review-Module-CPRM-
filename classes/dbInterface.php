@@ -59,9 +59,9 @@
 		 * @return false if nothing, otherwise all rows that match
 		 * 
 		 */
-		private function getReviews($id, $isGroup) {
+		private function getReviews($id, $courseId, $isGroup) {
 			//isGroup will return the right results based off what is passed in
-			$sql = "SELECT * FROM review WHERE reviewBy='" . $id . "' AND isGroup=" . $isGroup . " AND reviewComplete=0";
+			$sql = "SELECT * FROM review WHERE reviewBy='" . $id . "' AND isGroup=" . $isGroup . " AND reviewComplete=0 AND forClass=" . $courseId;
 			
 			$result = $this->db->query($sql);
 			
@@ -82,7 +82,7 @@
 		 * 
 		 */
 		public function getUserReviews($id, $courseId) {
-			return $this->getReviews($id, 0);
+			return $this->getReviews($id, $courseId, 0);
 		}
 		
 		/*
@@ -91,7 +91,7 @@
 		 * 
 		 */
 		public function getGroupReviews($id, $courseId) {
-			return $this->getReviews($id, 1);
+			return $this->getReviews($id, $courseId, 1);
 		}
 		
 		/*
