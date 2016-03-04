@@ -64,7 +64,7 @@
 									Single Reviews (<?php 
 										
 										//get number of user reviews
-										$uReviews = $dbInt->getUserReviews($_SESSION['id'], $_SESSION['course']);
+										$uReviews = $dbInt->getUserReviews($_SESSION['id'], $_SESSION['course']->id);
 										
 										//this makes sure there are rows to display
 										if ($uReviews != FALSE) {
@@ -90,7 +90,7 @@
 							<form action="?controller=cprm&action=feedback" method="post">
 								<button name="gReview" type="submit" class="btn btn-default feedback-button-fixes" id="group">
 									Group Reviews (<?php
-									$gReviews = $dbInt->getGroupReviews($_SESSION['id'], $_SESSION['course']);
+									$gReviews = $dbInt->getGroupReviews($_SESSION['id'], $_SESSION['course']->id);
 									
 									if ($gReviews != FALSE) {
 										if ($isGroupReview) {
