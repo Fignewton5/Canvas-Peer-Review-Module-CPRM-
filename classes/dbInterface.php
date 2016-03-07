@@ -53,8 +53,8 @@
 		/*
 		 * This is the base function for getting reviews from the DB
 		 * 
-		 * @params $id int(9) osuId, $isGroup bool get user/group reviews,
-		 * 			$skip bool skip the is group check and get all reviews
+		 * @params $id int(9) osuId, $courseId canvas ID integer
+		 * 			$isGroup bool get user/group reviews,
 		 * 
 		 * @return false if nothing, otherwise all rows that match
 		 * 
