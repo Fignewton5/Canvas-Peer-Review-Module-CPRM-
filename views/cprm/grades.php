@@ -15,7 +15,8 @@
 	require_once('classes/canvasWrapper.php');
 	$wrapper = new CanvasWrapper();
 	$enrollment = $wrapper->checkEnrollment();
-	$enrollment = "teacher";
+	//for testing teacher view
+	//$enrollment = "teacher";
 	
 	//if a student name was entered into the search bar
 	if (isset($_POST['searchName'])){
@@ -129,12 +130,11 @@
 					</div> <!-- input-group -->
 				</form> <!-- Search bar form -->
 				
-				<br>
-				
 				<?php
 					//if a name was searched for then generate html to let
 					//the user know what the original search was for
 					if($searchUsed){
+						echo '<br>';
 						echo '<div>Displaying Results for ... ' . $_POST['searchName'] . '</div>';
 					}
 				?>
