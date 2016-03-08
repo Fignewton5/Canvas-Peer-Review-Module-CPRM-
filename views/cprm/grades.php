@@ -29,7 +29,7 @@
 		<div class="panel panel-default" style="margin-top:5px;" id="studentView">
 			<div class="panel-body">
 				<h2>Student Grades</h2>
-				<table class="table-bordered" style="width:800px">
+				<table class="table-bordered" style="width:800px; overflow:auto;">
 					<thead>
 						<tr>
 							<th>Description</th>
@@ -80,6 +80,7 @@
 									echo '	<td>' . $row['pEarn7'] . '</td>';
 									echo '	<td>' . $row['pEarn8'] . '</td>';
 									echo '	<td>' . $row['pEarn9'] . '</td>';
+									//sum up totals
 									echo '	<td>' . ($row['pEarn0'] + $row['pEarn1'] + $row['pEarn2'] 
 															+ $row['pEarn3'] + $row['pEarn4'] + $row['pEarn5'] 
 															+ $row['pEarn6'] + $row['pEarn7'] + $row['pEarn8'] 
