@@ -15,6 +15,7 @@
 	require_once('classes/canvasWrapper.php');
 	$wrapper = new CanvasWrapper();
 	$enrollment = $wrapper->checkEnrollment();
+	$enrollment = "teacher";
 	
 	//if a student name was entered into the search bar
 	if (isset($_POST['searchName'])){
