@@ -67,7 +67,8 @@
 							//use database interface to grab user's OSU ID using their token
 							$osuID = $dbInt->getIDFromToken($_SESSION['token']);
 							if($osuID != FALSE){
-								echo '<div>OSU ID: ' . $osuID . '</div>';
+								//echo '<div>OSU ID: ' . $osuID . '</div>';
+								//do nothing
 							}
 							else echo '<div>ERROR GETTING OSUID</div>';
 							
@@ -109,13 +110,8 @@
 					</tbody>
 				</table>
 			
-				<!-- Button to test loading table rows -->
-				<br></br>
-				<div class="container">
-					<button type="button" class="btn-default" id="load-grades" onclick="loadGradesStudent()">Fetch Grades [TEST]</button>
-				</div>
-			</div>
-		</div>
+			</div> <!-- panel-body -->
+		</div> <!-- panel panel-default -->
 
 	<?php elseif(($enrollment == "teacher") or ($enrollment == "ta")) : ?>
 	
