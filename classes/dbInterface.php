@@ -82,6 +82,67 @@
 		}
 		
 		/*
+		 * This function uses an OSU ID number
+		 * to retrieve the corresponding student's name.
+		 * 
+		 * @params $osuId OSU ID number used to look up the student's
+		 *					name with a query
+		 * 
+		 * @return FALSE if query failed, otherwise all rows that match
+		 *
+		 */
+		public function getNameFromID($osuId) {
+		
+			//construct query to grab the user's name by using their OSU ID
+			$query = "SELECT * FROM users WHERE osuId='" . $osuId . "'";
+			//execute query
+			$result = $this->db->query($query);
+			
+			//get next row of returned results (should only be one row)
+			$row = $result->fetch();
+			
+			//if query failed
+			if (!$row) {
+				echo 'Error getting student name!';
+				return FALSE;
+			}
+			//return name
+			else {
+				return $row['name'];
+			}
+		}
+		
+		/*
+		 * This function uses a student's name
+		 * to retrieve the corresponding student's OSU ID.
+		 * 
+		 * @params $name student's name to be used in the query
+		 * 
+		 * @return FALSE if query failed, otherwise all rows that match
+		 *
+		 */
+		public function getIDFromName($name) {
+		
+			//construct query to grab the user's OSU ID by using their name
+			$query = "SELECT * FROM users WHERE name='" . $name . "'";
+			//execute query
+			$result = $this->db->query($query);
+			
+			//get next row of returned results (should only be one row)
+			$row = $result->fetch();
+			
+			//if query failed
+			if (!$row) {
+				echo 'Error getting student ID!';
+				return FALSE;
+			}
+			//return name
+			else {
+				return $row['osuId'];
+			}
+		}
+		
+		/*
 		 * This function is used by the Grades tab and uses the current user's
 		 * OSU ID and course ID to grab all records of peer reviews done for 
 		 * the current student by his / her peers.
@@ -111,6 +172,67 @@
 			}
 		}
 		
+		/*
+		 * This function is used by the Grades tab and uses the current user's
+		 * OSU ID and course ID to grab all records of peer reviews done for 
+		 * AND by the current student. This differs with the above function because
+		 * it is used by the grades tab after using the search bar, and returns all records
+		 * done by AND for the student.
+		 *
+		 * @params $osuId the current user's OSU ID to be used in the SQL query
+		 *				   $courseId the current user's active course id to be used in the SQL query
+		 *
+		 * @return FALSE if query fails
+		 * 			 otherwise, return all rows matching the query (peer reviews done by / for the student)
+		 */
+		public function getSearchGrades($osuId, $courseId){
+			
+			//construct query to grab peer reviews done both by AND for
+			//the student in the currently active course
+			$query = "SELECT * FROM review WHERE reviewFor='" . $osuId . "'AND forClass='" . $courseId . "' OR reviewBy='" . $osuId . "' AND forClass='" . $courseId . "'";
+			//echo $query;
+			//execute query
+			$result = $this->db->query($query);
+			
+			//check the result to see if it worked
+			if($result){
+				return $result;
+			}
+			//query failed
+			else{
+				echo 'Error getting student grades!';
+				return FALSE;
+			}
+		}
+		
+		/*
+		 * This function is used by the Grades tab and uses the course ID
+		 * to retrieve all recorded peer reviews for the course.
+		 *
+		 * @params $courseId the  active course id to be used in the SQL query
+		 *
+		 * @return FALSE if query fails
+		 * 			 otherwise, return all rows matching the query (peer reviews done for the course)
+		 */
+		public function getClassGrades($courseId){
+			
+			//construct query to grab peer reviews done for
+			//the currently active course
+			$query = "SELECT * FROM review WHERE forClass='" . $courseId . "'";
+			//echo $query;
+			//execute query
+			$result = $this->db->query($query);
+			
+			//check the result to see if it worked
+			if($result){
+				return $result;
+			}
+			//query failed
+			else{
+				echo 'Error getting class grades!';
+				return FALSE;
+			}
+		}
 		
 		/*
 		 * This is the base function for getting reviews from the DB
