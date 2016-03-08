@@ -78,21 +78,26 @@
 								foreach($grades as $row){
 									echo '<tr>';
 									echo '	<td>' . $row['reviewName'] . '</td>';
-									echo '	<td>' . $row['pEarn0'] . '</td>';
-									echo '	<td>' . $row['pEarn1'] . '</td>';
-									echo '	<td>' . $row['pEarn2'] . '</td>';
-									echo '	<td>' . $row['pEarn3'] . '</td>';
-									echo '	<td>' . $row['pEarn4'] . '</td>';
-									echo '	<td>' . $row['pEarn5'] . '</td>';
-									echo '	<td>' . $row['pEarn6'] . '</td>';
-									echo '	<td>' . $row['pEarn7'] . '</td>';
-									echo '	<td>' . $row['pEarn8'] . '</td>';
-									echo '	<td>' . $row['pEarn9'] . '</td>';
+									echo '	<td>' . $row['pEarn0'] . ' / ' . $row['pMax0'] . '</td>';
+									echo '	<td>' . $row['pEarn1'] . ' / ' . $row['pMax1'] . '</td>';
+									echo '	<td>' . $row['pEarn2'] . ' / ' . $row['pMax2'] . '</td>';
+									echo '	<td>' . $row['pEarn3'] . ' / ' . $row['pMax3'] . '</td>';
+									echo '	<td>' . $row['pEarn4'] . ' / ' . $row['pMax4'] . '</td>';
+									echo '	<td>' . $row['pEarn5'] . ' / ' . $row['pMax5'] . '</td>';
+									echo '	<td>' . $row['pEarn6'] . ' / ' . $row['pMax6'] . '</td>';
+									echo '	<td>' . $row['pEarn7'] . ' / ' . $row['pMax7'] . '</td>';
+									echo '	<td>' . $row['pEarn8'] . ' / ' . $row['pMax8'] . '</td>';
+									echo '	<td>' . $row['pEarn9'] . ' / ' . $row['pMax9'] . '</td>';
 									//sum up totals
 									echo '	<td>' . ($row['pEarn0'] + $row['pEarn1'] + $row['pEarn2'] 
 															+ $row['pEarn3'] + $row['pEarn4'] + $row['pEarn5'] 
 															+ $row['pEarn6'] + $row['pEarn7'] + $row['pEarn8'] 
-															+ $row['pEarn9']) . '</td>';
+															+ $row['pEarn9']) 
+															. ' / ' .
+															($row['pMax0'] + $row['pMax1'] + $row['pMax2'] 
+															+ $row['pMax3'] + $row['pMax4'] + $row['pMax5'] 
+															+ $row['pMax6'] + $row['pMax7'] + $row['pMax8'] 
+															+ $row['pMax9']). '</td>';
 									echo '</tr>';
 								}
 							}
