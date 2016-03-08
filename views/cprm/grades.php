@@ -19,7 +19,6 @@
 	
 	//if a student name was entered into the search bar
 	if (isset($_POST['searchName'])){
-		echo '<div>' . $_POST['searchName'] . '</div>';
 		//toggle on bool to signify that a student has been searched for
 		$searchUsed = 1;
 	}
@@ -129,6 +128,16 @@
 						</span> <!-- input-group-btn -->
 					</div> <!-- input-group -->
 				</form> <!-- Search bar form -->
+				
+				<br>
+				
+				<?php
+					//if a name was searched for then generate html to let
+					//the user know what the original search was for
+					if($searchUsed){
+						echo '<div>Displaying Results for ... ' . $_POST['searchName'] . '</div>';
+					}
+				?>
 				
 				<br><br>
 				
