@@ -67,7 +67,6 @@
 							//$query = "SELECT * FROM review WHERE reviewFor='" . $osuID . "' AND forClass='" . $_SESSION['course']->id . "'";
 							$grades = $dbInt->getStudentGrades($osuID, $_SESSION['course']->id);
 							if($grades != FALSE){
-								echo '<div>QUERY WORKED!</div>';
 								foreach($grades as $row){
 									echo '<tr>';
 									echo '	<td>' . $row['reviewName'] . '</td>';

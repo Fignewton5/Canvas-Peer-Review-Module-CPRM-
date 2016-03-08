@@ -97,7 +97,6 @@
 			//construct query to grab peer reviews done for the current student
 			//in the currently active course
 			$query = "SELECT * FROM review WHERE reviewFor='" . $osuId . "' AND forClass='" . $courseId . "'";
-			//echo $query;
 			//execute query
 			$result = $this->db->query($query);
 			
