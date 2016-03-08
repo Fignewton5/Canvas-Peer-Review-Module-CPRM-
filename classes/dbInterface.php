@@ -51,6 +51,69 @@
 		}
 		
 		/*
+		 * This function uses the current user's token
+		 * to retrieve their OSU ID
+		 * 
+		 * @params $token access token from $_SESSION array
+		 * that will be used in a query to retrieve the user's ID
+		 * 
+		 * @return FALSE if query failed, otherwise all rows that match
+		 *
+		 */
+		public function getIDFromToken($token) {
+		
+			//construct query to grab the user's OSU ID by using their token
+			$query = "SELECT * FROM users WHERE token='" . $token . "'";
+			//execute query
+			$result = $this->db->query($query);
+			
+			//get next row of returned results (should only be one row)
+			$row = $result->fetch();
+			
+			//if query failed
+			if (!$row) {
+				echo 'Error getting OSU ID!';
+				return FALSE;
+			}
+			//return OSU ID
+			else {
+				return $row['osuId'];
+			}
+		}
+		
+		/*
+		 * This function is used by the Grades tab and uses the current user's
+		 * OSU ID and course ID to grab all records of peer reviews done for 
+		 * the current student by his / her peers.
+		 *
+		 * @params $osuId the current user's OSU ID to be used in the SQL query
+		 *				   $courseId the current user's active course id to be used in the SQL query
+		 *
+		 * @return FALSE if query fails
+		 * 			 otherwise, return all rows matching the query (peer reviews done for the student)
+		 */
+		public function getStudentGrades($osuId, $courseId){
+			
+			//construct query to grab peer reviews done for the current student
+			//in the currently active course
+			$query = "SELECT * FROM review WHERE reviewFor='" . $osuId . "' AND forClass='" . $courseId . "'";
+			//echo $query;
+			//execute query
+			$result = $this->db->query($query);
+			
+			//check the result to see if it worked
+			if($result){
+				return $result;
+			}
+			//query failed
+			else{
+				echo 'Error getting student grades!';
+				return FALSE;
+			}
+		}
+		
+		
+		/*
 		 * This is the base function for getting reviews from the DB
 		 * 
 		 * @params $id int(9) osuId, $courseId canvas ID integer
