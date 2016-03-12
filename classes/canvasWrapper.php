@@ -142,6 +142,25 @@ class CanvasWrapper
 		
 	}
 	
+	/* 
+	 * This function takes the result from the CURL request, which
+	 * should return a list of all students in a course, then packs their
+	 * student ID's into an array to be returned.
+	 *
+	 * @params	$courseId id of the course to perform student lookup on
+	 *
+	 * @return		$students array of student ID's to return
+	 *
+	 */
+	public function getStudentsInCourse($courseId){
+
+		//grab results back from canvas CURL query (array of student ID's)
+		$students = $this->canvas->getUsersForCourse($courseId);
+		
+		//return array of student id's
+		return $students;
+	}
+	
 	/*
 	 * This prints out a greeting to the user
 	 * based off of a call to the formatUserData

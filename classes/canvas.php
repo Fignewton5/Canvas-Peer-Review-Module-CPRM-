@@ -60,6 +60,33 @@ class Canvas
 	}
 	
 	/*
+	 * gets a list of all users (students) in a course
+	 * 
+	 * @params 	$courseId course ID to use for lookup
+	 *
+	 * @return		$students array of students
+	 *
+	 */
+	public function getUsersForCourse($courseId) {
+	
+		//only get students
+		$this->endPointUrl = 'courses/' . $courseId . '/users?enrollment_type[]=student&per_page=100';
+		$result = $this->getCanvas();
+		
+		//initialize empty array of students
+		$students = array();
+		
+		//iterate through user objects
+		foreach($result as $student){
+			//add all student OSU ID's to array
+			$students[] = $student->sis_user_id;
+		}
+		
+		//return array of ID's
+		return $students;
+	}
+	
+	/*
 	 * This returns the enrollment of the user
 	 * will show if they are a student or teacher
 	 * 
