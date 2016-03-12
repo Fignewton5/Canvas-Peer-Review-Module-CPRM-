@@ -70,9 +70,8 @@ class Canvas
 	public function getUsersForCourse($courseId) {
 	
 		//only get students
-		echo "COURSE ID:" .  $courseId;
-		//$this->endPointUrl = 'courses/' . $courseId . '/users?enrollment_type[]=student&per_page=100';
-		$this->endPointUrl = 'courses/' . $courseId . '/users';
+		$this->endPointUrl = 'courses/' . $courseId . '/users?enrollment_type[]=student&per_page=100';
+		//$this->endPointUrl = 'courses/' . $courseId . '/users';
 		$result = $this->getCanvas();
 		
 		//initialize empty array of students
@@ -81,11 +80,8 @@ class Canvas
 		//iterate through user objects
 		foreach($result as $student){
 			//add all student OSU ID's to array
-			print_r($student);
-			echo ", ";
 			$students[] = $student->sis_user_id;
 		}
-		print_r($students);
 		//return array of ID's
 		return $students;
 	}

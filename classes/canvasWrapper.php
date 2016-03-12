@@ -153,7 +153,6 @@ class CanvasWrapper
 	 *
 	 */
 	public function getStudentsInCourse($courseId){
-		echo "COURSE ID IN GET STUDENTS: " . $courseId . "!!!!";
 
 		//grab results back from canvas CURL query (array of student ID's)
 		$students = $this->canvas->getUsersForCourse($courseId);
