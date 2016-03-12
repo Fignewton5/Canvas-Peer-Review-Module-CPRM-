@@ -17,6 +17,11 @@ function removeActiveDropdown() {
 	}
 }
 
+/*
+ * These functions are for the peerReviews.php page
+ * 
+ */
+
 //adds a criteria row to the rubric creation table
 function addRowRubric(){
 
