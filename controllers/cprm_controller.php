@@ -19,7 +19,7 @@
 			require_once('views/cprm/peerReviews.php');
 		}
 		public function submitRubric(){
-			require_once('views/cprm/submitRubric/php');
+			require_once('views/cprm/submitRubric.php');
 		}
 	}
 ?>
