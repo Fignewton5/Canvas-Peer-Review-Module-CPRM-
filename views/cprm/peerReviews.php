@@ -80,6 +80,7 @@
 					GROUP ASSIGN
 					<?php
 						$users = $dbInt->getUsersForGroup($SESSION['course']->id);
+						print_r($users);
 						if (count($users) > 0) { ?>
 							<form action='?controller=cprm&action=peerReviews' method='post'>
 								<table class='table table-striped table-condensed'>
