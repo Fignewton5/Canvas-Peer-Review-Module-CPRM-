@@ -71,7 +71,7 @@ class Canvas
 	
 		//only get students
 		$this->endPointUrl = 'courses/' . $courseId . '/users?enrollment_type[]=student&per_page=100';
-		//$this->endPointUrl = 'courses/' . $courseId . '/students';
+		$this->endPointUrl = 'courses/' . $courseId . '/users';
 		$result = $this->getCanvas();
 		
 		//initialize empty array of students
