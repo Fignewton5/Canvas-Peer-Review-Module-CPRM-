@@ -3,9 +3,15 @@
 	//this class will interface with canvas and
 	class DbInterface {
 		private $db;
+		private $canvas;
 		
 		public function __construct() {
+			//required for checking users in groups
+			require_once('canvas.php');
+			$this->canvas = new Canvas();
+			
 			$this->db = Db::getInstance();
+			
 		}
 		
 		//adds user into DB
@@ -446,5 +452,62 @@
 			return $this->submitReview($result, 1);
 		}
 		
-
+		/*
+		 * This function takes the current teacher's course id
+		 * and looks up to see what other students are enrolled
+		 * in the course specified and checks to see if they have
+		 * a predefined group
+		 * 
+		 * @return array, a list of the users in the course & database
+		 * 
+		 */
+		public function getUsersForGroup($courseId) {
+			$usersSql = "SELECT * FROM users";
+			
+			//get all users in teacher's course
+			$users = $this->canvas->getUsersForCourse($courseId);
+			
+			//get all users in DB
+			$result = $this->db->query($usersSql);
+			
+			$dbUsers = array();
+			
+			//iterate through all db results
+			//add to array
+			foreach ($result as $dbu) {
+				$dbUsers[] = $dbu;
+			}
+			
+			$intersect = array();
+			$dbLen = count($dbUsers);
+			$uLen = count($users);
+			//iterate through both arrays and add any that match to
+			//intersect array and return that array
+			for ($i = 0; $i < $dbLen; $i++) {
+				for ($j = 0; $j < $uLen; $j++) {
+					if ($users[$j] == $dbUsers[$i]['osuId']) {
+						$intersect[] = $dbUsers[$i];
+					}
+				}
+			}
+			
+			return $intersect;
+		}
+		
+		/*
+		 * Both are arrays and the group numbers are laid out
+		 * in order for each user
+		 * 
+		 */
+		public function addUserGroup($users, $groupNumber) {
+			$sql = "UPDATE users SET groupNumber=";
+			$fullQuery = "";
+			
+			$len = count($groupNumber);
+			for ($i = 0; $i < len; $i++) {
+				$fullQuery = $fullQuery . $sql . $groupNumber[$i] . " WHERE osuId=" . $users[$i]['osuId'] . " ";
+			}
+			
+			$result = $this->db->query($fullQuery);
+		}
 	}

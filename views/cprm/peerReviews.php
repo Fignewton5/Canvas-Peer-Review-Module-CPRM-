@@ -4,6 +4,14 @@
 	if (!isset($_SESSION['token'])) {
 		header("Location: ?controller=account&action=login");
 	}
+	
+	require_once('classes/dbInterface.php');
+	$dbInt = new DbInterface();
+	
+	//if group number is set then update DB
+	if (isset($_POST['groupNumber'])) {
+		
+	}
 ?>
 
 <div class="container-fluid">
@@ -64,8 +72,37 @@
 				</form> <!-- rubric form -->
 				
 				<!-- this will be the group assign UI -->
-				<div class="cold-md-7" id="group-assign-table" style="display:none">
+				<div class="col-md-7" id="group-assign-table" style="display:none">
 					GROUP ASSIGN
+					<?php
+						$users = $dbInt->getUsersForGroup($SESSION['course']->id);
+						if (count($users) > 0) { ?>
+							<form action='?controller=cprm&action=peerReviews' method='post'>
+								<table class='table table-striped table-condensed'>
+									<thead>
+										<tr>
+											<th>Name</th>
+											<th>Group Number</th>
+										</tr>
+									</thead>
+									<tbody>
+										<?php
+											$i = 0;
+											foreach ($users as $u) {
+												echo "<tr>";
+												echo "<td>" . $u['name'] . "</td>";
+												echo "<td><input type='text' name='groupNumber" . $i . "' class='form-control' value='" . $u['groupNumber'] . "'></td>";
+												echo "</tr>";
+												$i++;
+											}
+											echo "<input type='hidden' name='users' value='" . $users . "'>";
+											echo "<input type='hidden' name='count' value='" . $i . "'>";
+										?>
+									</tbody>
+								</table>
+							</form>
+						}
+					?>
 				<div>
 				
 			</div> <!-- row -->
