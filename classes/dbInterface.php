@@ -7,7 +7,7 @@
 		
 		public function __construct() {
 			//required for checking users in groups
-			require_once('canvasWrapper.php');
+			require_once('classes/canvasWrapper.php');
 			$this->canvas = new CanvasWrapper();
 			
 			$this->db = Db::getInstance();
@@ -335,9 +335,9 @@
 			$students = array();
 			
 			//get a canvas wrapper class to perform the student lookup for the course
-			require_once("classes/canvasWrapper.php");
-			$wrapper = new CanvasWrapper();
-			$students = $wrapper->getStudentsInCourse($courseId);
+			//require_once("classes/canvasWrapper.php");
+			//$wrapper = new CanvasWrapper();
+			$students = $this->canvas->getStudentsInCourse($courseId);
 			
 			//get number of criteria entered for rubric
 			$criteriaCount = count($criteria);
@@ -469,14 +469,12 @@
 			print_r($users);
 			//get all users in DB
 			$result = $this->db->query($usersSql);
-			echo "<br><br>";
-			print_r($result);
+			
 			$dbUsers = array();
 			
 			//iterate through all db results
 			//add to array
 			foreach ($result as $dbu) {
-				print_r($dbu);
 				$dbUsers[] = $dbu;
 			}
 			
