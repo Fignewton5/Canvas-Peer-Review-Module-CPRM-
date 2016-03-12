@@ -466,10 +466,11 @@
 			
 			//get all users in teacher's course
 			$users = $this->canvas->getUsersForCourse($courseId);
-			
+			print_r($users);
 			//get all users in DB
 			$result = $this->db->query($usersSql);
-			
+			echo "<br><br>";
+			$print_r($result);
 			$dbUsers = array();
 			
 			//iterate through all db results
