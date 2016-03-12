@@ -218,7 +218,7 @@
 			
 			//construct query to grab peer reviews done for
 			//the currently active course
-			$query = "SELECT * FROM review WHERE forClass='" . $courseId . "'";
+			$query = "SELECT * FROM reviewTest WHERE forClass='" . $courseId . "'";
 			//echo $query;
 			//execute query
 			$result = $this->db->query($query);
@@ -346,7 +346,7 @@
 			//get a student count so we can get rid of the trailing comma in the SQL statement
 			$studentCount = count($students);
 			$studentCount = $studentCount * $studentCount - $studentCount; //N*N-1 peer reviews
-			echo $studentCount;
+			//echo $studentCount . " entries added to database!";
 			$loopCounter = 0;
 			
 			//fill in values part for every student
