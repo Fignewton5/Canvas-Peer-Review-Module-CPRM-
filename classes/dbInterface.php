@@ -466,7 +466,6 @@
 			
 			//get all users in teacher's course
 			$users = $this->canvas->getStudentsInCourse($courseId);
-			print_r($users);
 			//get all users in DB
 			$result = $this->db->query($usersSql);
 			

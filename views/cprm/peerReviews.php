@@ -97,7 +97,7 @@
 											foreach ($users as $u) {
 												echo "<tr>";
 												echo "<td>" . $u['name'] . "</td>";
-												echo "<td><input type='text' name='groupNumber" . $i . "' class='form-control' value='" . $u['groupNumber'] . "'></td>";
+												echo "<td><input type='text' name='groupNumber" . $i . "' style='width:10%;' class='form-control' value='" . $u['groupNumber'] . "'></td>";
 												echo "</tr>";
 												$i++;
 											}
@@ -106,6 +106,7 @@
 										?>
 									</tbody>
 								</table>
+								<button type="submit" name="submit" style="float:right;" class="btn btn-default">Submit</button>
 							</form>
 				<?php }	?>
 				<div>
