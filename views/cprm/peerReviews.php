@@ -10,6 +10,9 @@
 	
 	//if group number is set then update DB
 	if (isset($_POST['users'])) {
+		print_r($_POST['users']);
+		echo $_POST['groupNumber0'];
+		
 		$groupNumArr = array();
 		for ($i = 0; $i < $_POST['count']; $i++) {
 			$groupNumArr[] = $_POST['groupNumber' . $i];
@@ -92,7 +95,7 @@
 									</thead>
 									<tbody>
 										<?php
-											$i = 1;
+											$i = 0;
 											foreach ($users as $u) {
 												echo "<tr>";
 												echo "<td>" . $u['name'] . "</td>";
