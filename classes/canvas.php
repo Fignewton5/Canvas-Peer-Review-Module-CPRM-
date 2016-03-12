@@ -87,7 +87,6 @@ class Canvas
 		
 		//iterate through each enrollment object
 		foreach ($result as $item) {
-			echo $item->course_id . ", " . $course_id;
 			//if the enrollment course id == our course
 			if ($item->course_id == $course_id) {
 				//type refers to user enrollment
