@@ -80,6 +80,7 @@ class Canvas
 		//iterate through user objects
 		foreach($result as $student){
 			//add all student OSU ID's to array
+			print_r($student);
 			$students[] = $student->sis_user_id;
 		}
 		
