@@ -213,8 +213,8 @@
 								
 								//use database interface to grab student's OSU ID using name
 								$osuID = $dbInt->getIDFromName($_POST['searchName']);
-								echo '<div> OSU ID: ' . $osuID . '</div>';
-								echo '<div> COURSE ID: ' . $_SESSION['course']->id . '</div>';
+								//echo '<div> OSU ID: ' . $osuID . '</div>';
+								//echo '<div> COURSE ID: ' . $_SESSION['course']->id . '</div>';
 								
 								//use database interface to grab all peer reviews recorded
 								//for the student that was searched for
