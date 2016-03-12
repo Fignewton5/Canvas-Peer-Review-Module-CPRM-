@@ -189,7 +189,7 @@
 			
 			//construct query to grab peer reviews done both by AND for
 			//the student in the currently active course
-			$query = "SELECT * FROM review WHERE reviewFor='" . $osuId . "'AND forClass='" . $courseId . "' OR reviewBy='" . $osuId . "' AND forClass='" . $courseId . "'";
+			$query = "SELECT * FROM reviewTest WHERE reviewFor='" . $osuId . "'AND forClass='" . $courseId . "' OR reviewBy='" . $osuId . "' AND forClass='" . $courseId . "'";
 			//echo $query;
 			//execute query
 			$result = $this->db->query($query);
