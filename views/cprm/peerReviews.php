@@ -9,15 +9,16 @@
 	$dbInt = new DbInterface();
 	
 	//if group number is set then update DB
-	if (isset($_POST['users'])) {
-		echo $_POST['users'][0]->osuId;
-		echo $_POST['groupNumber0'];
+	if (isset($_POST['count'])) {
 		
 		$groupNumArr = array();
+		$userIdArr = array();
+		
 		for ($i = 0; $i < $_POST['count']; $i++) {
 			$groupNumArr[] = $_POST['groupNumber' . $i];
+			$userIdArr[] = $_POST['user' . $i];
 		}
-		$dbInt->addUserGroup($_POST['users'], $groupNumArr);
+		$dbInt->addUserGroup($userIdArr, $groupNumArr);
 	}
 ?>
 
@@ -101,9 +102,10 @@
 												echo "<td>" . $u['name'] . "</td>";
 												echo "<td><input type='text' name='groupNumber" . $i . "' style='width:10%;' class='form-control' value='" . $u['groupNumber'] . "'></td>";
 												echo "</tr>";
+												echo "<input type='hidden' name='user" . $i . "' value='" . $u->osuId . "'>";
 												$i++;
 											}
-											echo "<input type='hidden' name='users' value='" . print_r($users) . "'>";
+											
 											echo "<input type='hidden' name='count' value='" . $i . "'>";
 										?>
 									</tbody>

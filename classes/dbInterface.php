@@ -504,7 +504,7 @@
 			
 			$len = count($groupNumber);
 			for ($i = 0; $i < len; $i++) {
-				$fullQuery = $fullQuery . $sql . $groupNumber[$i] . " WHERE osuId=" . $users[$i]['osuId'] . " ";
+				$fullQuery = $fullQuery . $sql . $groupNumber[$i] . " WHERE osuId=" . $users[$i] . " ";
 			}
 			
 			$result = $this->db->query($fullQuery);
