@@ -83,7 +83,7 @@
 					<?php
 						//print_r($_SESSION['course']);
 						$users = $dbInt->getUsersForGroup($_SESSION['course']->id);
-
+						print_r($users);
 						if (count($users) > 0) { ?>
 							<form action='?controller=cprm&action=peerReviews' method='post'>
 								<table class='table table-striped table-condensed'>
@@ -103,7 +103,7 @@
 												echo "</tr>";
 												$i++;
 											}
-											echo "<input type='hidden' name='users' value='" . $users . "'>";
+											echo "<input type='hidden' name='users' value='" . print_r($users) . "'>";
 											echo "<input type='hidden' name='count' value='" . $i . "'>";
 										?>
 									</tbody>
