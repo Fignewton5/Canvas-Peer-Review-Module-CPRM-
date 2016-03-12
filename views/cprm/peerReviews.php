@@ -8,21 +8,7 @@
 
 <div class="container-fluid">
 	<div class="panel panel-default" style="margin-top:5px;">
-		<div class="panel-body" id="test">
-		
-			<?php
-				//rubric submission testing
-				for($i = 0; $i < 10; $i++){
-				
-					if (isset($_POST['row' . $i . 'crit'])){
-						echo '<div>' . $_POST['row' . $i . 'crit'] . '</div>';
-					}
-					if (isset($_POST['row' . $i . 'pts'])){
-						echo '<div>' . $_POST['row' . $i . 'pts'] . '</div>';
-					}
-				}
-			?>
-		
+		<div class="panel-body">	
 			<div class="row" style="margin-top:15px;">
 				<div class="col-md-3" style="float:left;">
 					<div class="peerReview-side-menu">
@@ -35,8 +21,11 @@
 					</div> <!-- peerReview-side-menu -->
 				</div> <!-- col-md-3 -->
 				
-				<!-- this will be the rubric table -->
-				<form action="?controller=cprm&action=peerReviews" method="post" id="rubric-table">
+				<!-- This will be the rubric table 
+						The actual database query is performed by
+						a script on the submitRubric page.
+				-->
+				<form action="?controller=cprm&action=submitRubric" method="post" id="rubric-table">
 					<div class="col-md-7" style="float:left;">
 						<div style="width:100%;" id="rubric-container">
 							<table class="table table-striped table-condensed">

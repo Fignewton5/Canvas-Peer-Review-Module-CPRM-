@@ -311,6 +311,124 @@
 		}
 		
 		/*
+		 * This function is used by the peer reviews tab, and
+		 * it takes a rubric created by the user, and turns it into
+		 * empty peer reviews to be stored in the database and 
+		 * filled out by students in the course.
+		 *
+		 * @params 	$criteria array that contains the criteria for all rows in the rubric
+		 *  				$maxPoints array that contains the max points possible for all rows in the rubric
+		 * 				$courseId ID of course to create reviews for
+		 *
+		 * @return		0 on success, otherwise an error message
+		 * 
+		 */
+		public function createReviews($criteria, $maxPoints, $courseId) {
+		
+			//array to hold all the OSU ID's of the students in the current course
+			$students = array();
+			
+			//get a canvas wrapper class to perform the student lookup for the course
+			require_once("classes/canvasWrapper.php");
+			$wrapper = new CanvasWrapper();
+			$students = $wrapper->getStudentsInCourse($courseId);
+			
+			//get number of criteria entered for rubric
+			$criteriaCount = count($criteria);
+			
+			//now create a query to make a peer review to be filled out by every student
+			//for every other student (if we have N students, we should have N * N - N reviews)
+			$outerQuery = "INSERT INTO reviewTest (field0, field1, field2, field3, field4, field5, field6, field7, field8, field9,
+								pMax0, pMax1, pMax2, pMax3, pMax4, pMax5, pMax6, pMax7, pMax8, pMax9,
+								pEarn0, pEarn1, pEarn2, pEarn3, pEarn4, pEarn5, pEarn6, pEarn7, pEarn8, pEarn9,
+								fieldsUsed, reviewName, reviewFor, reviewBy, isGroup, reviewComplete, forClass) VALUES ";
+			
+			//get a student count so we can get rid of the trailing comma in the SQL statement
+			$studentCount = count($students);
+			$studentCount = $studentCount * $studentCount - $studentCount; //N*N-1 peer reviews
+			echo $studentCount;
+			$loopCounter = 0;
+			
+			//fill in values part for every student
+			foreach($students as $student){
+				
+				//get the current student id
+				$currStudent = $student;
+				
+				//iterate through every student PER student (N-1 reviews per student)
+				foreach($students as $single){
+				
+					//don't want students creating peer reviews for themselves
+					if($currStudent != $single){
+					
+						//increment loop counter (counts from 1)
+						$loopCounter++;
+					
+						//inner query to append to outer query (value tuple)
+						$innerQuery = "(";
+						$fields = "";
+						$pMaxs = "";
+						$pEarns ="";
+						
+						//fill out criteria values (all 0-9 fields)
+						for($i = 0; $i < 10; $i++){
+							
+							//depending on how many criteria were actually provided
+							if($i < $criteriaCount){
+								//append form data passed in as $criteria / $maxPoints
+								$fields .= " '" . $criteria[$i] . "',";
+								$pMaxs .= " " . $maxPoints[$i] . ",";
+							}
+							else{
+								$fields .= " NULL,";
+								$pMaxs .= " NULL,";
+							}
+							
+							//fill out pEarn fields
+							$pEarns .= " 0,";
+						}
+						
+						//fill out rest of tuple values
+						$fieldsUsed = " " . $criteriaCount . ",";
+						$reviewName = " 'TESTREVIEW',";
+						$reviewFor = " " . $single . ",";
+						$reviewBy = " " . $currStudent . ",";
+						$isGroup = " 0,";
+						$reviewComplete = " 0,";
+						$forClass = " " . $courseId;
+						
+						//append to inner query
+						$innerQuery .= $fields . $pMaxs . $pEarns . $fieldsUsed . $reviewName . $reviewFor . $reviewBy . $isGroup . $reviewComplete . $forClass . ")";
+						
+						//if not the last student, then append a comma to the tuple entry
+						if($loopCounter != $studentCount){
+							$innerQuery .= ", ";
+						}
+						
+						//append query to outer query
+						$outerQuery .= $innerQuery;
+					} //if ($currStudent)
+					
+				} //inner foreach
+			} //outer foreach
+			
+			//execute query
+			$result = $this->db->query($outerQuery);
+			
+			//check the result to see if it worked
+			if($result){
+				return 0;
+			}
+			//query failed
+			else{
+				echo 'Error creating peer reviews!';
+				return 1;
+			}
+		
+		} //end of function
+		
+		
+		/*
 		 * 
 		 * 
 		 * 
