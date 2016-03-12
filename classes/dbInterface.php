@@ -7,8 +7,8 @@
 		
 		public function __construct() {
 			//required for checking users in groups
-			require_once('canvas.php');
-			$this->canvas = new Canvas();
+			require_once('canvasWrapper.php');
+			$this->canvas = new CanvasWrapper();
 			
 			$this->db = Db::getInstance();
 			
@@ -465,7 +465,7 @@
 			$usersSql = "SELECT * FROM users";
 			
 			//get all users in teacher's course
-			$users = $this->canvas->getUsersForCourse($courseId);
+			$users = $this->canvas->getStudentsInCourse($courseId);
 			print_r($users);
 			//get all users in DB
 			$result = $this->db->query($usersSql);
