@@ -77,7 +77,6 @@
 				
 				<!-- this will be the group assign UI -->
 				<div class="col-md-7" id="group-assign-table" style="display:none">
-					GROUP ASSIGN
 					<?php
 						//print_r($_SESSION['course']);
 						$users = $dbInt->getUsersForGroup($_SESSION['course']->id);
@@ -93,7 +92,7 @@
 									</thead>
 									<tbody>
 										<?php
-											$i = 0;
+											$i = 1;
 											foreach ($users as $u) {
 												echo "<tr>";
 												echo "<td>" . $u['name'] . "</td>";
