@@ -70,6 +70,7 @@ class Canvas
 	public function getUsersForCourse($courseId) {
 	
 		//only get students
+		echo $courseId;
 		$this->endPointUrl = 'courses/' . $courseId . '/users?enrollment_type[]=student&per_page=100';
 		$this->endPointUrl = 'courses/' . $courseId . '/users';
 		$result = $this->getCanvas();
