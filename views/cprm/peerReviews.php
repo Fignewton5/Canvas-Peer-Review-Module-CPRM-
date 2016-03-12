@@ -107,7 +107,7 @@
 												echo "<td>" . $u['name'] . "</td>";
 												echo "<td><input type='text' name='groupNumber" . $i . "' style='width:10%;' class='form-control' value='" . $u['groupNumber'] . "'></td>";
 												echo "</tr>";
-												echo "<input type='hidden' name='user" . $i . "' value='" . $u->osuId . "'>";
+												echo "<input type='hidden' name='user" . $i . "' value='" . $u['osuId'] . "'>";
 												$i++;
 											}
 											
