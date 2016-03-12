@@ -470,7 +470,7 @@
 			//get all users in DB
 			$result = $this->db->query($usersSql);
 			echo "<br><br>";
-			$print_r($result);
+			print_r($result);
 			$dbUsers = array();
 			
 			//iterate through all db results
