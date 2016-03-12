@@ -9,8 +9,12 @@
 	$dbInt = new DbInterface();
 	
 	//if group number is set then update DB
-	if (isset($_POST['groupNumber'])) {
-		
+	if (isset($_POST['users'])) {
+		$groupNumArr = array();
+		for ($i = 0; $i < $_POST['count']; $i++) {
+			$groupNumArr[] = $_POST['groupNumber' . $i];
+		}
+		$dbInt->addUserGroup($_POST['users'], $groupNumArr);
 	}
 ?>
 
@@ -101,8 +105,7 @@
 									</tbody>
 								</table>
 							</form>
-						}
-					?>
+				<?php }	?>
 				<div>
 				
 			</div> <!-- row -->
@@ -162,4 +165,4 @@
 		$("#rubric-table").hide();
 		$("#group-assign-table").show();
 	}
-</script>
+	</script>
