@@ -476,6 +476,7 @@
 			//iterate through all db results
 			//add to array
 			foreach ($result as $dbu) {
+				print_r($dbu);
 				$dbUsers[] = $dbu;
 			}
 			
