@@ -11,9 +11,6 @@
 	//if group number is set then update DB
 	if (isset($_POST['count'])) {
 		
-		echo $_POST['user0'];
-		echo $_POST['groupNumber0'];
-		
 		$groupNumArr = array();
 		$userIdArr = array();
 		
@@ -21,8 +18,6 @@
 			$groupNumArr[] = $_POST['groupNumber' . $i];
 			$userIdArr[] = $_POST['user' . $i];
 		}
-		print_r($groupNumArr);
-		print_r($userIdArr);
 		$dbInt->addUserGroup($userIdArr, $groupNumArr);
 	}
 ?>
@@ -89,7 +84,7 @@
 					<?php
 						//print_r($_SESSION['course']);
 						$users = $dbInt->getUsersForGroup($_SESSION['course']->id);
-						print_r($users);
+						
 						if (count($users) > 0) { ?>
 							<form action='?controller=cprm&action=peerReviews' method='post'>
 								<table class='table table-striped table-condensed'>
