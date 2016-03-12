@@ -10,7 +10,7 @@
 	
 	//if group number is set then update DB
 	if (isset($_POST['users'])) {
-		print_r($_POST['users']->osuId);
+		echo $_POST['users']->osuId;
 		echo $_POST['groupNumber0'];
 		
 		$groupNumArr = array();
