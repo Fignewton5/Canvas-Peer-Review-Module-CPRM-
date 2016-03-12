@@ -11,6 +11,9 @@
 	//if group number is set then update DB
 	if (isset($_POST['count'])) {
 		
+		echo $_POST['user0'];
+		echo $_POST['groupNumber0'];
+		
 		$groupNumArr = array();
 		$userIdArr = array();
 		
@@ -18,6 +21,8 @@
 			$groupNumArr[] = $_POST['groupNumber' . $i];
 			$userIdArr[] = $_POST['user' . $i];
 		}
+		print_r($groupNumArr);
+		print_r($userIdArr);
 		$dbInt->addUserGroup($userIdArr, $groupNumArr);
 	}
 ?>
