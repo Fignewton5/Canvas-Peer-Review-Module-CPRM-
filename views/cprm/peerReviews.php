@@ -79,7 +79,7 @@
 				<div class="col-md-7" id="group-assign-table" style="display:none">
 					GROUP ASSIGN
 					<?php
-						print_r($_SESSION['course']);
+						//print_r($_SESSION['course']);
 						$users = $dbInt->getUsersForGroup($SESSION['course']->id);
 
 						if (count($users) > 0) { ?>
