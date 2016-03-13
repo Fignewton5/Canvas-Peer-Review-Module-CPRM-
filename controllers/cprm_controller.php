@@ -21,5 +21,11 @@
 		public function submitRubric(){
 			require_once('views/cprm/submitRubric.php');
 		}
+		public function importGrades(){
+			require_once('views/cprm/importGrades.php');
+		}
+		public function exportGrades(){
+			require_once('views/cprm/exportGrades.php');
+		}
 	}
 ?>

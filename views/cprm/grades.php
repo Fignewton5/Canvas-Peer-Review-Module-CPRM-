@@ -16,7 +16,7 @@
 	$wrapper = new CanvasWrapper();
 	$enrollment = $wrapper->checkEnrollment();
 	//for testing teacher view
-	//$enrollment = "teacher";
+	$enrollment = "teacher";
 	
 	//if a student name was entered into the search bar
 	if (isset($_POST['searchName'])){
@@ -263,14 +263,29 @@
 				
 				<!-- Import / Export Buttons -->
 				<div class="row" style="width:800px; margin-left:0.0cm">
-					<button type="button" class="btn-default" id="importGrades">Import</button>
-					<button type="button" class="btn-default" id="exportGrades">Export</button>
+					<div class="col-md-5">
+						<form action="?controller=cprm&action=importGrades" method="post">
+							<button type="submit" class="btn btn-default" name="importGrades" data-toggle="tooltip" title="Upload a CSV File to the Database">Import Grades</button>
+						</form>
+					</div> 
+					<div class="col-md-5">
+						<form  action="?controller=cprm&action=exportGrades" method="post">
+							<button type="submit" class="btn btn-default" name="exportGrades" data-toggle="tooltip" title="Download Grades as CSV File">Export Grades</button>
+						</form>
+					</div>
 				</div>
 				
 			</div>	<!-- panel-body -->
 		</div> <!-- panel panel-default -->
 	
 	<?php endif; ?>
+	
+	<!-- enable javascript tooltips -->
+	<script>
+		$(document).ready(function(){
+			$('[data-toggle="tooltip"]').tooltip();
+		});
+	</script>
 	
 </div> <!-- container-fluid -->
 
