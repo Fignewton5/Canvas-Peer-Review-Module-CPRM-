@@ -504,7 +504,7 @@
 			
 			$len = count($groupNumber);
 			echo $len;
-			for ($i = 0; $i < len; $i++) {
+			for ($i = 0; $i < $len; $i++) {
 				echo $sql . $groupNumber[$i] . " WHERE osuId=" . $users[$i] . " ";
 				$fullQuery += $sql . $groupNumber[$i] . " WHERE osuId=" . $users[$i] . " ";
 			}
