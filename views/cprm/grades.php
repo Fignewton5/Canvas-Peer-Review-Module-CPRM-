@@ -261,13 +261,8 @@
 
 				<br><br>
 				
-				<!-- Import / Export Buttons -->
-				<div class="row" style="width:800px; margin-left:0.0cm">
-					<div class="col-md-5">
-						<form action="?controller=cprm&action=importGrades" method="post">
-							<button type="submit" class="btn btn-default" name="importGrades" data-toggle="tooltip" title="Upload a CSV File to the Database">Import Grades</button>
-						</form>
-					</div> 
+				<!-- Export Button -->
+				<div class="row" style="width:800px; margin-left:0.0cm"> 
 					<div class="col-md-5">
 						<form  action="?controller=cprm&action=exportGrades" method="post">
 							<button type="submit" class="btn btn-default" name="exportGrades" data-toggle="tooltip" title="Download Grades as CSV File">Export Grades</button>
