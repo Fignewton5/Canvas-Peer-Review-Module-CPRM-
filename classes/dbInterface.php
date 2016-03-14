@@ -325,11 +325,12 @@
 		 * @params 	$criteria array that contains the criteria for all rows in the rubric
 		 *  				$maxPoints array that contains the max points possible for all rows in the rubric
 		 * 				$courseId ID of course to create reviews for
+		 *					$rubricName name of the assignment / rubric 
 		 *
 		 * @return		0 on success, otherwise an error message
 		 * 
 		 */
-		public function createReviews($criteria, $maxPoints, $courseId) {
+		public function createReviews($criteria, $maxPoints, $courseId, $rubricName) {
 		
 			//array to hold all the OSU ID's of the students in the current course
 			$students = array();
@@ -396,7 +397,7 @@
 						
 						//fill out rest of tuple values
 						$fieldsUsed = " " . $criteriaCount . ",";
-						$reviewName = " 'TESTREVIEW',";
+						$reviewName = " '" . $rubricName . "',";
 						$reviewFor = " " . $single . ",";
 						$reviewBy = " " . $currStudent . ",";
 						$isGroup = " 0,";

@@ -43,6 +43,11 @@
 				-->
 				<form action="?controller=cprm&action=submitRubric" method="post" id="rubric-table">
 					<div class="col-md-7" style="float:left;">
+						<div style="width:30%">
+							<h3>Rubric Name</h3>
+							<input type="text" class="form-control" value="" name="rubricName" placeholder="Name of Rubric / Assignment" required>
+						</div>
+						<br>
 						<div style="width:100%;" id="rubric-container">
 							<table class="table table-striped table-condensed">
 								<thead>

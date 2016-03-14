@@ -40,7 +40,7 @@
 				require_once("classes/dbInterface.php");
 				$dbInt = new DbInterface();
 				
-				$dbInt->createReviews($criteria, $maxPoints, $_SESSION['course']->id);
+				$dbInt->createReviews($criteria, $maxPoints, $_SESSION['course']->id, $_POST['rubricName']);
 				
 				echo '<div>Successfully created peer review!</div>';
 				echo '<div> Navigating back to previous page in 3 seconds...</div>';
