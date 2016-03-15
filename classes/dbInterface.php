@@ -109,7 +109,7 @@
 			
 			//if query failed
 			if (!$row) {
-				#echo 'Error getting student name!';
+				echo 'Error getting student name!';
 				return FALSE;
 			}
 			//return name
@@ -163,7 +163,7 @@
 			
 			//construct query to grab peer reviews done for the current student
 			//in the currently active course
-			$query = "SELECT * FROM reviewTest WHERE reviewFor='" . $osuId . "' AND forClass='" . $courseId . "'";
+			$query = "SELECT * FROM review WHERE reviewFor='" . $osuId . "' AND forClass='" . $courseId . "'";
 			//execute query
 			$result = $this->db->query($query);
 			
@@ -195,7 +195,7 @@
 			
 			//construct query to grab peer reviews done both by AND for
 			//the student in the currently active course
-			$query = "SELECT * FROM reviewTest WHERE reviewFor='" . $osuId . "'AND forClass='" . $courseId . "' OR reviewBy='" . $osuId . "' AND forClass='" . $courseId . "'";
+			$query = "SELECT * FROM review WHERE reviewFor='" . $osuId . "'AND forClass='" . $courseId . "' OR reviewBy='" . $osuId . "' AND forClass='" . $courseId . "'";
 			//echo $query;
 			//execute query
 			$result = $this->db->query($query);
@@ -224,7 +224,7 @@
 			
 			//construct query to grab peer reviews done for
 			//the currently active course
-			$query = "SELECT * FROM reviewTest WHERE forClass='" . $courseId . "'";
+			$query = "SELECT * FROM review WHERE forClass='" . $courseId . "'";
 			//echo $query;
 			//execute query
 			$result = $this->db->query($query);
@@ -345,7 +345,7 @@
 			
 			//now create a query to make a peer review to be filled out by every student
 			//for every other student (if we have N students, we should have N * N - N reviews)
-			$outerQuery = "INSERT INTO reviewTest (field0, field1, field2, field3, field4, field5, field6, field7, field8, field9,
+			$outerQuery = "INSERT INTO review (field0, field1, field2, field3, field4, field5, field6, field7, field8, field9,
 								pMax0, pMax1, pMax2, pMax3, pMax4, pMax5, pMax6, pMax7, pMax8, pMax9,
 								pEarn0, pEarn1, pEarn2, pEarn3, pEarn4, pEarn5, pEarn6, pEarn7, pEarn8, pEarn9,
 								fieldsUsed, reviewName, reviewFor, reviewBy, isGroup, reviewComplete, forClass) VALUES ";
