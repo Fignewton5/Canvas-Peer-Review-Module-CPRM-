@@ -22,7 +22,7 @@
 	//fetch grades
 	require_once("classes/dbInterface.php");
 	$db = Db::getInstance();
-	$query = "SELECT reviewName, reviewBy, reviewFor, pEarn0, pEarn1, pEarn2, pEarn3, pEarn4, pEarn5, pEarn6, pEarn7, pEarn8, pEarn9 FROM review WHERE forClass='" . $_SESSION['course']->id . "'";
+	$query = "SELECT reviewName, reviewBy, reviewFor, pEarn0, pEarn1, pEarn2, pEarn3, pEarn4, pEarn5, pEarn6, pEarn7, pEarn8, pEarn9 FROM reviewTest WHERE forClass='" . $_SESSION['course']->id . "'";
 	//second argument makes sure that duplicate indices aren't fetched
 	$result = $db->query($query, PDO::FETCH_ASSOC);
 	
