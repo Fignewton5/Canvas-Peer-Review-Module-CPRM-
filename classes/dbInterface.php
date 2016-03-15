@@ -109,7 +109,7 @@
 			
 			//if query failed
 			if (!$row) {
-				echo 'Error getting student name!';
+				#echo 'Error getting student name!';
 				return FALSE;
 			}
 			//return name
