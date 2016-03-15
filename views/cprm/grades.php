@@ -16,7 +16,7 @@
 	$wrapper = new CanvasWrapper();
 	$enrollment = $wrapper->checkEnrollment();
 	//for testing teacher view
-	$enrollment = "teacher";
+	//$enrollment = "teacher";
 	
 	//if a student name was entered into the search bar
 	if (isset($_POST['searchName'])){
