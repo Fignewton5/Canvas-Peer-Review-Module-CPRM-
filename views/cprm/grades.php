@@ -122,7 +122,7 @@
 				
 				<!-- Search Bar -->
 				<form action="?controller=cprm&action=grades" method="post">
-					<div class="input-group">
+					<div class="input-group" style="width:40%">
 						<input type="text" class="form-control" name="searchName" placeholder="Student Name...">
 						<span class="input-group-btn">
 							<button class="btn btn-default" type="submit">Search</button>
