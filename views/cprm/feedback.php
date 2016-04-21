@@ -17,6 +17,7 @@
 								Single Reviews (<?php 
 									require_once('classes/dbInterface.php');
 									$dbInt = new DbInterface();
+<<<<<<< HEAD
 									$uReviews = $dbInt->getUserReviews($_SESSION['id']);
 									$uReviewsArray = array();
 									foreach ($uReviews->fetch() as $row) {
@@ -24,16 +25,17 @@
 									}
 									//echo the number of rows in userReviews
 									echo $uReviews->rowCount();
+=======
+									$reviews = $dbInt->getUserReviews($_SESSION['id']);
+									echo $reviews->rowCount();
+>>>>>>> parent of 74ee3ed... added group review reading from DB
 								?>)
 							</button>
 							<input type='hidden' value='<?php print_r($uReviewsArray); ?>' id='uReviews' />
 						</div>
 						<div style="padding-top:2px;">
 							<button type="button" class="btn btn-default feedback-button-fixes" id="group">
-								Group Reviews (<?php
-								$gReviews = $dbInt->getGroupReviews($_SESSION['id']);
-								echo $gReviews->rowCount();
-								?>)
+								Group Reviews
 							</button>
 							<input type='hidden' value='<?php echo json_encode($gReviews); ?>' id='gReviews' />
 						</div>
