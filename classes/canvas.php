@@ -15,10 +15,29 @@ class Canvas
 	 * 
 	 */ 
 	public function __construct() {
-		//$file = fopen("token.txt",'r');
-		//$token = fgets($file);
+	
+		//grab user token from session variable
 		$token = $_SESSION['token'];
 		$this->canvasAccessToken = $token;
+		
+		//run function to grab user ID and store as a session variable
+		$this->getUserID();
+	}
+	
+	/*
+	 * gets user ID from the current user
+	 * 
+	 */
+	public function getUserID() {
+		$this->endPointUrl = 'users/self';
+		$info = $this->getCanvas();
+		
+		//if the user_id session variable is not set
+		if (!isset($_SESSION['user_id']))
+		{
+			//set the session variable
+			$_SESSION['user_id'] = $info->id;
+		}
 	}
 	
 	/*
@@ -41,12 +60,72 @@ class Canvas
 	}
 	
 	/*
+	 * gets a list of all users (students) in a course
+	 * 
+	 * @params 	$courseId course ID to use for lookup
+	 *
+	 * @return		$students array of students
+	 *
+	 */
+	public function getUsersForCourse($courseId) {
+	
+		//only get students
+		$this->endPointUrl = 'courses/' . $courseId . '/users?enrollment_type[]=student&per_page=100';
+		//$this->endPointUrl = 'courses/' . $courseId . '/users';
+		$result = $this->getCanvas();
+		
+		//initialize empty array of students
+		$students = array();
+		
+		//iterate through user objects
+		foreach($result as $student){
+			//add all student OSU ID's to array
+			$students[] = $student->sis_user_id;
+		}
+		//return array of ID's
+		return $students;
+	}
+	
+	/*
 	 * This returns the enrollment of the user
 	 * will show if they are a student or teacher
 	 * 
 	 */ 
 	public function getUserEnrollment() {
+		//grab user ID using other function
+		$data = $this->getUserInfo();
 		
+		//used to get user enrollments
+		$canvasId = $data->id;
+		
+		//grab course_id from session variable for CURL call
+		$course_id = $_SESSION['course']->id;
+		
+		//have to increase the per page requirement so we don't have to send
+		//multiple requests, this just gives us 100 enrollments of the user
+		$this->endPointUrl = 'users/' . $canvasId . '/enrollments?per_page=100';
+		
+		//execute the CURL call
+		$result = $this->getCanvas();
+		
+		
+		//variable to return
+		$enrollment = NULL;
+		
+		//iterate through each enrollment object
+		foreach ($result as $item) {
+			//if the enrollment course id == our course
+			if ($item->course_id == $course_id) {
+				//type refers to user enrollment
+				$enrollment = $item->type;
+			}
+		}
+		
+		//if we got a valid enrollment, return it, otherwise return error
+		if(isset($enrollment)){
+			return $enrollment;
+		}
+		else return "Error Getting Enrollment!";
 	}
 	
 	/*

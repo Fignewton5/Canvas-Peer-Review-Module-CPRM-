@@ -4,47 +4,51 @@
 	if (!isset($_SESSION['token'])) {
 		header("Location: ?controller=account&action=login");
 	}
+	
+	require_once('classes/dbInterface.php');
+	$dbInt = new DbInterface();
+	
+	//if group number is set then update DB
+	if (isset($_POST['count'])) {
+		
+		$groupNumArr = array();
+		$userIdArr = array();
+		
+		for ($i = 0; $i < $_POST['count']; $i++) {
+			$groupNumArr[] = $_POST['groupNumber' . $i];
+			$userIdArr[] = $_POST['user' . $i];
+		}
+		$dbInt->addUserGroup($userIdArr, $groupNumArr);
+	}
 ?>
 
 <div class="container-fluid">
 	<div class="panel panel-default" style="margin-top:5px;">
-		<div class="panel-body" id="test">
+		<div class="panel-body">	
 			<div class="row" style="margin-top:15px;">
 				<div class="col-md-3" style="float:left;">
 					<div class="peerReview-side-menu">
 						<div style="padding-bottom:2px;">
-							<button type="button" class="btn btn-default feedback-button-fixes" id="single" onclick="createRubric()">
-								Create Rubric
-							</button>
+							<button type="button" class="btn btn-default feedback-button-fixes" id="single" onclick="createRubric()">Create Rubric</button>
 						</div>
 						<div style="padding-top:2px;">
-							<button type="button" class="btn btn-default feedback-button-fixes" id="group" onclick="loadRubric()">
-								Load Rubric
-							</button>
+							<button type="button" class="btn btn-default feedback-button-fixes" id="group" onclick="assignGroup()">Assign Group</button>
 						</div>
-						<div style="padding-top:2px;">
-							<button type="button" class="btn btn-default feedback-button-fixes" id="group" onclick="assignGroup()">
-								Assign Group
-							</button>
-						</div>
-						<div style="padding-top:2px;">
-							<button type='submit' class='btn btn-default'>Submit</button>
-						</div>
-					</div>
-				</div>
-				<?php
+					</div> <!-- peerReview-side-menu -->
+				</div> <!-- col-md-3 -->
 				
-				$db = Db::getInstance();
-				$query = 'SELECT * FROM Test1 WHERE reviewName="cs462"';
-
-				foreach ($db->query($query) as $row) {
-					//only pulls one row
-					$iter = $row['fieldsUsed'];
-				
-				?>
-				<form action="" method="post">
+				<!-- This will be the rubric table 
+						The actual database query is performed by
+						a script on the submitRubric page.
+				-->
+				<form action="?controller=cprm&action=submitRubric" method="post" id="rubric-table">
 					<div class="col-md-7" style="float:left;">
-						<div style="width:100%;">
+						<div style="width:30%">
+							<h3>Rubric Name</h3>
+							<input type="text" class="form-control" value="" name="rubricName" placeholder="Name of Rubric / Assignment" required>
+						</div>
+						<br>
+						<div style="width:100%;" id="rubric-container">
 							<table class="table table-striped table-condensed">
 								<thead>
 									<tr>
@@ -52,44 +56,71 @@
 										<th>Points Possible</th>
 									</tr>
 								</thead>
-								<tbody>
-									<?php
-										for ($i = 0; $i < $iter; $i++) {
-											echo "<tr>";
-											//echo "<td class='feedback-tb-top-padding'>" . $row['field' . ($i + 1)] . "</td>";
-											echo "<td><input type='text' class ='form-control' value='" . $row['field' . ($i + 1)] . "'></td>";
-											echo "<td><input type='text' style='width:20%' class='form-control' value='" . $row['pMax' . ($i + 1)] . "' /></td>";
-											echo "</tr>";
-										}
-										
-									?>
+								
+								<!-- rubric content goes here (criteria) 
+										require at least one row so that
+										an empty form can't be submitted
+								-->
+								<tbody id="rubric-table-body">
+									<tr>
+										<td><input type="text" class="form-control" value="" name="row0crit" required></td>
+										<td><input type="text" class="form-control" value="" name="row0pts" style="width:20%" required></td>
+									</tr>
 								</tbody>
-							</table>
-						</div>
-					</div>
-					<?php } ?>
+							</table> <!-- rubric table -->
+						</div> <!-- div (rubric-container) -->
+						
+						<!-- Buttons that will add or remove rows from the rubric -->
+						<div class="col-md-12">
+							<div class="col-md-5">
+								<button type='button' class='btn btn-default' onclick="addRowRubric();">Add Row</button>
+								<button type='button' class='btn btn-default' onclick="removeRowRubric();">Remove Row</button>
+							</div>
+							<div class="col-md-5">
+								<button type="submit" class="btn btn-default">Submit Rubric</button>
+							</div>
+						</div> <!-- button row -->
+						
+					</div> <!-- col-md-7 -->
+				</form> <!-- rubric form -->
 				
-					<button type='button' class='btn btn-default' onclick="addRowRubric()">Add Row</button>
-				</form>
-			</div>
-		</div>
-	</div>
-</div>
-
-<script type="text/javascript">
-	function addRowRubric(){
-		alert("Add Row button has been clicked!");
-	}
-	
-	function createRubric(){
-		alert("Create Rubric button has been clicked!");
-	}
-	
-	function loadRubric(){
-		alert("Load Rubric button has been clicked!");
-	}
-	
-	function assignGroup(){
-		alert("Assign Group button has been clicked!");
-	}
-</script>
+				<!-- this will be the group assign UI -->
+				<div class="col-md-7" id="group-assign-table" style="display:none">
+					<?php
+						//print_r($_SESSION['course']);
+						$users = $dbInt->getUsersForGroup($_SESSION['course']->id);
+						
+						if (count($users) > 0) { ?>
+							<form action='?controller=cprm&action=peerReviews' method='post'>
+								<table class='table table-striped table-condensed'>
+									<thead>
+										<tr>
+											<th>Name</th>
+											<th>Group Number</th>
+										</tr>
+									</thead>
+									<tbody>
+										<?php
+											$i = 0;
+											foreach ($users as $u) {
+												echo "<tr>";
+												echo "<td>" . $u['name'] . "</td>";
+												echo "<td><input type='text' name='groupNumber" . $i . "' style='width:10%;' class='form-control' value='" . $u['groupNumber'] . "'></td>";
+												echo "</tr>";
+												echo "<input type='hidden' name='user" . $i . "' value='" . $u['osuId'] . "'>";
+												$i++;
+											}
+											
+											echo "<input type='hidden' name='count' value='" . $i . "'>";
+										?>
+									</tbody>
+								</table>
+								<button type="submit" name="submit" style="float:right;" class="btn btn-default">Submit</button>
+							</form>
+				<?php }	?>
+				<div>
+				
+			</div> <!-- row -->
+		</div> <!-- panel-body -->
+	</div> <!-- panel panel-default -->
+</div> <!-- container-fluid -->

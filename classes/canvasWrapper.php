@@ -88,11 +88,19 @@ class CanvasWrapper
 	/*
 	 * This function will handle the request
 	 * and formatting of the user enrollment request
-	 * and ouput an object
+	 * and a string.
 	 * 
+	 * @return $enrollment: string that looks like "_____Enrollment"
+	 *								(Student, Teacher, Ta, Designer, Observer)
+	 *						
 	 */ 
 	public function formatEnrollment() {
 		
+		//call function to check user enrollment for the current course
+		$enrollment = $this->canvas->getUserEnrollment();
+		
+		//return enrollment string
+		return $enrollment;
 	}
 	
 	/*
@@ -103,6 +111,54 @@ class CanvasWrapper
 	 */ 
 	public function checkEnrollment() {
 		
+		//get enrollment type
+		$enrollment = $this->formatEnrollment();
+		
+		//output enrollment based on contents of string
+		switch($enrollment){
+			case 'StudentEnrollment':
+				return 'student';
+				break;
+				
+			case 'TeacherEnrollment':
+				return 'teacher';
+				break;
+				
+			case 'TaEnrollment':
+				return 'ta';
+				break;
+				
+			case 'DesignerEnrollment':
+				return 'designer';
+				break;
+				
+			case 'ObserverEnrollment':
+				return 'observer';
+				break;
+			
+			default:
+				echo '<div>CHECK ENROLLMENT: Error occurred!' . $enrollment . '</div>';
+		}
+		
+	}
+	
+	/* 
+	 * This function takes the result from the CURL request, which
+	 * should return a list of all students in a course, then packs their
+	 * student ID's into an array to be returned.
+	 *
+	 * @params	$courseId id of the course to perform student lookup on
+	 *
+	 * @return		$students array of student ID's to return
+	 *
+	 */
+	public function getStudentsInCourse($courseId){
+
+		//grab results back from canvas CURL query (array of student ID's)
+		$students = $this->canvas->getUsersForCourse($courseId);
+		
+		//return array of student id's
+		return $students;
 	}
 	
 	/*
@@ -115,7 +171,7 @@ class CanvasWrapper
 	public function printUserName() {
 		$user = $this->formatUserData();
 		//echo "<div class='well well-sm'>";
-		echo "<p style='font-size:18px;'>Welcome $user->name. To start, select a course from the 'Courses' dropdown.</p>";
+		echo "Welcome $user->name.";
 		//echo "</div>";
 	}
 	
