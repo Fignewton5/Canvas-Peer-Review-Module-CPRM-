@@ -3,7 +3,9 @@
 class Canvas
 {
 	private $canvasAccessToken = ""; //oregonstate.instructure access token
-	private $domain = "https://oregonstate.instructure.com"; //entry point for API
+	
+	//THE DOMAIN HAS BEEN EDITED FOR TESTING PURPOSES IN FREE CANVAS
+	private $domain = "https://canvas.instructure.com"; //entry point for API
 	
 	private $response;
 	public $responseCode;
