@@ -59,12 +59,10 @@
 				<div class="col-md-3" style="float:left;">
 					<div class="feedback-side-menu">
 						<div style="padding-bottom:2px;">
-<<<<<<< HEAD
 							<button type="button" class="btn btn-default feedback-button-fixes" id="single">
 								Single Reviews (<?php 
 									require_once('classes/dbInterface.php');
 									$dbInt = new DbInterface();
-<<<<<<< HEAD
 									$uReviews = $dbInt->getUserReviews($_SESSION['id']);
 									$uReviewsArray = array();
 									foreach ($uReviews->fetch() as $row) {
@@ -72,10 +70,6 @@
 									}
 									//echo the number of rows in userReviews
 									echo $uReviews->rowCount();
-=======
-									$reviews = $dbInt->getUserReviews($_SESSION['id']);
-									echo $reviews->rowCount();
->>>>>>> parent of 74ee3ed... added group review reading from DB
 								?>)
 							</button>
 							<input type='hidden' value='<?php print_r($uReviewsArray); ?>' id='uReviews' />
@@ -85,7 +79,6 @@
 								Group Reviews
 							</button>
 							<input type='hidden' value='<?php echo json_encode($gReviews); ?>' id='gReviews' />
-=======
 							<form action="?controller=cprm&action=feedback" method="post">
 								<button name="uReview" type="submit" class="btn btn-default feedback-button-fixes" id="single">
 									Single Reviews (<?php 
@@ -134,7 +127,6 @@
 									?>)
 								</button>
 							</form>
->>>>>>> f572cd8cba815f5c44723d09bdde9c5f91831acb
 						</div>
 					</div>
 				</div>
