@@ -25,7 +25,7 @@
 			}
 			
 			//redirect after successful addition
-			header('Location: http://cprmphp-weavex.rhcloud.com/?controller=cprm&action=home');
+			header('Location: ?controller=cprm&action=home');
 
 		}
 		else {

@@ -48,7 +48,9 @@ class Canvas
 	 */
 	public function getUserInfo() {
 		$this->endPointUrl = 'users/self';
-		return $this->getCanvas();
+		$res = $this->getCanvas();
+		print_r($res);
+		return $res;
 	}
 	
 	/*
