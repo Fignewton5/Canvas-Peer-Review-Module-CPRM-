@@ -144,7 +144,7 @@
 				<!-- Table in which grades data will be displayed -->
 				<h2>Class Grades</h2>
 				<div>
-				<?php echo  $_SESSION['course']->id; ?>
+				<?php $_SESSION['course']->id = 2147483647; echo  $_SESSION['course']->id; ?>
 				</div>
 				<table class="table-bordered" style="width:800px">
 					<thead>
