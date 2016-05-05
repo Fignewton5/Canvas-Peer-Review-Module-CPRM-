@@ -16,7 +16,10 @@
 	$wrapper = new CanvasWrapper();
 	$enrollment = $wrapper->checkEnrollment();
 	//for testing teacher view
-	$enrollment = "teacher";
+	//$enrollment = "teacher";
+	
+	//hardcoding course id for demo purposes
+	$_SESSION['course']->id = 2147483647;
 	
 	//if a student name was entered into the search bar
 	if (isset($_POST['searchName'])){
@@ -143,9 +146,6 @@
 				
 				<!-- Table in which grades data will be displayed -->
 				<h2>Class Grades</h2>
-				<div>
-				<?php $_SESSION['course']->id = 2147483647; echo  $_SESSION['course']->id; ?>
-				</div>
 				<table class="table-bordered" style="width:800px">
 					<thead>
 						<tr>
