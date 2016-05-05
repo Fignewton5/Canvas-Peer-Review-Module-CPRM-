@@ -10,6 +10,9 @@
 <div class="container-fluid">
 
 	<?php
+	//hardcoding course id for demo purposes
+	$_SESSION['course']->id = 2147483647;
+	
 	
 	//grant access to wrapper to check user enrollment status
 	require_once('classes/canvasWrapper.php');
@@ -17,9 +20,6 @@
 	$enrollment = $wrapper->checkEnrollment();
 	//for testing teacher view
 	//$enrollment = "teacher";
-	
-	//hardcoding course id for demo purposes
-	$_SESSION['course']->id = 2147483647;
 	
 	//if a student name was entered into the search bar
 	if (isset($_POST['searchName'])){
