@@ -38,7 +38,8 @@
 		<div class="panel panel-default" style="margin-top:5px;" id="studentView">
 			<div class="panel-body">
 				<h2>Student Grades</h2>
-				<div><?php echo  $_SESSION['course']->id; ?></div>
+				Hello!
+				<?php echo  $_SESSION['course']->id; ?>
 				<table class="table-bordered" style="width:800px; overflow:auto;">
 					<thead>
 						<tr>
