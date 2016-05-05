@@ -20,6 +20,7 @@
 	$enrollment = $wrapper->checkEnrollment();
 	//for testing teacher view
 	//$enrollment = "teacher";
+	$enrollment = "student";
 	
 	//if a student name was entered into the search bar
 	if (isset($_POST['searchName'])){
