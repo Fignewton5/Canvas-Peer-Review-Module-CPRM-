@@ -50,6 +50,10 @@
 	//holds the relevant row from the proper review channel
 	//initialized as false in case uReviews/gReviews are false
 	$row = FALSE;
+	
+	//debugging
+	$_SESSION['course']->id = 2147483647;
+	$commentsEnabled = false;	//NEED TO ADD COLUMN TO DATABASE THAT HAS THIS FLAG
 ?>
 
 <div class="container-fluid">
@@ -164,12 +168,34 @@
 								</tbody>
 							</table>
 						</div>
-					</div>
+						
+						<!-- if comments are enabled for selected assignment, show text field, otherwise disable it and notify user -->
+						<?php if($commentsEnabled){ ?>
+						<!-- div that will hold the comments section -->
+						<div class="col-md-12">
+							<label for="comments">Comments</label>
+							<textarea class="form-control" name="comments" rows="5" placeholder="Enter any comments here..."></textarea>
+						</div>
+						<?php }
+						else { ?>
+						<div class="cold-md-6">
+							<b>Comments Are Disabled For This Assignment</b>
+							<br><br>
+							<textarea class="form-control" name="comments" rows="5" placeholder="Enter any comments here..." disabled></textarea>
+						</div>
+						<?php } ?>
+						<!-- div to hold Submit button so it isn't awkwardly in the top right of the page -->
+						<div class="col-md-3">
+							<br>	
+							<button name='reviewSubmit' type='submit' class='btn btn-default'>Submit</button>	
+						</div> 
+					</div> <!-- Div containing input fields / rubric table -->
+					
+					<!-- hidden inputs (flags) -->
 					<input name='isGroupReview' type="hidden" value='<?php echo $isGroupReview; ?>' />
 					<input name='fieldsUsed' type="hidden" value='<?php echo $fieldsLength; ?>' />
 					<!-- holds primary key -->
 					<input name='reviewPrimary' type='hidden' value='<?php echo $row['reviewName']; ?>' />
-					<button name='reviewSubmit' type='submit' class='btn btn-default'>Submit</button>
 				</form>
 				<?php } ?>
 				<?php if ($row == FALSE) { ?>
