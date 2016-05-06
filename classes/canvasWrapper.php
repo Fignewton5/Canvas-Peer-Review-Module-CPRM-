@@ -252,7 +252,7 @@ class CanvasWrapper
 		foreach ($courseArray as $course) {
 			echo "<button type='submit' name='course' class='btn btn-default' ";
 			//FIX ME LATER!!!!!! NOT PERMANENT FIX
-			$course->id = substr($course->id, -7, 7);
+			//$course->id = substr($course->id, -7, 7);
 			echo "value='" . $course->id . "'>";
 			echo $course->courseName . "</button>";
 		}

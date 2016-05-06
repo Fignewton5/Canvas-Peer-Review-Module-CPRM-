@@ -21,7 +21,6 @@
 			
 			//set course session to current course selected
 			$_SESSION['course'] = $course;
-			$_SESSION['course']->id = substr($course->id, -7, 7);
 			
 			//I don't think this is needed
 			//header('Location: ?controller=cprm&action=feedback');

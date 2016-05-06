@@ -253,7 +253,7 @@
 			//isGroup will return the right results based off what is passed in
 			$sql = "SELECT * FROM review WHERE reviewBy='" . $id . "' AND isGroup=" . $isGroup . " AND reviewComplete=0 AND forClass=" . $courseId;
 			
-			echo $sql;
+			//echo $sql;
 			
 			$result = $this->db->query($sql);
 			
