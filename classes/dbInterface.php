@@ -328,11 +328,12 @@
 		 *  				$maxPoints array that contains the max points possible for all rows in the rubric
 		 * 				$courseId ID of course to create reviews for
 		 *					$rubricName name of the assignment / rubric 
+		 *					$commentsEnabled flag that decides whether or not comments are enabled for the evaluation
 		 *
 		 * @return		0 on success, otherwise an error message
 		 * 
 		 */
-		public function createReviews($criteria, $maxPoints, $courseId, $rubricName) {
+		public function createReviews($criteria, $maxPoints, $courseId, $rubricName, $commentsEnabled) {
 		
 			//array to hold all the OSU ID's of the students in the current course
 			$students = array();
@@ -350,7 +351,7 @@
 			$outerQuery = "INSERT INTO review (field0, field1, field2, field3, field4, field5, field6, field7, field8, field9,
 								pMax0, pMax1, pMax2, pMax3, pMax4, pMax5, pMax6, pMax7, pMax8, pMax9,
 								pEarn0, pEarn1, pEarn2, pEarn3, pEarn4, pEarn5, pEarn6, pEarn7, pEarn8, pEarn9,
-								fieldsUsed, reviewName, reviewFor, reviewBy, isGroup, reviewComplete, forClass) VALUES ";
+								fieldsUsed, reviewName, reviewFor, reviewBy, isGroup, reviewComplete, forClass, commentsEnabled) VALUES ";
 			
 			//get a student count so we can get rid of the trailing comma in the SQL statement
 			$studentCount = count($students);
@@ -407,7 +408,7 @@
 						$forClass = " " . $courseId;
 						
 						//append to inner query
-						$innerQuery .= $fields . $pMaxs . $pEarns . $fieldsUsed . $reviewName . $reviewFor . $reviewBy . $isGroup . $reviewComplete . $forClass . ")";
+						$innerQuery .= $fields . $pMaxs . $pEarns . $fieldsUsed . $reviewName . $reviewFor . $reviewBy . $isGroup . $reviewComplete . $forClass . $commentsEnabled . ")";
 						
 						//if not the last student, then append a comma to the tuple entry
 						if($loopCounter != $studentCount){

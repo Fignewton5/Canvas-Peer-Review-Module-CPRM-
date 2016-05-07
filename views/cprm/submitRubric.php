@@ -33,14 +33,20 @@
 						//add max points to array
 						$maxPoints[] =  $_POST['row' . $i . 'pts'];
 					}
-				} 
+				}
+				
+				//see if comments should be enabled on this peer review or not
+				if(isset($_POST['comments-enabled'])){
+					$commentsEnabled = TRUE;
+				}
+				else $commentsEnabled = FALSE;
 				
 				//create empty peer reviews to be filled out by students
 				//and send to database
 				require_once("classes/dbInterface.php");
 				$dbInt = new DbInterface();
 				
-				$dbInt->createReviews($criteria, $maxPoints, $_SESSION['course']->id, $_POST['rubricName']);
+				$dbInt->createReviews($criteria, $maxPoints, $_SESSION['course']->id, $_POST['rubricName'], $commentsEnabled);
 				
 				echo '<div>Successfully created peer review!</div>';
 				echo '<div> Navigating back to previous page in 3 seconds...</div>';
