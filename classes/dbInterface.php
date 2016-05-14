@@ -425,7 +425,9 @@
 			//execute query
 			$result = $this->db->query($outerQuery);
 			
+			echo "<br>RESULT:";
 			var_dump($result);
+			echo "<br>";
 			
 			//check the result to see if it worked
 			if($result){
