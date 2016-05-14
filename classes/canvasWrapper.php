@@ -36,12 +36,14 @@ class CanvasWrapper
 	 */ 
 	public function formatCourseData() {
 			
-		$this->canvas->getCoursesForUser();
-
+		$result = $this->canvas->getCoursesForUser();
+		echo "RESULT:<br>";
+		print_r($result);
+		echo "<br><br>";
 		//course object array
 		$courseHolder = array();
 
-		foreach ($this->canvas->getData() as $data) {
+		foreach ($result as $data) {
 			$splitName = $this->splitCourseName($data->name);
 			
 			//split OSU Id for checking and printing
