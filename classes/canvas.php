@@ -81,7 +81,6 @@ class Canvas
 		//only get students
 		$this->endPointUrl = 'courses/' . $courseId . '/users?enrollment_type[]=student&per_page=100';
 		
-		
 		echo "URL: " . $this->endPointUrl . "<br>";
 		
 		//$this->endPointUrl = 'courses/' . $courseId . '/users';
