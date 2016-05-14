@@ -29,10 +29,10 @@
 				<div class="col-md-2" style="float:left;">
 					<div class="peerReview-side-menu">
 						<div style="padding-bottom:2px;">
-							<button type="button" class="btn btn-default feedback-button-fixes" id="single" onclick="createRubric()">Create Rubric</button>
+							<button type="button" class="btn btn-default feedback-button-fixes" onclick="createRubric()">Create Rubric</button>
 						</div>
 						<div style="padding-top:2px;">
-							<button type="button" class="btn btn-default feedback-button-fixes" id="group" onclick="assignGroup()">Assign Group</button>
+							<button type="button" class="btn btn-default feedback-button-fixes" onclick="assignGroup()">Assign Group</button>
 						</div>
 					</div> <!-- peerReview-side-menu -->
 				</div> <!-- col-md-3 -->
@@ -89,7 +89,7 @@
 						</div>
 						
 						<div class="row">
-							<div class="col-md-offset-9">
+							<div class="col-md-offset-9 col-md-3">
 								<button type="submit" class="btn btn-default">
 									Submit Rubric
 								</button>

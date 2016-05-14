@@ -249,6 +249,7 @@ class CanvasWrapper
 	 */ 
 	public function createCourseButtons() {
 		$courseArray = $this->formatCourseData();
+		print_r($courseArray);
 		foreach ($courseArray as $course) {
 			echo "<button type='submit' name='course' class='btn btn-default' ";
 			//FIX ME LATER!!!!!! NOT PERMANENT FIX
