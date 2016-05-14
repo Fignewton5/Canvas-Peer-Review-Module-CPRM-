@@ -343,6 +343,8 @@
 			//$wrapper = new CanvasWrapper();
 			$students = $this->canvas->getStudentsInCourse($courseId);
 			
+			print_r($students);
+			
 			//get number of criteria entered for rubric
 			$criteriaCount = count($criteria);
 			
