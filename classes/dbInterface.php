@@ -427,6 +427,8 @@
 			//execute query
 			$result = $this->db->query($outerQuery);
 			
+			echo $result;
+			
 			//check the result to see if it worked
 			if($result){
 				return 0;
