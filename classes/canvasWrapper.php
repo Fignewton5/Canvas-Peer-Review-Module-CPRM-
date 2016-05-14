@@ -52,10 +52,6 @@ class CanvasWrapper
 			//don't add course to object unless it's this term
 			if ($this->checkCourseTerm($splitArr[4])) {
 				
-				//have to strip the "1002000000000" from the class
-				//apparently canvas added that in their API update...
-				//$splitId = substr($data->id, -7, 7);
-				
 				$courseObject->id = $data->id;
 				$courseObject->courseName = $splitName[0];
 				$courseObject->osuId = $splitName[1];
