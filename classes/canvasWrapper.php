@@ -37,9 +37,7 @@ class CanvasWrapper
 	public function formatCourseData() {
 			
 		$result = $this->canvas->getCoursesForUser();
-		echo "RESULT:<br>";
-		print_r($result);
-		echo "<br><br>";
+
 		//course object array
 		$courseHolder = array();
 
@@ -57,9 +55,6 @@ class CanvasWrapper
 				//have to strip the "1002000000000" from the class
 				//apparently canvas added that in their API update...
 				$splitId = substr($data->id, -7, 7);
-				
-				
-				echo $splitId . ", ";
 				
 				$courseObject->id = $splitId;
 				$courseObject->courseName = $splitName[0];

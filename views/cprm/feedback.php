@@ -52,7 +52,7 @@
 	$row = FALSE;
 	
 	//debugging
-	$_SESSION['course']->id = 2147483647;
+	//$_SESSION['course']->id = 2147483647;
 	$commentsEnabled = false;	//NEED TO ADD COLUMN TO DATABASE THAT HAS THIS FLAG
 ?>
 
