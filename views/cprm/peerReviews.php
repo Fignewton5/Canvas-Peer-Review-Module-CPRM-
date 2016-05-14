@@ -72,11 +72,11 @@
 						
 						<!-- Buttons that will add or remove rows from the rubric -->
 						<div class="row">
-							<div class="col-md-6">
-								<button type='button' style="width:100%;" class='btn btn-default' onclick="addRowRubric();">
+							<div class="col-md-4">
+								<button type='button'class='btn btn-default' onclick="addRowRubric();">
 									Add Row
 								</button>
-								<button type='button' style="width:100%;" class='btn btn-default' onclick="removeRowRubric();">
+								<button type='button'class='btn btn-default' onclick="removeRowRubric();">
 									Remove Row
 								</button>
 							</div>
@@ -89,7 +89,7 @@
 						</div>
 						
 						<div class="row">
-							<div class="col-md-offset-5 col-md-5">
+							<div class="col-md-offset-9">
 								<button type="submit" class="btn btn-default">
 									Submit Rubric
 								</button>
