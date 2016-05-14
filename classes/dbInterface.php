@@ -338,11 +338,14 @@
 			//array to hold all the OSU ID's of the students in the current course
 			$students = array();
 			
+			echo $courseId . "<br>";
+			
 			//get a canvas wrapper class to perform the student lookup for the course
 			//require_once("classes/canvasWrapper.php");
 			//$wrapper = new CanvasWrapper();
 			$students = $this->canvas->getStudentsInCourse($courseId);
 			
+			echo "Students: ";
 			print_r($students);
 			
 			//get number of criteria entered for rubric
