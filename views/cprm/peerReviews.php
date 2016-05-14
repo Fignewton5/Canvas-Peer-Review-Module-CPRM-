@@ -26,7 +26,7 @@
 	<div class="panel panel-default" style="margin-top:5px;">
 		<div class="panel-body">	
 			<div class="row" style="margin-top:15px;">
-				<div class="col-md-3" style="float:left;">
+				<div class="col-md-2" style="float:left;">
 					<div class="peerReview-side-menu">
 						<div style="padding-bottom:2px;">
 							<button type="button" class="btn btn-default feedback-button-fixes" id="single" onclick="createRubric()">Create Rubric</button>
@@ -42,8 +42,8 @@
 						a script on the submitRubric page.
 				-->
 				<form action="?controller=cprm&action=submitRubric" method="post" id="rubric-table">
-					<div class="col-md-7" style="float:left;">
-						<div style="width:30%">
+					<div class="col-md-5" style="float:left;">
+						<div>
 							<h3>Rubric Name</h3>
 							<input type="text" class="form-control" value="" name="rubricName" placeholder="Name of Rubric / Assignment" required>
 						</div>
@@ -71,19 +71,32 @@
 						</div> <!-- div (rubric-container) -->
 						
 						<!-- Buttons that will add or remove rows from the rubric -->
-						<div class="col-md-12">
-							<div class="col-md-3">
-								<button type='button' class='btn btn-default' onclick="addRowRubric();">Add Row</button>
-								<button type='button' class='btn btn-default' onclick="removeRowRubric();">Remove Row</button>
+						<div class="row">
+							<div class="col-md-6">
+								<button type='button' style="width:100%;" class='btn btn-default' onclick="addRowRubric();">
+									Add Row
+								</button>
+								<button type='button' style="width:100%;" class='btn btn-default' onclick="removeRowRubric();">
+									Remove Row
+								</button>
 							</div>
+							
 							<div class="col-md-4">
 								<label for="enable-comments">Enable Comments?</label>
-								<input type="checkbox" name="enable-comments"></input>
+								<input type="checkbox" name="enable-comments">
+								</input>
 							</div>
-							<div class="col-md-5">
-								<button type="submit" class="btn btn-default">Submit Rubric</button>
+						</div>
+						
+						<div class="row">
+							<div class="col-md-offset-5 col-md-5">
+								<button type="submit" class="btn btn-default">
+									Submit Rubric
+								</button>
 							</div>
-						</div> <!-- button row -->
+						</div>
+						
+						<!-- button row -->
 						
 					</div> <!-- col-md-7 -->
 				</form> <!-- rubric form -->
