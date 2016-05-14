@@ -423,6 +423,7 @@
 			} //outer foreach
 			
 			//execute query
+			echo $outerQuery;
 			$result = $this->db->query($outerQuery);
 			
 			//check the result to see if it worked
