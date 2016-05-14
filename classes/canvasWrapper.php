@@ -56,11 +56,12 @@ class CanvasWrapper
 				
 				//have to strip the "1002000000000" from the class
 				//apparently canvas added that in their API update...
-				$splitId = explode("1002000000000", $data->id);
+				$splitId = substr($data->id, -7, 7);
 				
-				print_r($splitId);
 				
-				$courseObject->id = $splitId[0];
+				echo $splitId . ", ";
+				
+				$courseObject->id = $splitId;
 				$courseObject->courseName = $splitName[0];
 				$courseObject->osuId = $splitName[1];
 				$courseHolder[] = $courseObject;
