@@ -83,6 +83,8 @@ class Canvas
 		//$this->endPointUrl = 'courses/' . $courseId . '/users';
 		$result = $this->getCanvas();
 		
+		print_r($result);
+		
 		//initialize empty array of students
 		$students = array();
 		

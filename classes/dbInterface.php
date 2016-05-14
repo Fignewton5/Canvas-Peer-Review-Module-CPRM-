@@ -347,6 +347,7 @@
 			
 			echo "Students: ";
 			print_r($students);
+			echo "<br>";
 			
 			//get number of criteria entered for rubric
 			$criteriaCount = count($criteria);
