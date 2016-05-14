@@ -58,6 +58,8 @@ class CanvasWrapper
 				//apparently canvas added that in their API update...
 				$splitId = explode("1002000000000", $data->id);
 				
+				print_r($splitId);
+				
 				$courseObject->id = $splitId[0];
 				$courseObject->courseName = $splitName[0];
 				$courseObject->osuId = $splitName[1];
