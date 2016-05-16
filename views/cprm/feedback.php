@@ -38,6 +38,7 @@
 		if(isset($_POST['comments'])){
 			echo '<div>COMMENTS: ' . $_POST['comments'] . '</div><br>';
 			$result->comments = $_POST['comments'];
+			echo '<div>LENGTH: ' . strlen($result->comments) . '</div><br>';
 		}
 		
 		if ($_POST['isGroupReview']) {
