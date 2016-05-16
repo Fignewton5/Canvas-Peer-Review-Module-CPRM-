@@ -405,7 +405,7 @@
 						$reviewBy = " " . $currStudent . ",";
 						$isGroup = " 0,";
 						$reviewComplete = " 0,";
-						$forClass = " " . $courseId;
+						$forClass = " " . $courseId . ", ";
 						
 						//append to inner query
 						$innerQuery .= $fields . $pMaxs . $pEarns . $fieldsUsed . $reviewName . $reviewFor . $reviewBy . $isGroup . $reviewComplete . $forClass . $commentsEnabled . ")";

@@ -37,9 +37,9 @@
 				
 				//see if comments should be enabled on this peer review or not
 				if(isset($_POST['comments-enabled'])){
-					$commentsEnabled = TRUE;
+					$commentsEnabled = 1;
 				}
-				else $commentsEnabled = FALSE;
+				else $commentsEnabled = 0;
 				
 				//create empty peer reviews to be filled out by students
 				//and send to database
