@@ -314,6 +314,8 @@
 				
 				$sql = $sql . " WHERE reviewName='" . $result->primaryKey . "'";
 				
+				echo "<div>" . $sql . "</div>";
+				
 				if ($this->db->query($sql)) {
 					return 0;
 				}
