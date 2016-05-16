@@ -23,7 +23,7 @@
 		
 		//populate point results, each field in table
 		for ($i = 0; $i < $_POST['fieldsUsed']; $i++) {
-			echo '<div>POINTS ' . $i . ': ' . $_POST["'" . $i . "'"] . '</div><br>';
+			
 			//BUG BUG BUG
 			//THERE IS A BUG WITH UPDATING THE pEARN FIELDS
 			$pointArr[] = $_POST["'" . $i . "'"];
@@ -32,7 +32,6 @@
 		
 		//add comments to results if enabled
 		if(isset($_POST['comments'])){
-			echo '<div>COMMENTS: ' . $_POST['comments'] . '</div><br>';
 			$result->comments = $_POST['comments'];
 		}
 		
