@@ -36,7 +36,7 @@
 				}
 				
 				//see if comments should be enabled on this peer review or not
-				if(isset($_POST['comments-enabled'])){
+				if(isset($_POST['enable-comments'])){
 					$commentsEnabled = 1;
 				}
 				else $commentsEnabled = 0;
