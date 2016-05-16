@@ -27,10 +27,10 @@
 		echo "<div>FIELDS USED: " . $_POST['fieldsUsed'] . "</div><br>";
 		//populate point results, each field in table
 		for ($i = 0; $i < $_POST['fieldsUsed']; $i++) {
-			echo "<div>'point" . $i . "': " . $_POST["'points" . $i . "'"] . '</div><br>';
+			echo "<div>'points" . $i . "': " . $_POST["'points" . $i . "'"] . '</div><br>';
 			//BUG BUG BUG
 			//THERE IS A BUG WITH UPDATING THE pEARN FIELDS
-			$pointArr[] = $_POST["'" . $i . "'"];
+			$pointArr[] = $_POST["'points" . $i . "'"];
 		}
 		$result->points = $pointArr;
 		
