@@ -23,7 +23,7 @@
 		
 		//populate point results, each field in table
 		for ($i = 0; $i < $_POST['fieldsUsed']; $i++) {
-			echo '<div>Points: ' . $_POST["'" . $i . "'"] . '</div><br>';
+			echo '<div>Points: ' . $_POST["'points" . $i . "'"] . '</div><br>';
 			//BUG BUG BUG
 			//THERE IS A BUG WITH UPDATING THE pEARN FIELDS
 			$pointArr[] = $_POST["'" . $i . "'"];
@@ -156,7 +156,7 @@
 											echo "<tr>";
 											echo "<td class='feedback-tb-top-padding'>" . $review['field' . $i] . "</td>";
 											echo "<td class='feedback-tb-top-padding'>" . $review['pMax' . $i] . "</td>";
-											echo "<td><input name='" . $i . "' type='text' style='width:20%' class='form-control' value='" . $review['pEarn' . $i] . "' /></td>";
+											echo "<td><input name='points" . $i . "' type='text' style='width:20%' class='form-control' value='" . $review['pEarn' . $i] . "' /></td>";
 											echo "</tr>";
 										}
 										
