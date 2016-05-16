@@ -296,18 +296,23 @@
 				//do special group logic
 			}
 			
+			//fill out regular review
 			else {
 				$sql = "UPDATE review SET ";
+				//update points earned to be reflected in database
 				for ($i = 0; $i < $result->fieldsUsed; $i++) {
 					//if ($i == $result->fieldsUsed - 1) {
-					if ($i == $result->fieldsUsed ) {
+					/*if ($i == $result->fieldsUsed ) {
 						//$sql = $sql . "reviewComplete=" . $i;
 						$sql = $sql . "reviewComplete=1";
-					}
+					}*/
 					else {
 						$sql = $sql . "pEarn" . $i . "=" . $result->points[$i] . " , ";
 					}
 				}
+				
+				//mark rubric as complete
+				$sql .= " reviewComplete=1";
 				
 				//add comments if necessary
 				if($results->comments.length > 0){
