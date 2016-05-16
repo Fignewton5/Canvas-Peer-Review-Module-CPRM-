@@ -30,6 +30,11 @@
 		}
 		$result->points = $pointArr;
 		
+		//add comments to results if enabled
+		if(isset($_POST['comments'])){
+			$result->comments = $_POST['comments'];
+		}
+		
 		if ($_POST['isGroupReview']) {
 			$dbInt->submitGroupReview($result);
 		}
@@ -50,10 +55,6 @@
 	//holds the relevant row from the proper review channel
 	//initialized as false in case uReviews/gReviews are false
 	$row = FALSE;
-	
-	//debugging
-	//$_SESSION['course']->id = 2147483647;
-	$commentsEnabled = false;	//NEED TO ADD COLUMN TO DATABASE THAT HAS THIS FLAG
 ?>
 
 <div class="container-fluid">

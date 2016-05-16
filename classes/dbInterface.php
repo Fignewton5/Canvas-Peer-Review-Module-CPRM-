@@ -307,6 +307,11 @@
 					}
 				}
 				
+				//add comments if necessary
+				if($results->comments.length > 0){
+					$sql = $sql . ", comments=" . $result->comments;
+				}
+				
 				$sql = $sql . " WHERE reviewName='" . $result->primaryKey . "'";
 				
 				if ($this->db->query($sql)) {
