@@ -299,8 +299,10 @@
 			else {
 				$sql = "UPDATE review SET ";
 				for ($i = 0; $i < $result->fieldsUsed; $i++) {
-					if ($i == $result->fieldsUsed - 1) {
-						$sql = $sql . "reviewComplete=" . $i;
+					//if ($i == $result->fieldsUsed - 1) {
+					if ($i == $result->fieldsUsed ) {
+						//$sql = $sql . "reviewComplete=" . $i;
+						$sql = $sql . "reviewComplete=1";
 					}
 					else {
 						$sql = $sql . "pEarn" . $i . "=" . $result->points[$i] . " , ";
@@ -312,7 +314,7 @@
 					$sql = $sql . ", comments=" . $result->comments;
 				}
 				
-				$sql = $sql . " WHERE reviewName='" . $result->primaryKey . "'";
+				$sql = $sql . " WHERE ID='" . $result->primaryKey . "'";
 				
 				echo "<div>" . $sql . "</div>";
 				
