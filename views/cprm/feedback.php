@@ -170,7 +170,7 @@
 						</div>
 						
 						<!-- if comments are enabled for selected assignment, show text field, otherwise disable it and notify user -->
-						<?php if($commentsEnabled){ ?>
+						<?php if($row['commentsEnabled'] == 1){ ?>
 						<!-- div that will hold the comments section -->
 						<div class="col-md-12">
 							<label for="comments">Comments</label>
