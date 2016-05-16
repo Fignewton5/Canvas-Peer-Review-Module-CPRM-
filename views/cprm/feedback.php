@@ -12,10 +12,6 @@
 	//handle post form update
 	if (isset($_POST['reviewSubmit'])) {
 		
-		echo "<div>";
-		print_r($_POST);
-		echo "</div><br>";
-		
 		//holds results of all the points entered
 		$pointArr = array();
 		
