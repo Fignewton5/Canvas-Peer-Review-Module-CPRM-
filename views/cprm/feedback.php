@@ -194,7 +194,7 @@
 					
 					<!-- hidden inputs (flags) -->
 					<input name='isGroupReview' type="hidden" value='<?php echo $isGroupReview; ?>' />
-					<input name='fieldsUsed' type="hidden" value='<?php echo $fieldsUsed; ?>' />
+					<input name='fieldsUsed' type="hidden" value='<?php echo $row['fieldsUsed']; ?>' />
 					<!-- holds primary key -->
 					<input name='reviewPrimary' type='hidden' value='<?php echo $row['ID']; ?>' />
 				</form>
