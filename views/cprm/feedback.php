@@ -23,7 +23,7 @@
 		
 		//populate point results, each field in table
 		for ($i = 0; $i < $_POST['fieldsUsed']; $i++) {
-			echo '<div>POINTS ' . $i . ': ' . $_POST["'" . $i . "'"] . '</div><br>';
+			//echo '<div>POINTS ' . $i . ': ' . $_POST["'" . $i . "'"] . '</div><br>';
 			//BUG BUG BUG
 			//THERE IS A BUG WITH UPDATING THE pEARN FIELDS
 			$pointArr[] = $_POST["'" . $i . "'"];
