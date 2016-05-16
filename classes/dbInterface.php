@@ -317,7 +317,7 @@
 				
 				//add comments if necessary
 				if(strlen($result->comments) > 0){
-					$sql = $sql . ", comments=" . $result->comments;
+					$sql = $sql . ", comments='" . $result->comments . "'";
 				}
 				
 				$sql = $sql . " WHERE ID='" . $result->primaryKey . "'";
