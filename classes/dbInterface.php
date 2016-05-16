@@ -316,7 +316,7 @@
 				$sql = $sql . "reviewComplete=1";
 				
 				//add comments if necessary
-				if(strlen($results->comments) > 0){
+				if(strlen($result->comments) > 0){
 					$sql = $sql . ", comments=" . $result->comments;
 				}
 				
