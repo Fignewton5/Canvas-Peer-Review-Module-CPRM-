@@ -24,21 +24,16 @@
 		
 		$result->fieldsUsed = $_POST['fieldsUsed'];
 		$result->primaryKey = $_POST['reviewPrimary'];
-		echo "<div>FIELDS USED: " . $_POST['fieldsUsed'] . "</div><br>";
+		
 		//populate point results, each field in table
 		for ($i = 0; $i < $_POST['fieldsUsed']; $i++) {
-			echo "<div>'points" . $i . "': " . $_POST['points' . $i] . '</div><br>';
-			//BUG BUG BUG
-			//THERE IS A BUG WITH UPDATING THE pEARN FIELDS
 			$pointArr[] = $_POST['points' . $i];
 		}
 		$result->points = $pointArr;
 		
 		//add comments to results if enabled
 		if(isset($_POST['comments'])){
-			echo '<div>COMMENTS: ' . $_POST['comments'] . '</div><br>';
 			$result->comments = $_POST['comments'];
-			echo '<div>LENGTH: ' . strlen($result->comments) . '</div><br>';
 		}
 		
 		if ($_POST['isGroupReview']) {

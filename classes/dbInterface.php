@@ -300,14 +300,6 @@
 			else {
 				$sql = "UPDATE review SET ";
 				for ($i = 0; $i < $result->fieldsUsed; $i++) {
-					//if ($i == $result->fieldsUsed - 1) {
-					/*if ($i == $result->fieldsUsed ) {
-						//$sql = $sql . "reviewComplete=" . $i;
-						$sql = $sql . "reviewComplete=1";
-					}
-					else {
-						$sql = $sql . "pEarn" . $i . "=" . $result->points[$i] . " , ";
-					}*/
 					//fill out points earned
 					$sql = $sql . "pEarn" . $i . "=" . $result->points[$i] . " , ";
 				}
@@ -320,9 +312,8 @@
 					$sql = $sql . ", comments='" . $result->comments . "'";
 				}
 				
+				//use primary key to update review
 				$sql = $sql . " WHERE ID='" . $result->primaryKey . "'";
-				
-				echo "<div>" . $sql . "</div>";
 				
 				if ($this->db->query($sql)) {
 					return 0;
