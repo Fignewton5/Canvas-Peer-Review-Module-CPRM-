@@ -38,6 +38,9 @@ class CanvasWrapper
 			
 		$result = $this->canvas->getCoursesForUser();
 
+		//testing for course
+		print_r($result);
+
 		//course object array
 		$courseHolder = array();
 
@@ -61,7 +64,9 @@ class CanvasWrapper
 				$courseHolder[] = $courseObject;
 			}
 			// THIS IS TO HANDLE THE TEST COURSE ADDITION FOR EXPO
+			
 			else if (strpos($splitArr[4], "1597490") !== false) {
+				echo "GOT THE TEST COURSE";
 				$courseObject = new stdClass();
 				$courseObject->id = $data->id;
 				$courseObject->courseName = $splitName[0];
