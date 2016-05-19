@@ -18,9 +18,6 @@
 	//for testing teacher view
 	//$enrollment = "teacher";
 	
-	//TESTING
-	echo $enrollment;
-	
 	//if a student name was entered into the search bar
 	if (isset($_POST['searchName'])){
 		//toggle on bool to signify that a student has been searched for

@@ -37,10 +37,7 @@ class CanvasWrapper
 	public function formatCourseData() {
 			
 		$result = $this->canvas->getCoursesForUser();
-
-		//testing for course
-		//print_r($result);
-
+		
 		//course object array
 		$courseHolder = array();
 
@@ -66,7 +63,6 @@ class CanvasWrapper
 			// THIS IS TO HANDLE THE TEST COURSE ADDITION FOR EXPO
 			// 10020000001597490 - full course handle
 			else if (strpos($data->id, "1597490") !== false) {
-				echo "GOT THE TEST COURSE";
 				$courseObject = new stdClass();
 				$courseObject->id = $data->id;
 				$courseObject->courseName = $splitName[0];
