@@ -14,7 +14,7 @@
 	//grant access to wrapper to check user enrollment status
 	require_once('classes/canvasWrapper.php');
 	$wrapper = new CanvasWrapper();
-	$enrollment = $wrapper->checkEnrollment();
+	$enrollment = $_SESSION['enrollment'];
 	//for testing teacher view
 	//$enrollment = "teacher";
 	

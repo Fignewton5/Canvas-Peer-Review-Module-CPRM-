@@ -19,8 +19,12 @@
 		foreach ($courses as $course) {
 			if ($course->id == $_POST['course']) {
 			
+			
+			
 			//set course session to current course selected
 			$_SESSION['course'] = $course;
+			
+			$_SESSION['enrollment'] = $canvas->checkEnrollment();
 			
 			//I don't think this is needed
 			//header('Location: ?controller=cprm&action=feedback');
