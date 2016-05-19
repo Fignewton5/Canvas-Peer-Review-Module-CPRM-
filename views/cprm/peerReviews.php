@@ -24,7 +24,7 @@
 	//boot users out if they aren't a teacher or if $_SESSION hasn't been set
 	if (isset($_SESSION['enrollment'])) {
 		if ($_SESSION['enrollment'] != "teacher") {
-			header("Location: ?controller=account&action=home");
+			header("Location: ?controller=cprm&action=home");
 		}
 	}
 	else {
