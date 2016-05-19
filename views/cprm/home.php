@@ -25,6 +25,7 @@
 			$_SESSION['course'] = $course;
 			
 			$_SESSION['enrollment'] = $canvas->checkEnrollment();
+			echo $_SESSION['enrollment'];
 			
 			//I don't think this is needed
 			//header('Location: ?controller=cprm&action=feedback');
