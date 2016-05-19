@@ -521,6 +521,8 @@
 				$fullQuery = $fullQuery . $sql . $groupNumber[$i] . " WHERE osuId=" . $users[$i] . " ";
 			}
 			
+			echo $fullQuery;
+			
 			$result = $this->db->query($fullQuery);
 		}
 	}
