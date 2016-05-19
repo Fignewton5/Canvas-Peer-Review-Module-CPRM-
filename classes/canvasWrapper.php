@@ -47,14 +47,26 @@ class CanvasWrapper
 			//split OSU Id for checking and printing
 			$splitArr = explode(" ", $splitName[1]);
 			
-			$courseObject = new stdClass();
+			
 			
 			//don't add course to object unless it's this term
 			if ($this->checkCourseTerm($splitArr[4])) {
+				// don't create object unless necessary
+				$courseObject = new stdClass();
 				
 				$courseObject->id = $data->id;
 				$courseObject->courseName = $splitName[0];
 				$courseObject->osuId = $splitName[1];
+				
+				$courseHolder[] = $courseObject;
+			}
+			// THIS IS TO HANDLE THE TEST COURSE ADDITION FOR EXPO
+			else if (strpos($splitArr[4], "1597490") !== false) {
+				$courseObject = new stdClass();
+				$courseObject->id = $data->id;
+				$courseObject->courseName = $splitName[0];
+				$courseObject->osuId = $splitName[1];
+				
 				$courseHolder[] = $courseObject;
 			}
 		}

@@ -53,11 +53,6 @@ class Canvas
 		return $res;
 	}
 	
-	public function getTestClass() {
-		//1597490
-		//class id
-	}
-	
 	/*
 	 * gets information about courses the
 	 * 			user is enrolled in

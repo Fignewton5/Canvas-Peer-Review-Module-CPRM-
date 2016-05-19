@@ -73,18 +73,14 @@
 						<!-- Buttons that will add or remove rows from the rubric -->
 						<div class="row">
 							<div class="col-md-4">
+								<label for="enable-comments">Enable Comments?</label>
+								<input type="checkbox" name="enable-comments" />
 								<button type='button'class='btn btn-default' onclick="addRowRubric();">
 									Add Row
 								</button>
 								<button type='button'class='btn btn-default' onclick="removeRowRubric();">
 									Remove Row
 								</button>
-							</div>
-							
-							<div class="col-md-4">
-								<label for="enable-comments">Enable Comments?</label>
-								<input type="checkbox" name="enable-comments">
-								</input>
 							</div>
 						</div>
 						
