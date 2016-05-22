@@ -87,6 +87,7 @@ class Canvas
 			//add all student OSU ID's to array
 			$students[] = $student->sis_user_id;
 		}
+		print_r($students);
 		//return array of ID's
 		return $students;
 	}
