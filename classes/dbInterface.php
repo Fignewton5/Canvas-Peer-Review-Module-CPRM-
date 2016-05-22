@@ -368,6 +368,8 @@
 			print_r($criteria);
 			echo '<br>';
 			print_r($maxPoints);
+			echo '<br>';
+			print_r($students);
 			
 			
 			//fill in values part for every student
