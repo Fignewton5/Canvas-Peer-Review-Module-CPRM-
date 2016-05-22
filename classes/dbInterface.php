@@ -364,6 +364,11 @@
 			$studentCount = $studentCount * $studentCount - $studentCount; //N*N-1 peer reviews
 			echo $studentCount . " entries added to database!";
 			$loopCounter = 0;
+			echo '<br>';
+			print_r($criteria);
+			echo '<br>';
+			print_r($maxPoints);
+			
 			
 			//fill in values part for every student
 			foreach($students as $student){
