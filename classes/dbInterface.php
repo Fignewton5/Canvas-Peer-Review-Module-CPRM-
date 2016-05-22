@@ -372,16 +372,18 @@
 			
 			//fill in values part for every student
 			foreach($students as $student){
+				echo '<div>FIRST LOOP</div><br>';
 				
 				//get the current student id
 				$currStudent = $student;
 				
 				//iterate through every student PER student (N-1 reviews per student)
 				foreach($students as $single){
+				echo '<div>SECOND LOOP</div><br>';
 				
 					//don't want students creating peer reviews for themselves
 					if($currStudent != $single){
-					
+						echo '<div>INNER LOOP</div><br>';
 						//increment loop counter (counts from 1)
 						$loopCounter++;
 					
