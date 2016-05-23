@@ -78,7 +78,7 @@ class Canvas
 		
 		//$this->endPointUrl = 'courses/' . $courseId . '/users';
 		$result = $this->getCanvas();
-		print_r($result);
+		//print_r($result);
 		
 		//initialize empty array of students
 		$students = array();
@@ -86,9 +86,8 @@ class Canvas
 		//iterate through user objects
 		foreach($result as $student){
 			//add all student OSU ID's to array
-			$students[] = $student->sis_user_id;
+			$students[] = $student->sis_user_id;   //THIS NO LONGER WORKS!!!!!!!!!!!!!!
 		}
-		print_r($students);
 		//return array of ID's
 		return $students;
 	}
