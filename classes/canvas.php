@@ -49,7 +49,7 @@ class Canvas
 	public function getUserInfo() {
 		$this->endPointUrl = 'users/self';
 		$res = $this->getCanvas();
-		print_r($res);     //was spewing out a bunch of JSON info to the application's HTML on the home page
+		//print_r($res);     //was spewing out a bunch of JSON info to the application's HTML on the home page
 		return $res;
 	}
 	
@@ -78,6 +78,7 @@ class Canvas
 		
 		//$this->endPointUrl = 'courses/' . $courseId . '/users';
 		$result = $this->getCanvas();
+		print_r($result);
 		
 		//initialize empty array of students
 		$students = array();
