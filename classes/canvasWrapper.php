@@ -92,8 +92,8 @@ class CanvasWrapper
 		$data = $this->canvas->getUserInfo();
 		$user = new stdClass();
 		$user->name = $data->name;
-		$user->email = $data->login_id;
-		$user->user_id = $data->sis_user_id;
+		$user->email = $data->login_id;				//NO LONGER HAVE ACCESS TO , THANKS CANVAS <3
+		$user->user_id = $data->sis_user_id; 	//NO LONGER HAVE ACCESS TO , THANKS CANVAS <3
 		$user->canvas_id = $data->id;
 		return $user;
 	}
