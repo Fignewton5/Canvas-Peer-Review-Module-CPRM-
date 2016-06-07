@@ -37,6 +37,12 @@
 <div class="container-fluid">
 	<div class="panel panel-default" style="margin-top:5px;">
 		<div id="userIdPanel" class="panel-heading" style="height:49px;">
+			<div>
+				<?php
+					$test = $canvas->formatUserData();
+					print_r($test);
+				?>
+			</div>
 			<p style='font-size:18px;'>
 				<?php
 					//this is a user greeting
