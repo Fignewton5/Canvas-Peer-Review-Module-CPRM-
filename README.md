@@ -14,7 +14,7 @@
 
 ## Login
 
-![Login Screen](http://i.imgur.com/wTnaHkM.png
+![Login Screen](http://i.imgur.com/wTnaHkM.png)
 
 ## Course Selection
 
