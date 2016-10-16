@@ -8,13 +8,13 @@
 - Allows students to anonymously rate the assignments of their peers and leave feedback
 - Gives instructors ability to download peer review information (grades, student ID numbers, comments) into a CSV file for use with Excel
 
-###### PHP / MySQL Back End, JavaScript Front End
+## Architecture: PHP / MySQL Back End, JavaScript Front End
 
-## Screenshots
+# Screenshots
 
-###### Login
+## Login
 
-[Login Screen](http://i.imgur.com/wTnaHkM.png
+![Login Screen](http://i.imgur.com/wTnaHkM.png
 
 ## Course Selection
 
